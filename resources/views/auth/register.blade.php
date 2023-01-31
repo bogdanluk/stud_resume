@@ -10,6 +10,7 @@
             <div class="mt-4 bg-white shadow-lg rounded-lg text-left">
                 <div class="h-2 bg-violet-400 rounded-t-md"></div>
                 <form class="px-8 py-6" action="#" method="post">
+                    @csrf
                     <label class="block font-semibold" for="input1">Email</label>
                     <input type="text" id="input1" placeholder="Email" class="border w-full h-5 px-3 py-5 mt-2 focus:outline-none focus:ring-violet-400 focus:ring-1 rounded-md">
                     <label class="block mt-3 font-semibold" for="input2">Ваше имя</label>

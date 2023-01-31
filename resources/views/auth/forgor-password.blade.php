@@ -10,6 +10,7 @@
             <div class="mt-4 bg-white shadow-lg rounded-lg text-left">
                 <div class="h-2 bg-violet-400 rounded-t-md"></div>
                 <form class="px-8 py-6 " action="{{ route('password.email') }}" method="post">
+                    @csrf
                     <label class="block font-semibold" for="input1">Введите email</label>
                     <input type="text" id="input1" name="email" placeholder="Email" class="border w-full h-5 px-3 py-5 mt-2 focus:outline-none focus:ring-violet-400 focus:ring-1 rounded-md">
                     <div class="flex justify-between items-baseline">
