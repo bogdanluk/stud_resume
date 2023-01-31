@@ -13,15 +13,15 @@ return [
     |
     */
 
-    'failed' => 'Неверные учетные данные',
-    'email' => 'Неверный email',
-    'password' => 'Пароль не верный',
+    'failed' => 'Неверные учетные данные.',
+    'email' => 'Неверный email.',
+    'password' => 'Пароль не верный.',
     'throttle' => 'Слишком много запросов авторизации. Пожалуйста попробуйте позже через :seconds секунд.',
-    'logout' => 'Вы успешно вышли из системы',
-    'unauthenticated' => 'Требуется авторизация',
-    'email_verified' => 'Email подтверждён успешно',
-    'must_verify_email' => 'Требуется подтверждённый email',
-    'already_verified_email' => 'Email уже был подтверждён',
-    'verify_email_send' => 'Ссылка подтверждения отправлена на ваш email'
+    'logout' => 'Вы успешно вышли из системы.',
+    'unauthenticated' => 'Требуется авторизация.',
+    'email_verified' => 'Email подтверждён успешно.',
+    'must_verify_email' => 'Требуется подтверждённый email.',
+    'already_verified_email' => 'Email уже был подтверждён.',
+    'verify_email_send' => 'Ссылка для подтверждения отправлена на ваш email успешно.'
 
 ];
