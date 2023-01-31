@@ -8,6 +8,8 @@ use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
+use App\Http\Controllers\Auth\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,11 +27,19 @@ Route::get('/', function () {
 
 Route::get('/login', function () {
     return view('auth.login');
-})->name('login');
+})->middleware('guest')->name('login');
+
+Route::post('/login', [AuthController::class, 'login'])->middleware('guest')->name('send_login_form');
 
 Route::get('/register', function () {
     return view('auth.register');
-})->name('register');
+})->middleware('guest')->name('register');
+
+Route::post('/register', [AuthController::class, 'register'])->middleware('guest')->name('send_register_form');
+
+Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
+
+
 
 //роуты для email
 Route::prefix('email')->group(function (){
@@ -41,23 +51,23 @@ Route::prefix('email')->group(function (){
     //обработчик ссылки для подтверждения email
     Route::get('/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
         $request->fulfill();
-        return redirect('/home');
+        return redirect('/cabinet');
     })->middleware(['auth', 'signed'])->name('verification.verify');
 
     //обработчик повторной отправки письма для подтверждения email
     Route::post('/verification-notification', function (Request $request) {
         $request->user()->sendEmailVerificationNotification();
-        return back()->with('message', 'Verification link sent!');
+        return back()->with('message', __('auth.verify_email_send'));
     })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 });
 
-//форма для сброса пароля
+//форма для запроса сброса пароля
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
 })->middleware('guest')->name('password.request');
 
-//оброботка запроса на сброс пароля
+//оброботка запроса на сброс пароля и отправка письма со ссылкой для сброса паролья
 Route::post('/forgot-password', function (Request $request) {
     $request->validate(['email' => 'required|email']);
 
@@ -66,16 +76,16 @@ Route::post('/forgot-password', function (Request $request) {
     );
 
     return $status === Password::RESET_LINK_SENT
-        ? back()->with(['status' => __($status)])
+        ? back()->with(['message' => __($status)])
         : back()->withErrors(['email' => __($status)]);
 })->middleware('guest')->name('password.email');
 
-//отображение формы для изменения пароля
-Route::get('/reset-password/{token}', function ($token) {
-    return view('auth.reset-password', ['token' => $token]);
+//отображение формы для сброса пароля
+Route::get('/reset-password/{token}', function ($token, Request $request) {
+    return view('auth.reset-password', ['token' => $token, 'email' => $request->query('email')]);
 })->middleware('guest')->name('password.reset');
 
-//проверка токена смены пароля и изменение пароля юзера
+//обработка запроса с формы для сброса пароля
 Route::post('/reset-password', function (Request $request) {
     $request->validate([
         'token' => 'required',
@@ -89,14 +99,17 @@ Route::post('/reset-password', function (Request $request) {
             $user->forceFill([
                 'password' => Hash::make($password)
             ])->setRememberToken(Str::random(60));
-
             $user->save();
-
             event(new PasswordReset($user));
         }
     );
 
     return $status === Password::PASSWORD_RESET
-        ? redirect()->route('login')->with('status', __($status))
-        : back()->withErrors(['email' => [__($status)]]);
+        ? redirect()->route('login')->with('message', __($status))
+        : back()->withErrors(['email' => __($status)]);
 })->middleware('guest')->name('password.update');
+
+Route::get('/cabinet', function (Request $request){
+   return view('cabinet.cabinet');
+})->middleware(['auth', 'verified'])->name('cabinet');
+
