@@ -31,6 +31,14 @@ Route::get('/register', function () {
     return view('auth.register');
 })->name('register');
 
+Route::get('/home', function () {
+    return view('layouts.main');
+})->name('home.index');
+
+Route::get('/news', function () {
+    return view('layouts.news');
+})->name('news.index');
+
 //роуты для email
 Route::prefix('email')->group(function (){
     //страница с уведомлением что нужно подтвердить email

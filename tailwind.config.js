@@ -5,7 +5,12 @@ module.exports = {
       "./resources/**/*.js",
   ],
   theme: {
-    extend: {},
-  },
-  plugins: [],
+
+    extend: {
+      backgroundImage: theme => ({
+        'waves': "url('/resources/img/wave.svg')"
+      })
+    }
+    },
+  plugins: []
 }
