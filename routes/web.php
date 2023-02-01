@@ -3,12 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use Illuminate\Support\Facades\Password;
-use Illuminate\Auth\Events\PasswordReset;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\GoogleAuthController;
+use App\Http\Controllers\Auth\VkAuthController;
+use App\Http\Controllers\Auth\YandexAuthController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,22 +21,28 @@ use App\Http\Controllers\Auth\AuthController;
 |
 */
 
+#главная страница
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+#страница входа
 Route::get('/login', function () {
     return view('auth.login');
 })->middleware('guest')->name('login');
 
+#обработка запроса со страницы входа
 Route::post('/login', [AuthController::class, 'login'])->middleware('guest')->name('send_login_form');
 
+#страница регистрации
 Route::get('/register', function () {
     return view('auth.register');
 })->middleware('guest')->name('register');
 
+#обработка запроса со страницы регистрации
 Route::post('/register', [AuthController::class, 'register'])->middleware('guest')->name('send_register_form');
 
+#обработка запроса на выход из аккаунта
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
 
 
@@ -68,17 +74,7 @@ Route::get('/forgot-password', function () {
 })->middleware('guest')->name('password.request');
 
 //оброботка запроса на сброс пароля и отправка письма со ссылкой для сброса паролья
-Route::post('/forgot-password', function (Request $request) {
-    $request->validate(['email' => 'required|email']);
-
-    $status = Password::sendResetLink(
-        $request->only('email')
-    );
-
-    return $status === Password::RESET_LINK_SENT
-        ? back()->with(['message' => __($status)])
-        : back()->withErrors(['email' => __($status)]);
-})->middleware('guest')->name('password.email');
+Route::post('/forgot-password', [ForgotPasswordController::class, 'forgotPassword'])->middleware('guest')->name('password.email');
 
 //отображение формы для сброса пароля
 Route::get('/reset-password/{token}', function ($token, Request $request) {
@@ -86,30 +82,22 @@ Route::get('/reset-password/{token}', function ($token, Request $request) {
 })->middleware('guest')->name('password.reset');
 
 //обработка запроса с формы для сброса пароля
-Route::post('/reset-password', function (Request $request) {
-    $request->validate([
-        'token' => 'required',
-        'email' => 'required|email',
-        'password' => 'required|min:8|confirmed',
-    ]);
+Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->middleware('guest')->name('password.update');
 
-    $status = Password::reset(
-        $request->only('email', 'password', 'password_confirmation', 'token'),
-        function ($user, $password) {
-            $user->forceFill([
-                'password' => Hash::make($password)
-            ])->setRememberToken(Str::random(60));
-            $user->save();
-            event(new PasswordReset($user));
-        }
-    );
-
-    return $status === Password::PASSWORD_RESET
-        ? redirect()->route('login')->with('message', __($status))
-        : back()->withErrors(['email' => __($status)]);
-})->middleware('guest')->name('password.update');
-
+#личный кабинет
 Route::get('/cabinet', function (Request $request){
    return view('cabinet.cabinet');
 })->middleware(['auth', 'verified'])->name('cabinet');
 
+#авторизация через соцсети
+Route::prefix('auth')->group(function (){
+    #авторизация через google
+    Route::get('/google', [GoogleAuthController::class, 'redirect'])->name('login.google-redirect');
+    Route::get('/google/callback', [GoogleAuthController::class, 'authenticate'])->name('login.google-callback');
+    #авторизация через вконтакте
+    Route::get('/vk', [VkAuthController::class, 'redirect'])->name('login.vk-redirect');
+    Route::get('/vk/callback', [VkAuthController::class, 'authenticate'])->name('login.vk-callback');
+    #авторизация через яндекс
+    Route::get('/yandex', [YandexAuthController::class, 'redirect'])->name('login.yandex-redirect');
+    Route::get('/yandex/callback', [YandexAuthController::class, 'authenticate'])->name('login.yandex-callback');
+})->middleware('guest');

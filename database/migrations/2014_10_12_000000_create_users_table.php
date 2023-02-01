@@ -20,8 +20,9 @@ return new class extends Migration
             $table->unsignedBigInteger('role');
             $table->string('password')->nullable();
             $table->string('avatar')->nullable();
-            $table->unsignedBigInteger('vk_id')->nullable();
-            $table->unsignedBigInteger('google_id')->nullable();
+            #$table->string('vk_id')->nullable();
+            #$table->string('google_id')->nullable();
+            #$table->string('yandex_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
 
