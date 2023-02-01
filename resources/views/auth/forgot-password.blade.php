@@ -1,6 +1,6 @@
 @extends('layouts.head')
 
-@section('title')Забыли пароль@endsection
+@section('title')Забыли пароль @endsection
 
 @section('content')
 
