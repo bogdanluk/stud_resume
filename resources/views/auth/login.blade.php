@@ -13,9 +13,9 @@
                 <div class="px-5 py-3">
                     <p class="font-medium text-center mb-3">Используя соцсети</p>
                     <div class="flex justify-around items-baseline mb-3">
-                        <i class="fa-brands fa-google text-yellow-400 text-5xl"></i>
-                        <i class="fa-brands fa-vk text-yellow-400 text-5xl"></i>
-                        <i class="fa-brands fa-yandex text-yellow-400 text-5xl"></i>
+                        <a href="{{ route('login.google-redirect') }}"><i class="fa-brands fa-google text-yellow-400 text-5xl"></i></a>
+                        <a href="{{ route('login.vk-redirect') }}"><i class="fa-brands fa-vk text-yellow-400 text-5xl"></i></a>
+                        <a href="{{ route('login.yandex-redirect') }}"><i class="fa-brands fa-yandex text-yellow-400 text-5xl"></i></a>
                     </div>
                     <div class="h-2 bg-violet-400 rounded mb-3"></div>
                     <form action="{{ route('send_login_form') }}" method="post">

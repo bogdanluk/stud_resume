@@ -195,6 +195,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Social Auth Providers...
+         */
+        \SocialiteProviders\Manager\ServiceProvider::class,
+
+
     ],
 
     /*
