@@ -101,3 +101,11 @@ Route::prefix('auth')->group(function (){
     Route::get('/yandex', [YandexAuthController::class, 'redirect'])->name('login.yandex-redirect');
     Route::get('/yandex/callback', [YandexAuthController::class, 'authenticate'])->name('login.yandex-callback');
 })->middleware('guest');
+
+
+
+
+
+Route::fallback(function () {
+    return view('not-found');
+});
