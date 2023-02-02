@@ -10,8 +10,9 @@ module.exports = {
     plugins: [
         require('daisyui')
     ],
+    darkMode: 'class',
     daisyui: {
         styled: false,
-        themes: ["light", "dark"],
+        themes: false, //["light", "dark"],
     }
 }
