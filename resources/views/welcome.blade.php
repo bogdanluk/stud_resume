@@ -7,24 +7,30 @@
 @section('content')
     @include('layouts.navbar')
     <main>
-        <div class="w-full min-h-screen flex flex-col justify-center items-center py-12">
+        <div class="w-full min-h-screen flex flex-col justify-center items-center"
+             style="background-image: url('/img/photo1.jpg');
+             background-repeat: no-repeat;
+             background-size: cover;
+             background-position: center;
+             background-blend-mode: darken;
+             background-color: rgba(0, 0, 0, 0.6);">
             <div class="self-center text-center w-full sm:w-2/3 xl:w-1/2 px-4 sm:px-0">
                 <h1 class="font-bold tracking-wider text-4xl mb-4 text-violet-400">Проект StudResume</h1>
-                <div class="font-light text-black text-xl">
+                <div class=" text-white text-xl">
                     <p>Студенчество — прекрасная пора, которую многие называют лучшей в своей жизни. <br><br>
                         <strong>Здесь каждый студент может подать своё резюме и найти работу по душе.</strong>
                     </p>
                 </div>
-                <img src="{{ asset('img/welcome-photo1.jpg') }}" class="my-12 max-w-full mx-auto" alt="photo1">
+
             </div>
-            <div class="flex flex-row w-full justify-center">
+            <div class="flex flex-row w-full justify-center mt-10">
                 <a href="#features" class="px-10 py-2 transition text-white bg-violet-400 rounded-full shadow-md text-lg hover:bg-violet-600">Возможности</a>
             </div>
         </div>
-        <div id="features" class="w-full min-h-screen flex flex-col justify-center items-center bg-gray-200 py-12">
+        <div id="features" class="w-full min-h-screen flex flex-col justify-center items-center bg-gray-200 dark:bg-slate-900 py-12">
             <div class="self-center text-center w-full sm:w-2/3 xl:w-1/2 px-4 sm:px:0">
                 <h2 class="tracking-wide text-violet-400 font-bold text-4xl mb-4">Функционал проекта</h2>
-                <div class="font-light text-black text-xl mb-6">
+                <div class="font-light text-xl mb-6">
                     <p>Мы старались сделать удобную платформу, где каждый студент сможет найти себе работу, а также
                         работодатели смогут найти себе работников. Для этого мы разработали следующий функционал.
                     </p>
@@ -37,7 +43,7 @@
                     </div>
                     <div class="w-2/3 xl:w-3/4">
                         <h3 class="tracking-wide text-violet-400 font-bold text-2xl uppercase mb-2">Добавление резюме</h3>
-                        <div class="font-light text-black text-lg">
+                        <div class="font-light text-lg">
                             <p>Каждый студент может добавить своё резюме, чтобы работодатели могли его просмотреть.
                             </p>
                         </div>
@@ -49,7 +55,7 @@
                     </div>
                     <div class="w-2/3 xl:w-3/4">
                         <h3 class="tracking-wide text-violet-400 font-bold text-2xl uppercase mb-2">Добавление вакансий</h3>
-                        <div class="font-light text-black text-lg">
+                        <div class="font-light text-lg">
                             <p>Любой работодатель может разместить здесь свои вакансии для студентов.</p>
                         </div>
                     </div>
@@ -60,7 +66,7 @@
                     </div>
                     <div class="w-2/3 xl:w-3/4">
                         <h3 class="tracking-wide text-violet-400 font-bold text-2xl uppercase mb-2">Просмотр всех резюме</h3>
-                        <div class="font-light text-black text-lg">
+                        <div class="font-light text-lg">
                             <p>Работодатели могут просматривать резюме всех студентов.</p>
                         </div>
                     </div>
@@ -71,7 +77,7 @@
                     </div>
                     <div class="w-2/3 xl:w-3/4">
                         <h3 class="tracking-wide text-violet-400 font-bold text-2xl uppercase mb-2">Просмотр всех вакансий</h3>
-                        <div class="font-light text-black text-lg">
+                        <div class="font-light text-lg">
                             <p>Студенты могут просматривать все вакансии.</p>
                         </div>
                     </div>
@@ -82,7 +88,7 @@
                     </div>
                     <div class="w-2/3 xl:w-3/4">
                         <h3 class="tracking-wide text-violet-400 font-bold text-2xl uppercase mb-2">Вход через соцсети</h3>
-                        <div class="font-light text-black text-lg">
+                        <div class="font-light text-lg">
                             <p>Быстрая регистрация и вход через соцсети, такие, как: Google, Вконтакте, Яндекс.</p>
                         </div>
                     </div>
@@ -93,7 +99,7 @@
                     </div>
                     <div class="w-2/3 xl:w-3/4">
                         <h3 class="tracking-wide text-violet-400 font-bold text-2xl uppercase mb-2">Лента с новостями проекта</h3>
-                        <div class="font-light text-black text-lg">
+                        <div class="font-light text-lg">
                             <p>Новости будут публиковаться в ленте, это позволит всегда быть в курсе
                                 последних новостей проекта.</p>
                         </div>

@@ -1,4 +1,4 @@
-<footer class="footer footer-center p-5 bg-base-200 text-base-content rounded">
+<footer class="footer footer-center p-5 rounded">
     <div class="grid grid-flow-col gap-4">
         <a href="#" class="link link-hover">Главная</a>
         <a href="#" class="link link-hover">Новости</a>
@@ -7,9 +7,9 @@
     </div>
     <div>
         <div class="grid grid-flow-col gap-4 text-4xl">
-            <a href="#"><i class="fa-brands fa-vk text-violet-400"></i></a>
-            <a href="#"><i class="fa-brands fa-github text-violet-400"></i></a>
-            <a href="#"><i class="fa-brands fa-telegram text-violet-400"></i></a>
+            <a href="#" class="text-violet-400 hover:text-violet-600"><i class="fa-brands fa-vk "></i></a>
+            <a href="#" class="text-violet-400 hover:text-violet-600"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="text-violet-400 hover:text-violet-600"><i class="fa-brands fa-telegram"></i></a>
         </div>
     </div>
     <div>

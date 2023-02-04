@@ -49,24 +49,24 @@ Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth')->na
 
 //роуты для email
 Route::prefix('email')->group(function (){
-    //страница с уведомлением что нужно подтвердить email
+    //страница с уведомлением, что нужно подтвердить email
     Route::get('/verify', function () {
         return view('auth.verify-email');
-    })->middleware('auth')->name('verification.notice');
+    })->name('verification.notice');
 
     //обработчик ссылки для подтверждения email
     Route::get('/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
         $request->fulfill();
         return redirect('/cabinet');
-    })->middleware(['auth', 'signed'])->name('verification.verify');
+    })->middleware(['signed'])->name('verification.verify');
 
     //обработчик повторной отправки письма для подтверждения email
     Route::post('/verification-notification', function (Request $request) {
         $request->user()->sendEmailVerificationNotification();
         return back()->with('message', __('auth.verify_email_send'));
-    })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+    })->middleware(['throttle:6,1'])->name('verification.send');
 
-});
+})->middleware('auth');
 
 //форма для запроса сброса пароля
 Route::get('/forgot-password', function () {
