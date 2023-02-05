@@ -7,8 +7,8 @@
             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow-lg bg-base-100 dark:bg-slate-700 rounded-box w-52">
                 <li class="text-lg hover:text-violet-400"><a href="{{ route('login') }}">Вход</a></li>
                 <li class="text-lg hover:text-violet-400"><a href="{{ route('register') }}">Регистрация</a></li>
-                <li class="text-lg hover:text-violet-400"><a href="#">Главная</a></li>
-                <li class="text-lg hover:text-violet-400"><a href="#">Новости</a></li>
+                <li class="text-lg hover:text-violet-400"><a href="{{ route('home') }}">Главная</a></li>
+                <li class="text-lg hover:text-violet-400"><a href="{{ route('news') }}">Новости</a></li>
                 <li class="text-lg hover:text-violet-400"><a href="#">Вакансии</a></li>
                 <li class="text-lg hover:text-violet-400"><a href="#">Резюме</a></li>
             </ul>
@@ -17,8 +17,8 @@
     </div>
     <div class="navbar-center hidden md:flex dark:bg-slate-800">
         <ul class="menu menu-horizontal px-1">
-            <li class="mr-2 text-lg hover:text-violet-400"><a href="#">Главная</a></li>
-            <li class="mr-2 text-lg hover:text-violet-400"><a href="#">Новости</a></li>
+            <li class="mr-2 text-lg hover:text-violet-400"><a href="{{ route('home') }}">Главная</a></li>
+            <li class="mr-2 text-lg hover:text-violet-400"><a href="{{ route('news') }}">Новости</a></li>
             <li class="mr-2 text-lg hover:text-violet-400"><a href="#">Вакансии</a></li>
             <li class="mr-2 text-lg hover:text-violet-400"><a href="#">Резюме</a></li>
         </ul>
