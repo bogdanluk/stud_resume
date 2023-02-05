@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\Auth\VkAuthController;
 use App\Http\Controllers\Auth\YandexAuthController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,7 +103,10 @@ Route::prefix('auth')->group(function (){
     Route::get('/yandex/callback', [YandexAuthController::class, 'authenticate'])->name('login.yandex-callback');
 })->middleware('guest');
 
-
+#страница со списком новостей
+Route::get('/posts', [PostsController::class, 'index'])->name('news');
+#страница с конкретной новостью
+Route::get('/posts/{post_id}', [PostsController::class, 'open_post'])->name('news.open_post');
 
 
 
