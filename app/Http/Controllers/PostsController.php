@@ -11,14 +11,18 @@ class PostsController extends Controller
 
     public function index()
     {
-        $post = NewsPosts::all();
+        $posts = NewsPosts::all();
         // dd($post);
-        return view('newspage', ["posts"=>$post]);
+        return view('newspage', ["posts"=>$posts]);
     }
 
-    public function open_post($post)
+    public function open_post($id)
     {
-        $post_data = NewsPosts::find($post);
-        return view('post', ["posts_data"=>$post_data]);
+        $post = NewsPosts::find($id);
+        if($post) {
+            return view('post', ["post" => $post]);
+        } else {
+            return redirect()->route('404');
+        }
     }
 }
