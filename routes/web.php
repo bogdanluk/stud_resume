@@ -108,8 +108,9 @@ Route::get('/posts', [PostsController::class, 'index'])->name('news');
 #страница с конкретной новостью
 Route::get('/posts/{post_id}', [PostsController::class, 'open_post'])->name('news.open_post');
 
-
+#страничка 404
+Route::view('/404', 'not-found')->name('404');
 
 Route::fallback(function () {
-    return view('not-found');
+    return redirect()->route('404');
 });
