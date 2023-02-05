@@ -1,16 +1,14 @@
 @extends('layouts.head')
 
-@section('title')
-    Вход
-@endsection
+@section('title')Вход @endsection
 
 @section('content')
-    <div class="relative flex min-h-screen text-gray-800 antialiased flex-col justify-center">
+    <div class="relative flex min-h-screen antialiased flex-col justify-center dark:bg-slate-800">
         <div class="relative sm:w-96 mx-auto text-center">
-            <span class="text-2xl font-light ">Вход в аккаунт</span>
+            <span class="text-2xl font-light">Вход в аккаунт</span>
             <div class="mt-4 bg-white shadow-lg rounded-lg text-left">
                 <div class="h-2 bg-violet-400 rounded-t-md"></div>
-                <div class="px-5 py-3">
+                <div class="px-5 py-3 dark:bg-slate-700">
                     <p class="font-medium text-center mb-3">Используя соцсети</p>
                     <div class="flex justify-around items-baseline mb-3">
                         <a href="{{ route('login.google-redirect') }}"><i class="fa-brands fa-google text-yellow-400 text-5xl"></i></a>
@@ -22,18 +20,17 @@
                         @csrf
                         <label class="block font-semibold" for="input1">Email</label>
                         <input type="text" id="input1" name="email" placeholder="Email"
-                               class="border w-full h-5 px-3 py-5 mt-2 focus:outline-none focus:ring-violet-400 focus:ring-1 rounded-md">
+                               class="dark:bg-slate-800 w-full h-5 px-3 py-5 mt-2 outline-none focus:ring-violet-400 focus:ring-1 rounded-md">
                         <label class="block mt-3 font-semibold" for="input2">Пароль </label>
                         <input type="password" id="input2" name="password" placeholder="Пароль"
-                               class="border w-full h-5 px-3 py-5 mt-2 focus:outline-none focus:ring-violet-400 focus:ring-1 rounded-md">
+                               class="dark:bg-slate-800 w-full h-5 px-3 py-5 mt-2 outline-none focus:ring-violet-400 focus:ring-1 rounded-md">
                         @if(session('message'))
-                            <div
-                                class="flex mt-3 p-4 mb-4 text-green-800 border-t-4 border-green-400 bg-green-50 rounded-md">
+                            <div class="flex mt-3 p-4 mb-4 text-green-800 border-t-4 border-green-400 bg-green-50 dark:bg-slate-800 rounded-md">
                                 <p class="ml-1 text-sm font-medium">{{ session('message') }}</p>
                             </div>
                         @endif
                         @if($errors->any())
-                            <div class="block mt-3 p-2 text-red-800 border-t-4 border-red-400 bg-red-50 rounded-md">
+                            <div class="block mt-3 p-2 text-red-800 border-t-4 border-red-400 bg-red-50 dark:bg-slate-800 rounded-md">
                                 <span class="font-medium">Ошибка:</span>
                                 <ul class="mt-1.5 ml-1 list-disc list-inside">
                                     @foreach($errors->all() as $error)
@@ -47,7 +44,7 @@
                                     class="mt-4 bg-violet-400 text-white py-2 px-6 rounded-md hover:bg-violet-600 ">Вход
                             </button>
                             <a href="{{ route('password.request') }}"
-                               class="text-sm hover:underline hover:text-violet-400">Забыли пароль?</a>
+                               class="text-sm hover:underline hover:text-violet-400 dark:text-slate-400">Забыли пароль?</a>
                         </div>
                     </form>
                 </div>
