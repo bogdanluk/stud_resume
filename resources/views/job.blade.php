@@ -25,10 +25,7 @@
 
             <div class="flex flex-col w-11/12 bg-white border-t-8 border-t-violet-400 rounded-lg shadow-lg mb-10">
                 <h2 class="pt-5 pl-5 font-medium">Компания</h2>
-                <div class="flex flex-row items-center">
-                    <i class="fa-brands fa-black-tie pl-5 pt-3 pb-5"></i>
-                    <p class="pl-5 pt-3 pb-5">{{$post->company}}</p>
-                </div>
+                <p class="pl-5 pt-3 pb-5">{{$post->company}}</p>
                 
             </div>
 
