@@ -4,4 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.card-content{
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
