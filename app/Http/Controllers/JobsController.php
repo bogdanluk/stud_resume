@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Company;
 use App\Models\Job;
 use Illuminate\Http\Request;
 
@@ -17,9 +18,11 @@ class JobsController extends Controller
     {
         $post = Job::find($id);
         $category = Category::find($post->category);
+        $company = Company::find($post->company);
+        // dd($company);
         if($post)
         {
-            return view('job', ["post"=>$post], ["category"=>$category]);
+            return view('job', ["post"=>$post, "company"=>$company, "category"=>$category]);
         }
         else
         {

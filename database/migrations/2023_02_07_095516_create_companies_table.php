@@ -13,20 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jobs', function (Blueprint $table) {
+        Schema::create('companies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('category');
-            $table->string('payment');
-            $table->string('company');
-            $table->string('experience');
+            $table->string('activity');
+            $table->string('image');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('link');
             $table->text('description');
-            $table->text('responsibility');
-            $table->text('requirement');
-            $table->text('conditions');
-            $table->text('skills');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
-            $table->foreign('category')->references('id')->on('categories');
         });
     }
 
@@ -37,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jobs');
+        Schema::dropIfExists('companies');
     }
 };
