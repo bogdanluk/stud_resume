@@ -9,7 +9,7 @@
                 <li class="text-lg hover:text-violet-400"><a href="{{ route('register') }}">Регистрация</a></li>
                 <li class="text-lg hover:text-violet-400"><a href="{{ route('home') }}">Главная</a></li>
                 <li class="text-lg hover:text-violet-400"><a href="{{ route('news') }}">Новости</a></li>
-                <li class="text-lg hover:text-violet-400"><a href="#">Вакансии</a></li>
+                <li class="text-lg hover:text-violet-400"><a href="{{ route('job') }}">Вакансии</a></li>
                 <li class="text-lg hover:text-violet-400"><a href="#">Резюме</a></li>
             </ul>
         </div>
@@ -17,10 +17,10 @@
     </div>
     <div class="navbar-center hidden md:flex dark:bg-slate-800">
         <ul class="menu menu-horizontal px-1">
-            <li class="mr-4 text-lg hover:text-violet-400"><a href="{{ route('home') }}">Главная</a></li>
-            <li class="mr-4 text-lg hover:text-violet-400"><a href="{{ route('news') }}">Новости</a></li>
-            <li class="mr-4 text-lg hover:text-violet-400"><a href="#">Вакансии</a></li>
-            <li class="mr-4 text-lg hover:text-violet-400"><a href="#">Резюме</a></li>
+            <li class="mr-2 text-lg hover:text-violet-400"><a href="{{ route('home') }}">Главная</a></li>
+            <li class="mr-2 text-lg hover:text-violet-400"><a href="{{ route('news') }}">Новости</a></li>
+            <li class="mr-2 text-lg hover:text-violet-400"><a href="{{ route('job') }}">Вакансии</a></li>
+            <li class="mr-2 text-lg hover:text-violet-400"><a href="#">Резюме</a></li>
         </ul>
     </div>
     <div class="navbar-end hidden md:flex">
