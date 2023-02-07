@@ -11,9 +11,9 @@ class PostsController extends Controller
 
     public function index()
     {
-        $posts = NewsPosts::all();
-        // dd($post);
-        return view('newspage', ["posts"=>$posts]);
+        $posts = NewsPosts::paginate(5);
+        //dd($posts);
+        return view('newspage', ['posts' => $posts]);
     }
 
     public function open_post($id)

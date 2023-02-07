@@ -9,6 +9,8 @@ use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\Auth\VkAuthController;
 use App\Http\Controllers\Auth\YandexAuthController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\CompanysController;
+use App\Http\Controllers\JobsController;
 use App\Http\Controllers\PostsController;
 
 /*
@@ -106,7 +108,15 @@ Route::prefix('auth')->group(function (){
 #страница со списком новостей
 Route::get('/posts', [PostsController::class, 'index'])->name('news');
 #страница с конкретной новостью
-Route::get('/posts/{post_id}', [PostsController::class, 'open_post'])->name('news.open_post');
+Route::get('/posts/{id}', [PostsController::class, 'open_post'])->name('news_post');
+#страница со списком вакансий
+Route::get('/jobs', [JobsController::class, 'index'])->name('job');
+#страница с конкретной вакансией
+Route::get('/jobs/{id}', [JobsController::class, 'open_post'])->name('job.open_post');
+#страница компании
+Route::get('/company/{company_id}', [CompanysController::class, 'open_post'])->name('company.open_post');
+
+
 
 #страничка 404
 Route::view('/404', 'not-found')->name('404');

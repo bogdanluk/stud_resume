@@ -6,7 +6,7 @@
     @include('layouts.navbar')
 
     <div class="flex flex-col items-center">
-      @foreach ($posts as $post)
+      @foreach ($posts->items() as $post)
         <div class="card mb-5 mt-5 w-11/12 lg:w-3/5 min-h-min md:card-side bg-base-200 dark:bg-slate-700 shadow-xl rounded-lg">
           <figure><img class="w-48 max-h-48" src="storage/news/{{ $post['image']  }}" alt="{{ $post['image']  }}"/></figure>
           <div class="card-body">
@@ -14,11 +14,12 @@
             <p class="overflow-hidden break-normal card-content max-w-xl m-5">{{ $post['content'] }}</p>
             <div class="card-actions justify-end items-center">
               <p class="ml-5 text-slate-400"><i class="fa-regular fa-clock pr-5"></i>{{ $post['created_at'] }}</p>
-              <a class="btn bg-violet-400 text-white mr-5 mb-3 ease-in hover:bg-violet-600" href="{{ route('news.open_post', $post->id) }}">Прочитать</a>
+              <a class="btn bg-violet-400 text-white mr-5 mb-3 ease-in hover:bg-violet-600" href="{{ route('news_post', $post['id']) }}">Прочитать</a>
             </div>
           </div>
         </div>
       @endforeach
+        {{ $posts->links('layouts.simple-pagination') }}
     </div>
     @include('layouts.footer')
 @endsection
