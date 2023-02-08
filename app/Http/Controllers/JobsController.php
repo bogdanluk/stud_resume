@@ -12,7 +12,8 @@ class JobsController extends Controller
     public function index()
     {
         $posts = Job::all();
-        return view('jobpage', ["posts"=>$posts]);
+        $category = Category::all();
+        return view('jobpage', ["posts"=>$posts, "categorys"=>$category]);
     }
     public function open_post($id)
     {
@@ -28,5 +29,14 @@ class JobsController extends Controller
         {
             return redirect()->route('404');
         }
+    }
+    public function filter(Request $request)
+    {
+        $data = $request->validate([
+            'filter_id' => 'exists:categories,id'
+        ]);
+        $posts = Job::where('category', '=', $data['filter_id'])->get();
+        $category = Category::all();
+        return view('jobpage', ["posts"=>$posts, "categorys"=>$category]);
     }
 }
