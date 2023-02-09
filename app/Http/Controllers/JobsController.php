@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\City;
 use App\Models\Company;
 use App\Models\Job;
 use Illuminate\Http\Request;
@@ -11,13 +12,16 @@ class JobsController extends Controller
 {
     public function index()
     {
-        $posts = Job::all();
+        // $posts = Job::all();
         $category = Category::all();
-        return view('jobpage', ["posts"=>$posts, "categorys"=>$category]);
+        $city = City::all();
+        $posts = City::join('jobs', 'cities.id_city', '=', 'jobs.city')->get();
+        // dd($cities);
+        return view('jobpage', ["posts"=>$posts, "categorys"=>$category, "cities"=>$city]);
     }
-    public function open_post($id)
+    public function open_post($id_jobs)
     {
-        $post = Job::find($id);
+        $post = Job::find($id_jobs);
         $category = Category::find($post->category);
         $company = Company::find($post->company);
         // dd($company);
@@ -33,10 +37,12 @@ class JobsController extends Controller
     public function filter(Request $request)
     {
         $data = $request->validate([
-            'filter_id' => 'exists:categories,id'
+            'filter_category' => 'exists:categories,id_category',
+            'filter_city' => 'exists:cities,id_city'
         ]);
-        $posts = Job::where('category', '=', $data['filter_id'])->get();
+        $posts = Job::where('category', '=', $data['filter_category'])->get();
         $category = Category::all();
-        return view('jobpage', ["posts"=>$posts, "categorys"=>$category]);
+        $city = City::all();
+        return view('jobpage', ["posts"=>$posts, "categorys"=>$category, "cities"=>$city]);
     }
 }

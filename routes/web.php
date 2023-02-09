@@ -112,7 +112,7 @@ Route::get('/posts/{id}', [PostsController::class, 'open_post'])->name('news.ope
 #страница со списком вакансий
 Route::get('/jobs', [JobsController::class, 'index'])->name('job');
 #страница с конкретной вакансией
-Route::get('/posts/{id}', [JobsController::class, 'open_post'])->name('job.open_post');
+Route::get('/posts/{id_jobs}', [JobsController::class, 'open_post'])->name('job.open_post');
 #страница со списком вакансий (фильтр)
 Route::post('/jobsfilter', [JobsController::class, 'filter'])->name('job.filter');
 #страница компании
