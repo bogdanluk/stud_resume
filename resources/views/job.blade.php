@@ -6,10 +6,10 @@
     @include('layouts.navbar')
     <div class="flex flex-col items-center w-full">
         <div class="flex flex-col items-center w-full">
-            <h1 class="text-2xl text-center bg-base-200 p-5 m-10 rounded-lg shadow-lg dark:bg-slate-700">{{$job->name}}</h1>
+            <h1 class="text-2xl text-center p-5 m-10">{{$job->name}}</h1>
         </div>
         <div class="flex flex-col justify-between w-11/12 mb-5">
-            <span class="badge font-medium bg-yellow-400 rounded-full p-5">{{$job->category->name}}</span>
+            <span class="badge font-medium bg-yellow-400 text-black rounded-full p-5">{{$job->category->name}}</span>
         </div>
         <div class="flex flex-col items-center w-full">
             <div class="flex flex-col w-11/12 bg-base-200 border-t-8 border-t-violet-400 rounded-lg shadow-lg mb-10 dark:bg-slate-700">
@@ -23,11 +23,11 @@
                 </p>
             </div>
 
-            <div class="flex flex-row justify-center flex-wrap w-3/5 bg-base-200 border-t-8 border-t-violet-400 rounded-lg shadow-lg mb-10 dark:bg-slate-700">
+            <div class="flex flex-col justify-center flex-wrap w-11/12 bg-base-200 border-t-8 border-t-violet-400 rounded-lg shadow-lg mb-10 dark:bg-slate-700">
                 <div class="flex flex-col items-center my-3 mx-5">
                     <h2 class="font-medium">Компания</h2>
                     <div class="flex flex-col items-center mt-3">
-                        <img class="max-h-96 w-28 rounded-lg" src="/storage/news/{{ $job->company->image }}" alt="{{ $job->company->image}}"/>
+                        <img class="max-h-96 w-48 rounded-lg" src="/storage/news/{{ $job->company->image }}" alt="{{ $job->company->image}}"/>
                         <p class="mt-3">{{$job->company->name}}</p>
                     </div>
                 </div>
@@ -35,15 +35,15 @@
                     <h2 class="font-medium">Контактные данные</h2>
                     <div class="flex flex-row justify-center flex-wrap text-center my-3">
                         <div class="flex flex-col mx-5">
-                            <span class="bg-yellow-400 rounded-full font-medium py-1 px-5">Email</span></p>
+                            <span class="bg-yellow-400 text-black rounded-full font-medium py-1 px-5">Email</span></p>
                             <a class="mt-2 mb-5 hover:text-violet-400" href="mailto:{{$job->company->email}}">{{$job->company->email}}</a>
                         </div>
                         <div class="flex flex-col mx-5">
-                            <span class="bg-yellow-400 rounded-full font-medium py-1 px-5">Телефон</span></p>
+                            <span class="bg-yellow-400 text-black rounded-full font-medium py-1 px-5">Телефон</span></p>
                             <p class="mt-2 mb-5">{{$job->company->phone}}</p>
                         </div>
                         <div class="flex flex-col mx-5">
-                            <span class="bg-yellow-400 rounded-full font-medium py-1 px-5">Сайт</span></p>
+                            <span class="bg-yellow-400 text-black rounded-full font-medium py-1 px-5">Сайт</span></p>
                             <a class="mt-2 hover:text-violet-400" href="{{$job->company->link}}">Перейти на сайт</a>
                         </div>
                     </div>

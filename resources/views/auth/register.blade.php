@@ -9,20 +9,20 @@
             <span class="text-2xl font-light ">Регистрация</span>
             <div class="mt-4 shadow-lg rounded-lg text-left">
                 <div class="h-2 bg-violet-400 rounded-t-md"></div>
-                <form class="px-8 py-6 dark:bg-slate-700" action="{{ route('send_register_form') }}" method="post">
+                <form class="px-8 py-6 bg-base-200 dark:bg-slate-700" action="{{ route('send_register_form') }}" method="post">
                     @csrf
                     <label class="block font-semibold" for="input1">Email</label>
                     <input type="text" id="input1" name="email" placeholder="Email"
-                           class="dark:bg-slate-800 w-full h-5 px-3 py-5 mt-2 outline-none focus:ring-violet-400 focus:ring-1 rounded-md">
+                           class="dark:bg-slate-800 border-2 dark:border-slate-400 w-full h-5 px-3 py-5 mt-2 outline-none focus:border-violet-400 rounded-md">
                     <label class="block mt-3 font-semibold" for="input2">Ваше ФИО</label>
                     <input type="text" id="input2" name="name" placeholder="Введите ФИО"
-                           class="dark:bg-slate-800 w-full h-5 px-3 py-5 mt-2 outline-none focus:ring-violet-400 focus:ring-1 rounded-md">
+                           class="dark:bg-slate-800 w-full h-5 border-2 dark:border-slate-400 px-3 py-5 mt-2 outline-none focus:border-violet-400 rounded-md">
                     <label class="block mt-3 font-semibold" for="input3">Пароль</label>
                     <input type="password" id="input3" name="password" placeholder="Пароль"
-                           class="dark:bg-slate-800 w-full h-5 px-3 py-5 mt-2 outline-none focus:ring-violet-400 focus:ring-1 rounded-md">
+                           class="dark:bg-slate-800 w-full h-5 px-3 border-2 dark:border-slate-400 py-5 mt-2 outline-none focus:border-violet-400 rounded-md">
                     <label class="block mt-3 font-semibold" for="input4">Подтвердите пароль</label>
                     <input type="password" id="input4" name="password_confirmation" placeholder="Подтвердите пароль"
-                           class="dark:bg-slate-800 w-full h-5 px-3 py-5 mt-2 outline-none focus:ring-violet-400 focus:ring-1 rounded-md">
+                           class="dark:bg-slate-800 w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md">
                     @if($errors->any())
                         <div class="block mt-3 p-2 text-red-800 border-t-4 border-red-400 bg-red-50 dark:bg-slate-800 rounded-md">
                             <span class="font-medium">Ошибка:</span>
