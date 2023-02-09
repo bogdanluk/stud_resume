@@ -8,7 +8,7 @@
             <span class="text-2xl font-light">Вход в аккаунт</span>
             <div class="mt-4 bg-white shadow-lg rounded-lg text-left">
                 <div class="h-2 bg-violet-400 rounded-t-md"></div>
-                <div class="px-5 py-3 dark:bg-slate-700">
+                <div class="px-5 py-3 bg-base-200 dark:bg-slate-700">
                     <p class="font-medium text-center mb-3">Используя соцсети</p>
                     <div class="flex justify-around items-baseline mb-3">
                         <a href="{{ route('login.google-redirect') }}"><i class="fa-brands fa-google text-yellow-400 text-5xl"></i></a>
@@ -20,10 +20,10 @@
                         @csrf
                         <label class="block font-semibold" for="input1">Email</label>
                         <input type="text" id="input1" name="email" placeholder="Email"
-                               class="dark:bg-slate-800 w-full h-5 px-3 py-5 mt-2 outline-none focus:ring-violet-400 focus:ring-1 rounded-md">
+                               class="dark:bg-slate-800 w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md">
                         <label class="block mt-3 font-semibold" for="input2">Пароль </label>
                         <input type="password" id="input2" name="password" placeholder="Пароль"
-                               class="dark:bg-slate-800 w-full h-5 px-3 py-5 mt-2 outline-none focus:ring-violet-400 focus:ring-1 rounded-md">
+                               class="dark:bg-slate-800 border-2 dark:border-slate-400 w-full h-5 px-3 py-5 mt-2 outline-none focus:border-violet-400 rounded-md">
                         @if(session('message'))
                             <div class="flex mt-3 p-4 mb-4 text-green-800 border-t-4 border-green-400 bg-green-50 dark:bg-slate-800 rounded-md">
                                 <p class="ml-1 text-sm font-medium">{{ session('message') }}</p>

@@ -10,7 +10,7 @@
             <div class="mt-4 shadow-lg rounded-lg text-left">
                 <div class="mt-4 dark:bg-slate-700 shadow-lg rounded-lg text-left">
                     <div class="h-2 bg-violet-400 rounded-t-md"></div>
-                    <div class="px-8 py-6">
+                    <div class="px-8 py-6 bg-base-200">
                         <p class="block mb-2 text-xl font-semibold">Ссылка для подтверждения была отправлена на ваш email.</p>
                         @if(session('message'))
                             <div class="flex p-4 mb-4 text-green-800 border-t-4 border-green-400 bg-green-50 dark:bg-slate-800 rounded-md">
