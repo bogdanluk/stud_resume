@@ -27,7 +27,7 @@ class VkAuthController extends Controller
             $newUser = User::create([
                 'name' => $user->name,
                 'email' => $user->email,
-                'role' => 2,
+                'role_id' => 2,
             ]);
             #отправка письма с ссылкой для подтверждения email
             event(new Registered($newUser));

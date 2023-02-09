@@ -22,7 +22,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'email',
-        'role',
+        'role_id',
         'password',
         'avatar',
         'vk_id',
@@ -47,4 +47,13 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role(){
+        return $this->belongsTo(UserRoles::class, 'role_id', 'id');
+    }
+
+    public function companies(){
+        return $this->hasMany(Company::class, 'user_id', 'id');
+    }
+
 }

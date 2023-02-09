@@ -9,7 +9,7 @@ use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\Auth\VkAuthController;
 use App\Http\Controllers\Auth\YandexAuthController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
-use App\Http\Controllers\CompanysController;
+use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\PostsController;
 
@@ -109,12 +109,14 @@ Route::prefix('auth')->group(function (){
 Route::get('/posts', [PostsController::class, 'index'])->name('news');
 #страница с конкретной новостью
 Route::get('/posts/{id}', [PostsController::class, 'open_post'])->name('news_post');
+
 #страница со списком вакансий
-Route::get('/jobs', [JobsController::class, 'index'])->name('job');
+Route::get('/jobs', [JobsController::class, 'index'])->name('jobs');
 #страница с конкретной вакансией
-Route::get('/jobs/{id}', [JobsController::class, 'open_post'])->name('job.open_post');
+Route::get('/jobs/{id}', [JobsController::class, 'open_post'])->name('jobs_post');
+
 #страница компании
-Route::get('/company/{company_id}', [CompanysController::class, 'open_post'])->name('company.open_post');
+Route::get('/company/{company_id}', [CompaniesController::class, 'open_post'])->name('company.open_post');
 
 
 

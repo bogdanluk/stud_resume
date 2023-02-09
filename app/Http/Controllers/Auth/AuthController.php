@@ -39,7 +39,7 @@ class AuthController extends Controller
             'name' => $credentials['name'],
             'email' => $credentials['email'],
             'password' => Hash::make($credentials['password']),
-            'role' => 2,
+            'role_id' => 2,
         ]);
         #отправка письма с ссылкой для подтверждения email
         event(new Registered($user));
