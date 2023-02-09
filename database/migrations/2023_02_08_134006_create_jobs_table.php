@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('jobs', function (Blueprint $table) {
-            $table->id('id_jobs');
-            $table->string('name_jobs');
-            $table->unsignedBigInteger('category');
-            $table->string('payment');
-            $table->unsignedBigInteger('company');
-            $table->unsignedBigInteger('city');
+            $table->id();
+            $table->string('name');
+            $table->unsignedBigInteger('category_id');
+            $table->integer('payment')->default(0);
+            $table->unsignedBigInteger('company_id');
+            $table->unsignedBigInteger('city_id');
             $table->string('experience');
             $table->text('description');
             $table->text('responsibility');
@@ -27,9 +27,9 @@ return new class extends Migration
             $table->text('conditions');
             $table->text('skills');
             $table->timestamps();
-            $table->foreign('category')->references('id_category')->on('categories');
-            $table->foreign('company')->references('id_company')->on('companies');
-            $table->foreign('city')->references('id_city')->on('cities');
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('company_id')->references('id')->on('companies');
+            $table->foreign('city_id')->references('id')->on('cities');
         });
     }
 

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->unsignedBigInteger('role');
+            $table->unsignedBigInteger('role_id');
             $table->string('password')->nullable();
             $table->string('avatar')->nullable();
             #$table->string('vk_id')->nullable();
@@ -28,7 +28,7 @@ return new class extends Migration
 
             $table->timestamps();
 
-            $table->foreign('role')->references('id')->on('user_roles');
+            $table->foreign('role_id')->references('id')->on('user_roles');
         });
     }
 

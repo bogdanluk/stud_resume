@@ -8,8 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    public function posts()
+
+    protected $table = "categories";
+
+    public function jobs()
     {
-        return $this->hasMany(Job::class);
+        return $this->hasMany(Job::class, 'category_id', 'id');
     }
 }

@@ -10,39 +10,36 @@ use Illuminate\Http\Request;
 
 class JobsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // $posts = Job::all();
-        $category = Category::all();
-        $city = City::all();
-        $posts = City::join('jobs', 'cities.id_city', '=', 'jobs.city')->get();
-        // dd($cities);
-        return view('jobpage', ["posts"=>$posts, "categorys"=>$category, "cities"=>$city]);
+        $categories = Category::all();
+        $cities = City::all();
+        $query = Job::query();
+        if($request->filled('name')){
+            $query->where('name', 'like', "%{$request->query('name')}%");
+        }
+        if($request->filled('category_id')){
+            $query->where('category_id', '=', $request->query('category_id'));
+        }
+        if($request->filled('city_id')){
+            $query->where('city_id', '=', $request->query('city_id'));
+        }
+        $query->orderBy('created_at', 'desc');
+        $result = $query->with(['city'])->paginate(10);
+        return view('jobspage', ["jobs"=>$result, "categories"=>$categories, "cities"=>$cities]);
     }
-    public function open_post($id_jobs)
+
+    public function open_post($id)
     {
-        $post = Job::find($id_jobs);
-        $category = Category::find($post->category);
-        $company = Company::find($post->company);
-        // dd($company);
-        if($post)
+        $job = Job::with(['category', 'company', 'city'])->find($id);
+        if($job)
         {
-            return view('job', ["post"=>$post, "company"=>$company, "category"=>$category]);
+            return view('job', ["job"=>$job]);
         }
         else
         {
             return redirect()->route('404');
         }
     }
-    public function filter(Request $request)
-    {
-        $data = $request->validate([
-            'filter_category' => 'exists:categories,id_category',
-            'filter_city' => 'exists:cities,id_city'
-        ]);
-        $posts = Job::where('category', '=', $data['filter_category'])->get();
-        $category = Category::all();
-        $city = City::all();
-        return view('jobpage', ["posts"=>$posts, "categorys"=>$category, "cities"=>$city]);
-    }
+
 }
