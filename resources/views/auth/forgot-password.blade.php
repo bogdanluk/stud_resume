@@ -9,11 +9,11 @@
             <span class="text-2xl font-light ">Восстановление пароля</span>
             <div class="mt-4 dark:bg-slate-700 shadow-lg rounded-lg text-left">
                 <div class="h-2 bg-violet-400 rounded-t-md"></div>
-                <form class="px-8 py-6 " action="{{ route('password.email') }}" method="post">
+                <form class="px-8 py-6 bg-base-200" action="{{ route('password.email') }}" method="post">
                     @csrf
                     <label class="block font-semibold" for="input1">Введите email</label>
                     <input type="text" id="input1" name="email" placeholder="Email"
-                           class="w-full h-5 px-3 py-5 mt-2 dark:bg-slate-800 outline-none focus:ring-violet-400 focus:ring-1 rounded-md">
+                           class="w-full h-5 px-3 py-5 mt-2 border-2 dark:border-slate-400 dark:bg-slate-800 outline-none focus:border-violet-400 rounded-md">
                     <div class="flex justify-between items-baseline">
                         <button type="submit" class="mt-4 bg-violet-400 text-white py-2 px-6 rounded-md hover:bg-violet-600 ">Отправить</button>
                     </div>
