@@ -25,7 +25,7 @@ class JobsController extends Controller
             $query->where('city_id', '=', $request->query('city_id'));
         }
         $query->orderBy('created_at', 'desc');
-        $result = $query->with(['city'])->paginate(10);
+        $result = $query->with(['city','category'])->paginate(10);
         return view('jobspage', ["jobs"=>$result, "categories"=>$categories, "cities"=>$cities]);
     }
 
