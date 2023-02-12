@@ -10,7 +10,7 @@
                 <li class="text-lg hover:text-violet-400"><a href="{{ route('home') }}">Главная</a></li>
                 <li class="text-lg hover:text-violet-400"><a href="{{ route('news') }}">Новости</a></li>
                 <li class="text-lg hover:text-violet-400"><a href="{{ route('jobs') }}">Вакансии</a></li>
-                <li class="text-lg hover:text-violet-400"><a href="#">Резюме</a></li>
+                <li class="text-lg hover:text-violet-400"><a href="{{ route('resumes') }}">Резюме</a></li>
             </ul>
         </div>
         <a class="text-xl dark:text-white">StudResume</a>
@@ -20,11 +20,12 @@
             <li class="mr-2 text-lg hover:text-violet-400"><a href="{{ route('home') }}">Главная</a></li>
             <li class="mr-2 text-lg hover:text-violet-400"><a href="{{ route('news') }}">Новости</a></li>
             <li class="mr-2 text-lg hover:text-violet-400"><a href="{{ route('jobs') }}">Вакансии</a></li>
-            <li class="mr-2 text-lg hover:text-violet-400"><a href="#">Резюме</a></li>
+            <li class="mr-2 text-lg hover:text-violet-400"><a href="{{ route('resumes') }}">Резюме</a></li>
         </ul>
     </div>
     <div class="navbar-end hidden md:flex">
         <a class="btn text-white btn-sm bg-violet-400 mr-2 hover:bg-violet-600" href="{{ route('login') }}">Вход</a>
         <a class="btn text-violet-400 btn-sm border-2 border-violet-400 mr-2 hover:bg-violet-400 hover:text-white" href="{{ route('register') }}">Регистрация</a>
+        <a class="btn text-violet-400 btn-sm border-2 border-violet-400 mr-2 hover:bg-violet-400 hover:text-white" href="{{ route('cab') }}">Личный кабинет</a>
     </div>
 </div>

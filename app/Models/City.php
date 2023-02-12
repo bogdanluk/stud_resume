@@ -13,6 +13,11 @@ class City extends Model
 
     public function jobs()
     {
-        return $this->hasMany(Job::class, 'category_id', 'id');
+        return $this->hasMany(Job::class, 'city_id', 'id');
+    }
+
+    public function resumes()
+    {
+        return $this->hasMany(Resume::class, 'city_id', 'id');
     }
 }

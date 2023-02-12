@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ResumesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,6 +93,11 @@ Route::get('/cabinet', function (Request $request){
    return view('cabinet.cabinet');
 })->middleware(['auth', 'verified'])->name('cabinet');
 
+Route::get('/cab', function(){
+    return view('cab');
+})->name('cab');
+
+
 #авторизация через соцсети
 Route::prefix('auth')->group(function (){
     #авторизация через google
@@ -114,6 +120,11 @@ Route::get('/posts/{id}', [PostsController::class, 'open_post'])->name('news_pos
 Route::get('/jobs', [JobsController::class, 'index'])->name('jobs');
 #страница с конкретной вакансией
 Route::get('/jobs/{id}', [JobsController::class, 'open_post'])->name('jobs_post');
+
+#страница со списком резюме
+Route::get('/resumes', [ResumesController::class, 'index'])->name('resumes');
+#страница с конкретным резюме
+Route::get('/resumes/{id}', [ResumesController::class, 'open_post'])->name('resumes_post');
 
 #страница компании
 Route::get('/company/{company_id}', [CompaniesController::class, 'open_post'])->name('company.open_post');
