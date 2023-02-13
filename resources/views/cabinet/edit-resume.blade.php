@@ -1,6 +1,6 @@
 @extends('layouts.head')
 
-@section('title')Добавление резюме @endsection
+@section('title')Изменение резюме @endsection
 
 @section('content')
     @include('cabinet.cab-navbar')

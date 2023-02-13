@@ -13,6 +13,11 @@
                     <li class="mr-2 text-lg link link-hover hover:text-violet-400"><a href="{{ route('cabinet.resume-list') }}">Мои резюме</a></li>
                 @endif
                 <li class="text-lg link link-hover hover:text-violet-400"><a href="{{ route('jobs') }}">Мои вакансии</a></li>
+                @if(request()->route()->getName() == 'cabinet.company-list')
+                    <li class="mr-2 text-lg link link-hover active hover:text-violet-400"><a href="{{ route('cabinet.company-list') }}">Мои компании</a></li>
+                @else
+                    <li class="mr-2 text-lg link link-hover hover:text-violet-400"><a href="{{ route('cabinet.company-list') }}">Мои компании</a></li>
+                @endif
             </ul>
         </div>
         <a class="text-xl dark:text-white">Кабинет</a>
@@ -26,6 +31,11 @@
                 <li class="mr-2 text-lg link link-hover hover:text-violet-400"><a href="{{ route('cabinet.resume-list') }}">Мои резюме</a></li>
             @endif
             <li class="mr-2 text-lg link link-hover hover:text-violet-400"><a href="{{ route('jobs') }}">Мои вакансии</a></li>
+            @if(request()->route()->getName() == 'cabinet.company-list')
+                <li class="mr-2 text-lg link link-hover active hover:text-violet-400"><a href="{{ route('cabinet.company-list') }}">Мои компании</a></li>
+            @else
+                <li class="mr-2 text-lg link link-hover hover:text-violet-400"><a href="{{ route('cabinet.company-list') }}">Мои компании</a></li>
+            @endif
         </ul>
     </div>
     <div class="navbar-end hidden md:flex">

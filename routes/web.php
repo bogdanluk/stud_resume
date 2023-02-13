@@ -98,21 +98,42 @@ Route::prefix('cabinet')->group(function (){
         #страница со списком резюме пользователя
         Route::get('/', [ResumesController::class, 'userResumeList'])->name('cabinet.resume-list');
         #форма добавления резюме
-        Route::get('/create', [ResumesController::class, 'addResumeForm'])->name('cabinet.resume.add-form');
+        Route::get('/create', [ResumesController::class, 'createResumeForm'])->name('cabinet.resume.add-form');
         #обработка запроса с формы добавления резюме
-        Route::post('/create', [ResumesController::class, 'addResume'])->name('cabinet.resume.create');
-        #проверка является ли пользователь создателем текущего резюме
+        Route::post('/create', [ResumesController::class, 'createResume'])->name('cabinet.resume.create');
+        #проверка является ли пользователь создателем запрашиваемого резюме
         Route::middleware('resume_guard')->group(function (){
             #обработка запроса на удаление резюме
             Route::get('/delete/{id}', [ResumesController::class, 'deleteResume'])->name('cabinet.resume.delete');
             #форма изменения резюме
-            Route::get('/edit/{id}', [ResumesController::class, 'editResumeForm'])->name('cabinet.resume.edit-form');
+            Route::get('/update/{id}', [ResumesController::class, 'updateResumeForm'])->name('cabinet.resume.update-form');
             #обработка запроса с формы изменения резюме
-            Route::post('/edit/{id}', [ResumesController::class, 'editResume'])->name('cabinet.resume.edit');
+            Route::post('/update/{id}', [ResumesController::class, 'updateResume'])->name('cabinet.resume.edit');
         });
-
     });
 
+    #группа роутов компаний
+    Route::prefix('company')->group(function (){
+        #страница со списком компаний пользователя
+        Route::get('/', [CompaniesController::class, 'userCompanyList'])->name('cabinet.company-list');
+        #форма добавления компании
+        Route::get('/create', function (){
+            return view('cabinet.add-company');
+        })->name('cabinet.company.add-form');
+        #обработка запроса с формы добавления компании
+        Route::post('/create', [CompaniesController::class, 'createCompany'])->name('cabinet.company.create');
+        #проверка является ли пользователь создателем запрашиваемой компании
+        Route::middleware('company_guard')->group(function (){
+            #форма изменения компании
+            Route::get('/update/{id}', [CompaniesController::class, 'updateCompanyForm'])->name('cabinet.company.update-form');
+            #обработка запроса с формы изменения
+            Route::post('/update/{id}', [CompaniesController::class, 'updateCompany'])->name('cabinet.company.update');
+            #обработка запроса на удаление компании
+            Route::get('/delete/{id}', [CompaniesController::class, 'deleteCompany'])->name('cabinet.company.delete');
+        });
+
+
+    });
 
 
 })->middleware(['auth', 'verified']);
@@ -148,7 +169,7 @@ Route::get('/resumes', [ResumesController::class, 'index'])->name('resumes');
 Route::get('/resumes/{id}', [ResumesController::class, 'open_post'])->name('resumes_post');
 
 #страница компании
-Route::get('/company/{company_id}', [CompaniesController::class, 'open_post'])->name('company.open_post');
+Route::get('/company/{id}', [CompaniesController::class, 'open_post'])->name('company.open_post');
 
 
 

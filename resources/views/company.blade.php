@@ -4,12 +4,12 @@
 
 @section('content')
     @include('layouts.navbar')
-    
+
     <div class="flex flex-col items-center w-full">
-        <img class="flex max-h-96 mx-auto mt-10" src="/storage/news/{{ $company->image }}" alt="{{ $company->image}}"/>
+        <img class="flex max-h-96 mx-auto mt-10" src="/storage/{{ $company->image }}" alt="{{ $company->image}}"/>
         <h1 class="text-2xl text-center bg-base-200 p-5 m-10 rounded-lg shadow-lg dark:bg-slate-700">{{$company->name}}</h1>
     </div>
-        
+
     <div class="flex flex-col items-center">
         <div class="flex flex-col items-center flex-wrap mx-5 bg-base-200 border-t-8 border-t-violet-400 rounded-lg shadow-lg mb-10 dark:bg-slate-700">
             <h2 class="font-medium mt-3">Контактные данные</h2>
@@ -34,11 +34,11 @@
             <div class="flex flex-col">
                 <p class="px-5 font-sans whitespace-pre-wrap break-normal">{{$company->activity}}</p>
             </div>
-            
+
             <h2 class="font-medium ml-5 my-3">Описание</h2>
             <div class="flex flex-col">
                 <pre class="px-5 pb-3 font-sans whitespace-pre-wrap break-normal">{{$company->description}}</pre>
-            </div>   
+            </div>
         </div>
     </div>
 

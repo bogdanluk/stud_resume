@@ -62,7 +62,7 @@ class ResumesController extends Controller
         return view('cabinet.cab-resume-list', ['resumes'=>$result]);
     }
 
-    public function addResumeForm(){
+    public function createResumeForm(){
         $genders = Gender::all();
         $educations = Education::all();
         $cities = City::all();
@@ -78,7 +78,7 @@ class ResumesController extends Controller
         ]);
     }
 
-    public function addResume(Request $request){
+    public function createResume(Request $request){
         $data = $request->validate([
             'name' => 'required|string|min:3|max:255',
             'age' => 'required|numeric',
@@ -91,8 +91,8 @@ class ResumesController extends Controller
             'city_id' => 'required|numeric',
             'category_id' => 'required|numeric',
             'timetable_id' => 'required|numeric',
-            'file_name' => 'required|file|max:5120',
-            'avatar' => 'file|max:5120'
+            'file_name' => 'required|file|max:5120|mimes:doc,docx',
+            'avatar' => 'file|max:5120|mimes:jpg,jpeg,png'
         ]);
 
         #сохранение файлов в публичное хранилище
@@ -103,7 +103,7 @@ class ResumesController extends Controller
         }
 
         #добавление резюме в базу
-        $resume = Resume::create([
+        Resume::create([
             'name' => $data['name'],
             'age' => $data['age'],
             'avatar' => $avatar,
@@ -123,7 +123,7 @@ class ResumesController extends Controller
         return redirect()->route('cabinet.resume-list')->with(['message' => __('messages.resume_added')]);
     }
 
-    public function editResumeForm($id){
+    public function updateResumeForm($id){
         $genders = Gender::all();
         $educations = Education::all();
         $cities = City::all();
@@ -141,7 +141,7 @@ class ResumesController extends Controller
         ]);
     }
 
-    public function editResume(Request $request, $id){
+    public function updateResume(Request $request, $id){
         $data = $request->validate([
             'name' => 'string|min:3|max:255',
             'age' => 'numeric',
@@ -154,8 +154,8 @@ class ResumesController extends Controller
             'city_id' => 'numeric',
             'category_id' => 'numeric',
             'timetable_id' => 'numeric',
-            'file_name' => 'file|max:5120',
-            'avatar' => 'file|max:5120'
+            'file_name' => 'file|max:5120|mimes:doc,docx',
+            'avatar' => 'file|max:5120|mimes:jpg,jpeg,png'
         ]);
 
 
@@ -170,7 +170,7 @@ class ResumesController extends Controller
         $resume = Resume::find($id);
         $resume->update($data);
 
-        return redirect()->route('cabinet.resume-list')->with(['message' => __('messages.resume_edited')]);
+        return redirect()->route('cabinet.resume-list')->with(['message' => __('messages.resume_updated')]);
     }
 
     public function deleteResume($id){
