@@ -6,8 +6,7 @@
 
 @section('content')
     @include('layouts.navbar')
-{{--    <div class="flex flex-col lg:flex-row my-5 mx-5">--}}
-    <div class="grid grid-cols-3 gap-5 m-5">
+    <div class="grid grid-cols-3 gap-5 m-5 min-h-screen">
         <div class="col-span-full lg:col-span-1 w-full h-min border-t-8 bg-base-200 dark:bg-slate-700 border-t-violet-400 rounded-lg shadow-lg p-3">
             <h2 class="font-semibold text-center text-xl">Фильтры</h2>
             <form method="get" action="{{route('resumes')}}">

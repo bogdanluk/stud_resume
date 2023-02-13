@@ -37,7 +37,10 @@
                 @endif
             </ul>
         </div>
+
         <a class="text-xl dark:text-white">StudResume</a>
+        <button class="ml-5 text-xl" data-toggle-theme="dark,light" data-act-class="light" id="btntheme"><i class="fa-regular fa-moon" id="themetoggler"></i></button>
+
     </div>
     <div class="navbar-center hidden md:flex dark:bg-slate-800">
         <ul class="menu menu-horizontal px-1">
