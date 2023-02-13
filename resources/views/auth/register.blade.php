@@ -13,16 +13,24 @@
                     @csrf
                     <label class="block font-semibold" for="input1">Email</label>
                     <input type="text" id="input1" name="email" placeholder="Email"
-                           class="dark:bg-slate-800 border-2 dark:border-slate-400 w-full h-5 px-3 py-5 mt-2 outline-none focus:border-violet-400 rounded-md">
+                           class="dark:bg-slate-800 border-2 dark:border-slate-400 w-full h-5 px-3 py-5 mt-2 outline-none focus:border-violet-400 rounded-md dark:focus:border-violet-400">
                     <label class="block mt-3 font-semibold" for="input2">Ваше ФИО</label>
                     <input type="text" id="input2" name="name" placeholder="Введите ФИО"
-                           class="dark:bg-slate-800 w-full h-5 border-2 dark:border-slate-400 px-3 py-5 mt-2 outline-none focus:border-violet-400 rounded-md">
+                           class="dark:bg-slate-800 w-full h-5 border-2 dark:border-slate-400 px-3 py-5 mt-2 outline-none focus:border-violet-400 rounded-md dark:focus:border-violet-400">
                     <label class="block mt-3 font-semibold" for="input3">Пароль</label>
                     <input type="password" id="input3" name="password" placeholder="Пароль"
-                           class="dark:bg-slate-800 w-full h-5 px-3 border-2 dark:border-slate-400 py-5 mt-2 outline-none focus:border-violet-400 rounded-md">
+                           class="dark:bg-slate-800 w-full h-5 px-3 border-2 dark:border-slate-400 py-5 mt-2 outline-none focus:border-violet-400 rounded-md dark:focus:border-violet-400">
                     <label class="block mt-3 font-semibold" for="input4">Подтвердите пароль</label>
                     <input type="password" id="input4" name="password_confirmation" placeholder="Подтвердите пароль"
-                           class="dark:bg-slate-800 w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md">
+                           class="dark:bg-slate-800 w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:focus:border-violet-400">
+                    <label class="block mt-3 font-semibold" for="input5">Выберите роль</label>
+                    <select name="role" id="input5"
+                            class="select w-full text-slate-400 w-full border-2 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:border-slate-400 dark:focus:border-violet-400">
+                        <option disabled selected>Ваша роль</option>
+                        @foreach($roles as $role)
+                            <option value="{{ $role->id }}">{{ $role->name }}</option>
+                        @endforeach
+                    </select>
                     @if($errors->any())
                         <div class="block mt-3 p-2 text-red-800 border-t-4 border-red-400 bg-red-50 dark:bg-slate-800 rounded-md">
                             <span class="font-medium">Ошибка:</span>

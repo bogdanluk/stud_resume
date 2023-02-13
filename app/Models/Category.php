@@ -15,4 +15,9 @@ class Category extends Model
     {
         return $this->hasMany(Job::class, 'category_id', 'id');
     }
+
+    public function resumes()
+    {
+        return $this->hasMany(Resume::class, 'category_id', 'id');
+    }
 }

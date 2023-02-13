@@ -14,7 +14,7 @@ return [
     */
 
     'accepted' => 'Поле :attribute должно быть принято.',
-    'accepted_if' => 'Поле :attribute должено быть принято когда :other равно :value.',
+    'accepted_if' => 'Поле :attribute должно быть принято когда :other равно :value.',
     'active_url' => 'Поле :attribute является не валидным URL.',
     'after' => 'Поле :attribute должно быть датой после :date.',
     'after_or_equal' => 'Поле :attribute должно быть датой после или равной :date.',
