@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('age');
+            $table ->string('avatar')->nullable();
             $table->unsignedBigInteger('gender_id');
             $table->unsignedBigInteger('education_id');
             $table->unsignedBigInteger('city_id');
@@ -27,7 +28,9 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('timetable_id');
             $table->string('file_name');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('city_id')->references('id')->on('cities');
             $table->foreign('gender_id')->references('id')->on('genders');

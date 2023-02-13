@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Resume extends Model
 {
     use HasFactory;
+
     protected $table = "resumes";
+    protected $guarded = false;
 
     public function category(){
         return $this->belongsTo(Category::class, 'category_id', 'id');
@@ -29,5 +31,9 @@ class Resume extends Model
 
     public function timetable(){
         return $this->belongsTo(Timetable::class, 'timetable_id', 'id');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

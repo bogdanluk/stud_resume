@@ -10,6 +10,7 @@ class Company extends Model
     use HasFactory;
 
     protected $table = "companies";
+    protected $guarded = false;
 
     public function jobs()
     {

@@ -25,8 +25,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'role_id',
         'password',
         'avatar',
-        'vk_id',
-        'google_id'
     ];
 
     /**
@@ -56,4 +54,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Company::class, 'user_id', 'id');
     }
 
+    public function resumes(){
+        return $this->hasMany(Resume::class, 'user_id', 'id');
+    }
+
+    public function jobs(){
+        return $this->hasMany(Job::class, 'user_id', 'id');
+    }
 }

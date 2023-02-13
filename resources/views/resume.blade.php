@@ -5,7 +5,7 @@
 @section('content')
     @include('layouts.navbar')
     <div class="flex flex-col items-center w-full">
-        <img class="flex max-h-96 mx-auto mt-10" src="/storage/resumes/{{ $resume->avatar }}" alt="{{ $resume->avatar }}"/>
+        <img class="flex max-h-96 mx-auto mt-10" src="/storage/{{ $resume->avatar }}" alt="{{ $resume->avatar }}"/>
     </div>
     <div class="flex flex-col items-center w-full">
         <div class="flex flex-col items-center w-full">
@@ -37,20 +37,20 @@
                     {{$resume->job}}
                 </p>
                 <h2 class="pt-3 pl-5 font-medium">Желаемая зарплата</h2>
-                <p class="pt-3 pl-5">
+                <p class="pt-3 pl-5 mb-3">
                     {{$resume->payment}}
                 </p>
             </div>
 
             <div class="flex flex-col items-center flex-wrap w-11/12 bg-base-200 border-t-8 border-t-violet-400 rounded-lg shadow-lg mb-10 dark:bg-slate-700">
-                <h2 class="font-medium">Контактные данные</h2>
+                <h2 class="font-medium mt-3">Контактные данные</h2>
                 <div class="flex flex-row justify-center flex-wrap text-center my-3">
                     <div class="flex flex-col mx-5">
-                        <span class="bg-yellow-400 text-black rounded-full font-medium py-1 px-5">Email</span></p>
+                        <span class="bg-yellow-400 text-black rounded-full font-medium py-1 px-5">Email</span>
                         <a class="mt-2 mb-5 hover:text-violet-400" href="mailto:{{$resume->email}}">{{$resume->email}}</a>
                     </div>
                     <div class="flex flex-col mx-5">
-                        <span class="bg-yellow-400 text-black rounded-full font-medium py-1 px-5">Телефон</span></p>
+                        <span class="bg-yellow-400 text-black rounded-full font-medium py-1 px-5">Телефон</span>
                         <p class="mt-2 mb-5">{{$resume->phone}}</p>
                     </div>
                 </div>

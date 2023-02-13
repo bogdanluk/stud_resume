@@ -10,4 +10,5 @@ class NewsPosts extends Model
     use HasFactory;
 
     protected $table = 'news_posts';
+    protected $guarded = false;
 }

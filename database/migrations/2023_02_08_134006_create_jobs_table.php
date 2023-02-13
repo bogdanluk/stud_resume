@@ -26,7 +26,9 @@ return new class extends Migration
             $table->text('requirement');
             $table->text('conditions');
             $table->text('skills');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('company_id')->references('id')->on('companies');
             $table->foreign('city_id')->references('id')->on('cities');

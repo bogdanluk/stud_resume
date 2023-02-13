@@ -9,3 +9,7 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
 }
+
+.link.active{
+    color: rgb(167, 139, 250);
+}

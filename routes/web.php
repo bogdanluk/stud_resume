@@ -39,9 +39,7 @@ Route::get('/login', function () {
 Route::post('/login', [AuthController::class, 'login'])->middleware('guest')->name('send_login_form');
 
 #страница регистрации
-Route::get('/register', function () {
-    return view('auth.register');
-})->middleware('guest')->name('register');
+Route::get('/register', [AuthController::class, 'getRegisterPage'])->middleware('guest')->name('register');
 
 #обработка запроса со страницы регистрации
 Route::post('/register', [AuthController::class, 'register'])->middleware('guest')->name('send_register_form');
@@ -77,7 +75,7 @@ Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
 })->middleware('guest')->name('password.request');
 
-//оброботка запроса на сброс пароля и отправка письма со ссылкой для сброса паролья
+//оброботка запроса на сброс пароля и отправка письма со ссылкой для сброса пароля
 Route::post('/forgot-password', [ForgotPasswordController::class, 'forgotPassword'])->middleware('guest')->name('password.email');
 
 //отображение формы для сброса пароля
@@ -88,14 +86,37 @@ Route::get('/reset-password/{token}', function ($token, Request $request) {
 //обработка запроса с формы для сброса пароля
 Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->middleware('guest')->name('password.update');
 
-#личный кабинет
-Route::get('/cabinet', function (Request $request){
-   return view('cabinet.cabinet');
-})->middleware(['auth', 'verified'])->name('cabinet');
+#роуты личного кабинета
+Route::prefix('cabinet')->group(function (){
+    #главная страница кабинета
+    Route::get('/', function (){
+        return view('cabinet.cab-main');
+    })->name('cabinet.main');
 
-Route::get('/cab', function(){
-    return view('cab');
-})->name('cab');
+    #группа роутов резюме
+    Route::prefix('resume')->group(function (){
+        #страница со списком резюме пользователя
+        Route::get('/', [ResumesController::class, 'userResumeList'])->name('cabinet.resume-list');
+        #форма добавления резюме
+        Route::get('/create', [ResumesController::class, 'addResumeForm'])->name('cabinet.resume.add-form');
+        #обработка запроса с формы добавления резюме
+        Route::post('/create', [ResumesController::class, 'addResume'])->name('cabinet.resume.create');
+        #проверка является ли пользователь создателем текущего резюме
+        Route::middleware('resume_guard')->group(function (){
+            #обработка запроса на удаление резюме
+            Route::get('/delete/{id}', [ResumesController::class, 'deleteResume'])->name('cabinet.resume.delete');
+            #форма изменения резюме
+            Route::get('/edit/{id}', [ResumesController::class, 'editResumeForm'])->name('cabinet.resume.edit-form');
+            #обработка запроса с формы изменения резюме
+            Route::post('/edit/{id}', [ResumesController::class, 'editResume'])->name('cabinet.resume.edit');
+        });
+
+    });
+
+
+
+})->middleware(['auth', 'verified']);
+
 
 
 #авторизация через соцсети
