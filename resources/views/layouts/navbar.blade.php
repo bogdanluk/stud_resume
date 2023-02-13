@@ -6,34 +6,34 @@
             </label>
             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow-lg bg-base-100 dark:bg-slate-700 rounded-box w-52">
                 @guest
-                    <li class="text-lg hover:text-violet-400"><a href="{{ route('login') }}">Вход</a></li>
-                    <li class="text-lg hover:text-violet-400"><a href="{{ route('register') }}">Регистрация</a></li>
+                    <li class="text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('login') }}">Вход</a></li>
+                    <li class="text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('register') }}">Регистрация</a></li>
                 @endguest
                 @auth
-                    <li class="text-lg link link-hover hover:text-violet-400"><a href="{{ route('cabinet.main') }}">Личный кабинет</a></li>
+                    <li class="text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('cabinet.main') }}">Личный кабинет</a></li>
                 @endauth
                 @if(request()->route()->getName() == 'home')
-                    <li class="mr-2 text-lg link link-hover active hover:text-violet-400"><a href="{{ route('home') }}">Главная</a></li>
+                    <li class="mr-2 text-lg active p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('home') }}">Главная</a></li>
                 @else
-                    <li class="mr-2 link link-hover text-lg hover:text-violet-400"><a href="{{ route('home') }}">Главная</a></li>
+                    <li class="mr-2 text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('home') }}">Главная</a></li>
                 @endif
                 @if(request()->route()->getName() == 'news')
-                    <li class="mr-2 text-lg link link-hover active hover:text-violet-400"><a href="{{ route('news') }}">Новости</a></li>
+                    <li class="mr-2 text-lg active p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('news') }}">Новости</a></li>
                 @else
-                    <li class="mr-2 text-lg link link-hover hover:text-violet-400"><a href="{{ route('news') }}">Новости</a></li>
+                    <li class="mr-2 text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('news') }}">Новости</a></li>
                 @endif
                 @if(request()->route()->getName() == 'jobs')
-                    <li class="mr-2 text-lg link link-hover active hover:text-violet-400"><a href="{{ route('jobs') }}">Вакансии</a></li>
+                    <li class="mr-2 text-lg active p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('jobs') }}">Вакансии</a></li>
                 @else
-                    <li class="mr-2 text-lg link link-hover hover:text-violet-400"><a href="{{ route('jobs') }}">Вакансии</a></li>
+                    <li class="mr-2 text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('jobs') }}">Вакансии</a></li>
                 @endif
                 @if(request()->route()->getName() == 'resumes')
-                    <li class="mr-2 text-lg link link-hover active hover:text-violet-400"><a href="{{ route('resumes') }}">Резюме</a></li>
+                    <li class="mr-2 text-lg active p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('resumes') }}">Резюме</a></li>
                 @else
-                    <li class="mr-2 text-lg link link-hover hover:text-violet-400"><a href="{{ route('resumes') }}">Резюме</a></li>
+                    <li class="mr-2 text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('resumes') }}">Резюме</a></li>
                 @endif
                 @if(isset(auth()->user()->role_id) && auth()->user()->role_id=1)
-                    <li class="mr-2 text-lg link link-hover hover:text-violet-400"><a href="{{ route('admin') }}">Кабинет админа</a></li>
+                    <li class="mr-2 text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('admin') }}">Кабинет админа</a></li>
                 @endif
             </ul>
         </div>
@@ -42,27 +42,27 @@
     <div class="navbar-center hidden md:flex dark:bg-slate-800">
         <ul class="menu menu-horizontal px-1">
             @if(request()->route()->getName() == 'home')
-                <li class="mr-2 text-lg link link-hover active hover:text-violet-400"><a href="{{ route('home') }}">Главная</a></li>
+                <li class="mr-2 text-lg active py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('home') }}">Главная</a></li>
             @else
-                <li class="mr-2 link link-hover text-lg hover:text-violet-400"><a href="{{ route('home') }}">Главная</a></li>
+                <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('home') }}">Главная</a></li>
             @endif
             @if(request()->route()->getName() == 'news')
-                <li class="mr-2 text-lg link link-hover active hover:text-violet-400"><a href="{{ route('news') }}">Новости</a></li>
+                <li class="mr-2 text-lg active py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('news') }}">Новости</a></li>
             @else
-                <li class="mr-2 text-lg link link-hover hover:text-violet-400"><a href="{{ route('news') }}">Новости</a></li>
+                <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('news') }}">Новости</a></li>
             @endif
             @if(request()->route()->getName() == 'jobs')
-                <li class="mr-2 text-lg link link-hover active hover:text-violet-400"><a href="{{ route('jobs') }}">Вакансии</a></li>
+                <li class="mr-2 text-lg active py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('jobs') }}">Вакансии</a></li>
             @else
-                <li class="mr-2 text-lg link link-hover hover:text-violet-400"><a href="{{ route('jobs') }}">Вакансии</a></li>
+                <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('jobs') }}">Вакансии</a></li>
             @endif
             @if(request()->route()->getName() == 'resumes')
-                <li class="mr-2 text-lg link link-hover active hover:text-violet-400"><a href="{{ route('resumes') }}">Резюме</a></li>
+                <li class="mr-2 text-lg active py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('resumes') }}">Резюме</a></li>
             @else
-                <li class="mr-2 text-lg link link-hover hover:text-violet-400"><a href="{{ route('resumes') }}">Резюме</a></li>
+                <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('resumes') }}">Резюме</a></li>
             @endif
             @if(isset(auth()->user()->role_id) && auth()->user()->role_id=1)
-                    <li class="mr-2 text-lg link link-hover hover:text-violet-400"><a href="{{ route('admin') }}">Кабинет админа</a></li>
+                    <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('admin') }}">Админка</a></li>
             @endif
         </ul>
     </div>
