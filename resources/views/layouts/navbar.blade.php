@@ -32,6 +32,9 @@
                 @else
                     <li class="mr-2 text-lg link link-hover hover:text-violet-400"><a href="{{ route('resumes') }}">Резюме</a></li>
                 @endif
+                @if(isset(auth()->user()->role_id) && auth()->user()->role_id=1)
+                    <li class="mr-2 text-lg link link-hover hover:text-violet-400"><a href="{{ route('admin') }}">Кабинет админа</a></li>
+                @endif
             </ul>
         </div>
         <a class="text-xl dark:text-white">StudResume</a>
@@ -57,6 +60,9 @@
                 <li class="mr-2 text-lg link link-hover active hover:text-violet-400"><a href="{{ route('resumes') }}">Резюме</a></li>
             @else
                 <li class="mr-2 text-lg link link-hover hover:text-violet-400"><a href="{{ route('resumes') }}">Резюме</a></li>
+            @endif
+            @if(isset(auth()->user()->role_id) && auth()->user()->role_id=1)
+                    <li class="mr-2 text-lg link link-hover hover:text-violet-400"><a href="{{ route('admin') }}">Кабинет админа</a></li>
             @endif
         </ul>
     </div>
