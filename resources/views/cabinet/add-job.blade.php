@@ -26,10 +26,10 @@
                    class="w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
             <label class="block font-semibold mt-2" for="input2">Описание</label>
             <textarea type="text" id="input2" name="description" placeholder="Описание"
-                      class="w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400"></textarea>
+                      class="w-full p-3 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400"></textarea>
             <label class="block font-semibold mt-2" for="input3">Зарплата</label>
             <input type="number" id="input3" name="salary" placeholder="Зарплата"
-                      class="w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
+                      class="w-full p-3 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
             <label class="block font-semibold mt-2" for="input4">Выберите город</label>
             <select name="city_id" id="input4"
                     class="select w-full text-slate-400 border-2 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:border-slate-400 dark:focus:border-violet-400">

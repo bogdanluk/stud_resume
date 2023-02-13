@@ -7,7 +7,6 @@ use App\Models\City;
 use App\Models\Education;
 use App\Models\Resume;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class ResumesController extends Controller
 {
@@ -17,9 +16,9 @@ class ResumesController extends Controller
         $cities = City::all();
         $educations = Education::all();
         $query = Resume::query();
-        // if($request->filled('name')){
-        //     $query->where('name', 'like', "%{$request->query('name')}%");
-        // }
+        if($request->filled('name')){
+            $query->where('name', 'like', "%{$request->query('name')}%");
+        }
         if($request->filled('category_id')){
             $query->where('category_id', '=', $request->query('category_id'));
         }

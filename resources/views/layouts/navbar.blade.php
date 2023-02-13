@@ -33,7 +33,7 @@
                     <li class="mr-2 text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('resumes') }}">Резюме</a></li>
                 @endif
                 @if(isset(auth()->user()->role_id) && auth()->user()->role_id=1)
-                    <li class="mr-2 text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('admin') }}">Кабинет админа</a></li>
+                    <li class="mr-2 text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('admin.main') }}">Админка</a></li>
                 @endif
             </ul>
         </div>
@@ -62,7 +62,7 @@
                 <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('resumes') }}">Резюме</a></li>
             @endif
             @if(isset(auth()->user()->role_id) && auth()->user()->role_id=1)
-                    <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('admin') }}">Админка</a></li>
+                    <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('admin.main') }}">Админка</a></li>
             @endif
         </ul>
     </div>

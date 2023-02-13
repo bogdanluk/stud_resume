@@ -10,7 +10,7 @@
     <div class="grid grid-cols-3 gap-5 m-5">
         <div class="col-span-full lg:col-span-1 w-full h-min border-t-8 bg-base-200 dark:bg-slate-700 border-t-violet-400 rounded-lg shadow-lg p-3">
             <h2 class="font-semibold text-center text-xl">Фильтры</h2>
-            <form method="get" action="{{route('jobs')}}">
+            <form method="get" action="{{route('resumes')}}">
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
                     <input type="text" name="name" placeholder="Название" class="py-2 w-full text-slate-400 px-5 dark:bg-slate-800 border-2 dark:border-slate-400 outline-none focus:border-violet-400 rounded-full"/>
@@ -42,19 +42,10 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="flex flex-row m-3">
-                    <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <select name="city_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer">
-                        <option disabled selected>График работы</option>
-                        @foreach ($timetables as $timetable)
-                            <option value="{{$timetable->id}}">{{$timetable->name}}</option>
-                        @endforeach
-                    </select>
-                </div>
                 <div class="mt-2 flex flex-row justify-between">
                     <button class="btn btn-sm sm:btn-md bg-violet-400 text-white ease-in hover:bg-violet-600"
                             type="submit">Применить</button>
-                    <a href="{{ route('jobs') }}" class="btn btn-sm sm:btn-md text-slate-400 border border-slate-400 ease-in hover:bg-slate-400 hover:text-white">Сбросить</a>
+                    <a href="{{ route('resumes') }}" class="btn btn-sm sm:btn-md text-slate-400 border border-slate-400 ease-in hover:bg-slate-400 hover:text-white">Сбросить</a>
                 </div>
             </form>
         </div>

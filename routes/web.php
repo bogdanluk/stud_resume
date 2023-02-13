@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -9,7 +10,6 @@ use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\Auth\VkAuthController;
 use App\Http\Controllers\Auth\YandexAuthController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
-use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ResumesController;
@@ -160,32 +160,55 @@ Route::prefix('cabinet')->group(function (){
         });
     });
 
+    #обработка запроса на смену пароля
+    Route::post('/change-pass', [UsersController::class, 'changePassword'])->name('cabinet.change-pass');
+    #обработка запроса на смену аватарки
+    Route::post('/change-avatar', [UsersController::class, 'changeAvatar'])->name('cabinet.change-avatar');
 
+})->middleware(['auth', 'verified']); //конец роутов личного кабинета
 
+#роуты панели администратора
+Route::prefix('administrator')->group(function (){
+    #главная страница панели админа
+    Route::get('/', function (){
+       return view('administrator.admin-main');
+    })->name('admin.main');
+    #группа роутов новостей
+    Route::prefix('news')->group(function (){
+        #страница со списком новостей
+        Route::get('/', [PostsController::class, 'adminNewsList'])->name('admin.news-list');
+        #форма добавления новости
+        Route::get('/create', function (){
+           return view('administrator.add-news');
+        })->name('admin.news.add-form');
+        #обработка запроса с формы добавления новости
+        Route::post('/create', [PostsController::class, 'createNews'])->name('admin.news.create');
+        #обработка запроса удаления новости
+        Route::get('/delete/{id}', [PostsController::class, 'deleteNews'])->name('admin.news.delete');
+        #форма редактирования новости
+        Route::get('/update/{id}', [PostsController::class, 'updateNewsForm'])->name('admin.news.edit-form');
+        #обработка запроса с формы редактирования новости
+        Route::post('/update/{id}', [PostsController::class, 'updateNews'])->name('admin.news.update');
+    });
 
-
-
-})->middleware(['auth', 'verified']);
-
-
-
+})->middleware(['auth', 'admin_guard']);
 
 
 
 #кабинет администратора
-Route::get('/admin', function(){return view('cabinet.cab-admin');})->name('admin');
+//Route::get('/admin', function(){return view('cabinet.cab-admin');})->name('admin');
 
-Route::get('/adminnews', [PostsController::class, 'adminNewsList'])->name('cabinet.news-list');
+//Route::get('/adminnews', [PostsController::class, 'adminNewsList'])->name('cabinet.news-list');
 
-Route::get('/addnews', function(){return view('cabinet.add-news');})->name('cabinet.news.add-form');
+//Route::get('/addnews', function(){return view('cabinet.add-news');})->name('cabinet.news.add-form');
 
-Route::post('/createnews', [PostsController::class, 'addNewsList'])->name('cabinet.news.create');
+//Route::post('/createnews', [PostsController::class, 'addNews'])->name('cabinet.news.create');
 
-Route::get('/deletenews/{id}', [PostsController::class, 'deleteNews'])->name('cabinet.news.delete');
+//Route::get('/deletenews/{id}', [PostsController::class, 'deleteNews'])->name('cabinet.news.delete');
 
-Route::get('/editfnews/{id}', [PostsController::class, 'editNewsForm'])->name('cabinet.news.edit-form');
+//Route::get('/editfnews/{id}', [PostsController::class, 'editNewsForm'])->name('cabinet.news.edit-form');
 
-Route::post('/editnews/{id}', [PostsController::class, 'editNews'])->name('cabinet.news.edit');
+//Route::post('/editnews/{id}', [PostsController::class, 'editNews'])->name('cabinet.news.edit');
 
 #страничка 404
 Route::view('/404', 'not-found')->name('404');
