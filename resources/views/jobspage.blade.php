@@ -52,7 +52,7 @@
                         </div>
                         <div class="flex flex-row items-center mb-2 mt-3 mx-5 w-max">
                             <i class="fa-solid fa-ruble-sign fa-xl text-yellow-400"></i>
-                            <p class="pl-8">{{ $job->payment }} рублей</p>
+                            <p class="pl-8">{{ $job->salary }} рублей</p>
                         </div>
                         <div class="flex flex-row items-center mt-2 mb-5 mx-5 w-max">
                             <i class="fa-solid fa-city fa-xl text-yellow-400"></i>
@@ -60,7 +60,7 @@
                         </div>
                         <div class="card-actions justify-end items-center">
                             <p class="ml-5 text-slate-400"><i
-                                    class="fa-regular fa-clock pr-5"></i>{{ $job['created_at'] }}</p>
+                                    class="fa-regular fa-clock pr-5"></i>{{ $job->created_at }}</p>
                             <a class="btn text-xs md:text-base bg-violet-400 text-white mr-5 mb-3 ease-in hover:bg-violet-600" href="{{ route('jobs_post', $job->id) }}">Прочитать</a>
                         </div>
                     </div>

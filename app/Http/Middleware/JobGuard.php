@@ -2,11 +2,11 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\Company;
+use App\Models\Job;
 use Closure;
 use Illuminate\Http\Request;
 
-class CompanyGuard
+class JobGuard
 {
     /**
      * Handle an incoming request.
@@ -18,9 +18,9 @@ class CompanyGuard
     public function handle(Request $request, Closure $next)
     {
         $id = substr($request->decodedPath(), -1);
-        $company = Company::find($id);
-        if($company){
-            if($company->user_id == $request->user()->id){
+        $job = Job::find($id);
+        if($job){
+            if($job->user_id == $request->user()->id){
                 return $next($request);
             }
         }

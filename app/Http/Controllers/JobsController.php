@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Job;
+use App\Models\JobType;
 use Illuminate\Http\Request;
 
 class JobsController extends Controller
@@ -30,7 +31,7 @@ class JobsController extends Controller
 
     public function open_post($id)
     {
-        $job = Job::with(['category', 'company', 'city'])->find($id);
+        $job = Job::with(['category', 'city', 'jobType'])->find($id);
         if($job)
         {
             return view('job', ["job"=>$job]);
@@ -41,4 +42,80 @@ class JobsController extends Controller
         }
     }
 
+    public function userJobList(Request $request){
+        #получение резюме авторизованного пользователя
+        $query = Job::query();
+        $query->where('user_id', '=', $request->user()->id);
+        $result = $query->orderBy('created_at', 'desc')->paginate(20);
+        #возврат страницы со списком резюме пользователя
+        return view('cabinet.cab-job-list', ['jobs'=>$result]);
+    }
+
+    public function createJobForm(){
+        $cities = City::all();
+        $categories = Category::all();
+        $jobTypes = JobType::all();
+
+        return view('cabinet.add-job', [
+            'jobTypes' => $jobTypes,
+            'cities' => $cities,
+            'categories' => $categories,
+        ]);
+    }
+
+    public function createJob(Request $request){
+        $data = $request->validate([
+            'name' => 'required|string|min:3|max:255',
+            'description' => 'required|min:3',
+            'salary' => 'required|numeric',
+            'city_id' => 'required|numeric',
+            'category_id' => 'required|numeric',
+            'job_type_id' => 'required|numeric',
+        ]);
+
+        $data['user_id'] = $request->user()->id;
+        #добавление резюме в базу
+        Job::create($data);
+
+        return redirect()->route('cabinet.job-list')->with(['message' => __('messages.resume_added')]);
+    }
+
+
+    public function updateJobForm($id){
+        $cities = City::all();
+        $categories = Category::all();
+        $jobTypes = JobType::all();
+        $job = Job::find($id);
+
+        return view('cabinet.edit-job', [
+            'job' => $job,
+            'jobTypes' => $jobTypes,
+            'cities' => $cities,
+            'categories' => $categories,
+        ]);
+    }
+
+    public function updateJob(Request $request, $id){
+        $data = $request->validate([
+            'name' => 'string|min:3|max:255',
+            'description' => 'min:3',
+            'salary' => 'numeric',
+            'city_id' => 'numeric',
+            'category_id' => 'numeric',
+            'job_type_id' => 'numeric',
+        ]);
+
+        $data['user_id'] = $request->user()->id;
+        $job = Job::find($id);
+        $job->update($data);
+
+        return redirect()->route('cabinet.job-list')->with(['message' => __('messages.resume_updated')]);
+    }
+
+    public function deleteJob($id){
+        $job = Job::find($id);
+        $job->delete();
+
+        return back()->with(['message' => __('messages.resume_deleted')]);
+    }
 }

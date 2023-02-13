@@ -18,7 +18,7 @@
                 <div class="flex flex-col items-center text-center my-5 mx-5">
                     <div class="avatar">
                         <div class="w-44 rounded-xl">
-                            <img class="object-left-top" src="/storage/avatars/{{ auth()->user()->avatar }}" alt="user avatar" />
+                            <img class="object-left-top" src="/storage/{{ auth()->user()->avatar }}" alt="user avatar" />
                         </div>
                     </div>
                     <p class="mt-3 w-3/4">{{ auth()->user()->name }}</p>

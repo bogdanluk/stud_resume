@@ -20,17 +20,8 @@ class Resume extends Model
         return $this->belongsTo(City::class, 'city_id', 'id');
     }
 
-    public function gender()
-    {
-        return $this->belongsTo(Gender::class, 'gender_id', 'id');
-    }
-
     public function education(){
         return $this->belongsTo(Education::class, 'education_id', 'id');
-    }
-
-    public function timetable(){
-        return $this->belongsTo(Timetable::class, 'timetable_id', 'id');
     }
 
     public function user(){

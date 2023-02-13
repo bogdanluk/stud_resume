@@ -47,6 +47,19 @@ Route::post('/register', [AuthController::class, 'register'])->middleware('guest
 #обработка запроса на выход из аккаунта
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
 
+#авторизация через соцсети
+Route::prefix('auth')->group(function (){
+    #авторизация через google
+    Route::get('/google', [GoogleAuthController::class, 'redirect'])->name('login.google-redirect');
+    Route::get('/google/callback', [GoogleAuthController::class, 'authenticate'])->name('login.google-callback');
+    #авторизация через вконтакте
+    Route::get('/vk', [VkAuthController::class, 'redirect'])->name('login.vk-redirect');
+    Route::get('/vk/callback', [VkAuthController::class, 'authenticate'])->name('login.vk-callback');
+    #авторизация через яндекс
+    Route::get('/yandex', [YandexAuthController::class, 'redirect'])->name('login.yandex-redirect');
+    Route::get('/yandex/callback', [YandexAuthController::class, 'authenticate'])->name('login.yandex-callback');
+})->middleware('guest');
+
 
 
 //роуты для email
@@ -86,6 +99,21 @@ Route::get('/reset-password/{token}', function ($token, Request $request) {
 //обработка запроса с формы для сброса пароля
 Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->middleware('guest')->name('password.update');
 
+#страница со списком новостей
+Route::get('/posts', [PostsController::class, 'index'])->name('news');
+#страница с конкретной новостью
+Route::get('/posts/{id}', [PostsController::class, 'open_post'])->name('news_post');
+
+#страница со списком вакансий
+Route::get('/jobs', [JobsController::class, 'index'])->name('jobs');
+#страница с конкретной вакансией
+Route::get('/jobs/{id}', [JobsController::class, 'open_post'])->name('jobs_post');
+
+#страница со списком резюме
+Route::get('/resumes', [ResumesController::class, 'index'])->name('resumes');
+#страница с конкретным резюме
+Route::get('/resumes/{id}', [ResumesController::class, 'open_post'])->name('resumes_post');
+
 #роуты личного кабинета
 Route::prefix('cabinet')->group(function (){
     #главная страница кабинета
@@ -112,64 +140,36 @@ Route::prefix('cabinet')->group(function (){
         });
     });
 
-    #группа роутов компаний
-    Route::prefix('company')->group(function (){
-        #страница со списком компаний пользователя
-        Route::get('/', [CompaniesController::class, 'userCompanyList'])->name('cabinet.company-list');
-        #форма добавления компании
-        Route::get('/create', function (){
-            return view('cabinet.add-company');
-        })->name('cabinet.company.add-form');
-        #обработка запроса с формы добавления компании
-        Route::post('/create', [CompaniesController::class, 'createCompany'])->name('cabinet.company.create');
-        #проверка является ли пользователь создателем запрашиваемой компании
-        Route::middleware('company_guard')->group(function (){
-            #форма изменения компании
-            Route::get('/update/{id}', [CompaniesController::class, 'updateCompanyForm'])->name('cabinet.company.update-form');
-            #обработка запроса с формы изменения
-            Route::post('/update/{id}', [CompaniesController::class, 'updateCompany'])->name('cabinet.company.update');
-            #обработка запроса на удаление компании
-            Route::get('/delete/{id}', [CompaniesController::class, 'deleteCompany'])->name('cabinet.company.delete');
+    #группа роутов вакансий
+    Route::prefix('job')->group(function (){
+        #страница со списком вакансий пользователя
+        Route::get('/', [JobsController::class, 'userJobList'])->name('cabinet.job-list');
+        #форма добавления вакансии
+        Route::get('/create', [JobsController::class, 'createJobForm'])->name('cabinet.job.add-form');
+        #обработка запроса с формы добавления вакансии
+        Route::post('/create', [JobsController::class, 'createJob'])->name('cabinet.job.create');
+        #проверка является ли пользователь создателем запрашиваемого резюме
+        Route::middleware('job_guard')->group(function (){
+            #обработка запроса на удаление резюме
+            Route::get('/delete/{id}', [JobsController::class, 'deleteJob'])->name('cabinet.job.delete');
+            #форма изменения резюме
+            Route::get('/update/{id}', [JobsController::class, 'updateJobForm'])->name('cabinet.job.update-form');
+            #обработка запроса с формы изменения резюме
+            Route::post('/update/{id}', [JobsController::class, 'updateJob'])->name('cabinet.job.edit');
         });
-
-
     });
+
+
+
+
 
 
 })->middleware(['auth', 'verified']);
 
 
 
-#авторизация через соцсети
-Route::prefix('auth')->group(function (){
-    #авторизация через google
-    Route::get('/google', [GoogleAuthController::class, 'redirect'])->name('login.google-redirect');
-    Route::get('/google/callback', [GoogleAuthController::class, 'authenticate'])->name('login.google-callback');
-    #авторизация через вконтакте
-    Route::get('/vk', [VkAuthController::class, 'redirect'])->name('login.vk-redirect');
-    Route::get('/vk/callback', [VkAuthController::class, 'authenticate'])->name('login.vk-callback');
-    #авторизация через яндекс
-    Route::get('/yandex', [YandexAuthController::class, 'redirect'])->name('login.yandex-redirect');
-    Route::get('/yandex/callback', [YandexAuthController::class, 'authenticate'])->name('login.yandex-callback');
-})->middleware('guest');
 
-#страница со списком новостей
-Route::get('/posts', [PostsController::class, 'index'])->name('news');
-#страница с конкретной новостью
-Route::get('/posts/{id}', [PostsController::class, 'open_post'])->name('news_post');
 
-#страница со списком вакансий
-Route::get('/jobs', [JobsController::class, 'index'])->name('jobs');
-#страница с конкретной вакансией
-Route::get('/jobs/{id}', [JobsController::class, 'open_post'])->name('jobs_post');
-
-#страница со списком резюме
-Route::get('/resumes', [ResumesController::class, 'index'])->name('resumes');
-#страница с конкретным резюме
-Route::get('/resumes/{id}', [ResumesController::class, 'open_post'])->name('resumes_post');
-
-#страница компании
-Route::get('/company/{id}', [CompaniesController::class, 'open_post'])->name('company.open_post');
 
 
 
