@@ -13,6 +13,7 @@ use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ResumesController;
+use App\Models\NewsPosts;
 
 /*
 |--------------------------------------------------------------------------
@@ -171,7 +172,20 @@ Route::prefix('cabinet')->group(function (){
 
 
 
+#кабинет администратора
+Route::get('/admin', function(){return view('cabinet.cab-admin');})->name('admin');
 
+Route::get('/adminnews', [PostsController::class, 'adminNewsList'])->name('cabinet.news-list');
+
+Route::get('/addnews', function(){return view('cabinet.add-news');})->name('cabinet.news.add-form');
+
+Route::post('/createnews', [PostsController::class, 'addNewsList'])->name('cabinet.news.create');
+
+Route::get('/deletenews/{id}', [PostsController::class, 'deleteNews'])->name('cabinet.news.delete');
+
+Route::get('/editfnews/{id}', [PostsController::class, 'editNewsForm'])->name('cabinet.news.edit-form');
+
+Route::post('/editnews/{id}', [PostsController::class, 'editNews'])->name('cabinet.news.edit');
 
 #страничка 404
 Route::view('/404', 'not-found')->name('404');

@@ -23,12 +23,10 @@ class AuthController extends Controller
            'email' => 'required|string|email',
            'password' => 'required|string|min:8',
         ]);
-
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
             return redirect()->route('cabinet.main');
         }
-
         return back()->withErrors([
             'email' => __('auth.failed')
         ]);
