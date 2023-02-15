@@ -8,9 +8,9 @@
                 <li class="text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg"><a href="{{ route('logout') }}">Выйти</a></li>
                 <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('home') }}">Главная</a></li>
                 @if(request()->route()->getName() == 'admin.news-list')
-                    <li class="mr-2 text-lg active py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('admin.news-list') }}">Список новостей</a></li>
+                    <li class="mr-2 text-lg active py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 link-mobile rounded-lg"><a href="{{ route('admin.news-list') }}">Список новостей</a></li>
                 @else
-                    <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('admin.news-list') }}">Список новостей</a></li>
+                    <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg"><a href="{{ route('admin.news-list') }}">Список новостей</a></li>
                 @endif
             </ul>
         </div>
@@ -23,7 +23,7 @@
             @if(request()->route()->getName() == 'admin.news-list')
                 <li class="mr-2 text-lg active py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('admin.news-list') }}">Список новостей</a></li>
             @else
-                <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('admin.news-list') }}">Список новостей</a></li>
+                <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg"><a href="{{ route('admin.news-list') }}">Список новостей</a></li>
             @endif
         </ul>
     </div>
