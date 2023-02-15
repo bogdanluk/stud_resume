@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CabinetController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -13,7 +14,6 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ResumesController;
-use App\Models\NewsPosts;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,12 +112,10 @@ Route::get('/resumes/{id}', [ResumesController::class, 'open_post'])->name('resu
 #роуты личного кабинета
 Route::middleware(['auth', 'verified'])->prefix('cabinet')->group(function (){
     #главная страница кабинета
-    Route::get('/', function (){
-        return view('cabinet.cab-main');
-    })->name('cabinet.main');
+    Route::get('/', [CabinetController::class, 'mainPage'])->name('cabinet.main');
 
     #группа роутов резюме
-    Route::prefix('resume')->group(function (){
+    Route::middleware('sure.user.student')->prefix('resume')->group(function (){
         #страница со списком резюме пользователя
         Route::get('/', [ResumesController::class, 'userResumeList'])->name('cabinet.resume-list');
         #форма добавления резюме
@@ -136,7 +134,7 @@ Route::middleware(['auth', 'verified'])->prefix('cabinet')->group(function (){
     });
 
     #группа роутов вакансий
-    Route::prefix('job')->group(function (){
+    Route::middleware('sure.user.employer')->prefix('job')->group(function (){
         #страница со списком вакансий пользователя
         Route::get('/', [JobsController::class, 'userJobList'])->name('cabinet.job-list');
         #форма добавления вакансии
@@ -158,6 +156,8 @@ Route::middleware(['auth', 'verified'])->prefix('cabinet')->group(function (){
     Route::post('/change-pass', [UsersController::class, 'changePassword'])->name('cabinet.change-pass');
     #обработка запроса на смену аватарки
     Route::post('/change-avatar', [UsersController::class, 'changeAvatar'])->name('cabinet.change-avatar');
+    #обработка запроса на смену роли
+    Route::post('/change-role', [UsersController::class, 'changeRole'])->name('cabinet.change-role');
 
 }); //конец роутов личного кабинета
 

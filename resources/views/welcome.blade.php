@@ -8,7 +8,7 @@
     @include('layouts.navbar')
     <main>
         <div class="w-full min-h-screen flex flex-col justify-center items-center"
-             style="background-image: url('/img/photo1.jpg');
+             style="background-image: url({{ asset('/img/photo1.jpg') }});
              background-repeat: no-repeat;
              background-size: cover;
              background-position: center;

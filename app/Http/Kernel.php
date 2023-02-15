@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\SureUserStudent;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -66,5 +67,7 @@ class Kernel extends HttpKernel
         'resume.check' => \App\Http\Middleware\ResumeGuard::class,
         'job.check' => \App\Http\Middleware\JobGuard::class,
         'admin.check' => \App\Http\Middleware\AdminGuard::class,
+        'sure.user.student' => \App\Http\Middleware\SureUserStudent::class,
+        'sure.user.employer' => \App\Http\Middleware\SureUserEmployer::class,
     ];
 }
