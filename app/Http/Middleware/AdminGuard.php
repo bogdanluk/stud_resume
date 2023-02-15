@@ -17,6 +17,7 @@ class AdminGuard
     public function handle(Request $request, Closure $next)
     {
         if (auth()->user()->role_id == 1){
+            dd(auth()->user()->role_id);
             return $next($request);
         }
         return redirect()->route('404');

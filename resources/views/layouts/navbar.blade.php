@@ -13,26 +13,26 @@
                     <li class="text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('cabinet.main') }}">Личный кабинет</a></li>
                 @endauth
                 @if(request()->route()->getName() == 'home')
-                    <li class="mr-2 text-lg active p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg link-mobile rounded-lg"><a href="{{ route('home') }}">Главная</a></li>
+                    <li class="mr-2 text-lg active p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg link rounded-lg"><a href="{{ route('home') }}">Главная</a></li>
                 @else
                     <li class="mr-2 text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('home') }}">Главная</a></li>
                 @endif
                 @if(request()->route()->getName() == 'news')
-                    <li class="mr-2 text-lg active p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg link-mobile rounded-lg"><a href="{{ route('news') }}">Новости</a></li>
+                    <li class="mr-2 text-lg active p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg link rounded-lg"><a href="{{ route('news') }}">Новости</a></li>
                 @else
                     <li class="mr-2 text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('news') }}">Новости</a></li>
                 @endif
                 @if(request()->route()->getName() == 'jobs')
-                    <li class="mr-2 text-lg active p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg link-mobile rounded-lg"><a href="{{ route('jobs') }}">Вакансии</a></li>
+                    <li class="mr-2 text-lg active p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg link rounded-lg"><a href="{{ route('jobs') }}">Вакансии</a></li>
                 @else
                     <li class="mr-2 text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('jobs') }}">Вакансии</a></li>
                 @endif
                 @if(request()->route()->getName() == 'resumes')
-                    <li class="mr-2 text-lg active p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg link-mobile rounded-lg"><a href="{{ route('resumes') }}">Резюме</a></li>
+                    <li class="mr-2 text-lg active p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg link rounded-lg"><a href="{{ route('resumes') }}">Резюме</a></li>
                 @else
                     <li class="mr-2 text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('resumes') }}">Резюме</a></li>
                 @endif
-                @if(isset(auth()->user()->role_id) && auth()->user()->role_id=1)
+                @if(isset(auth()->user()->role_id) && auth()->user()->role_id == 1)
                     <li class="mr-2 text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('admin.main') }}">Админка</a></li>
                 @endif
             </ul>
@@ -64,7 +64,7 @@
             @else
                 <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('resumes') }}">Резюме</a></li>
             @endif
-            @if(isset(auth()->user()->role_id) && auth()->user()->role_id=1)
+            @if(isset(auth()->user()->role_id) && auth()->user()->role_id == 1)
                     <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('admin.main') }}">Админка</a></li>
             @endif
         </ul>

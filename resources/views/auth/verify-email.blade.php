@@ -3,7 +3,7 @@
 @section('title')Подтвердите email @endsection
 
 @section('content')
-
+    @include('layouts.navbar')
     <div class="relative flex min-h-screen antialiased flex-col justify-center">
         <div class="relative py-3 sm:w-96 mx-auto text-center">
             <span class="text-2xl font-light">Подтвердите email</span>
