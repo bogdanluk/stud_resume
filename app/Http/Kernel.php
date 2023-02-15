@@ -63,8 +63,8 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'resume_guard' => \App\Http\Middleware\ResumeGuard::class,
-        'job_guard' => \App\Http\Middleware\JobGuard::class,
-        'admin_guard' => \App\Http\Middleware\AdminGuard::class,
+        'resume.check' => \App\Http\Middleware\ResumeGuard::class,
+        'job.check' => \App\Http\Middleware\JobGuard::class,
+        'admin.check' => \App\Http\Middleware\AdminGuard::class,
     ];
 }
