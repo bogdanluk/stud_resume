@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CabinetController;
 use App\Http\Controllers\UsersController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -25,6 +26,15 @@ use App\Http\Controllers\ResumesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/clear', function() {
+    Artisan::call('storage:link');
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+    Artisan::call('route:cache');
+    Artisan::call('view:cache');
+    return "Кеш очишен";
+});
 
 #главная страница
 Route::get('/', function () {

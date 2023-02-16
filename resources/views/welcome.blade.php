@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="self-center w-full xl:w-4/5 flex flex-col sm:flex-row flex-wrap px-4 xl:px:0">
-                <div class="w-full sm:w-1/2 flex flex-row flex-no-wrap hover:shadow-lg hover:bg-violet-200 hover:bg-opacity-50 px-4 sm:px-8 py-6 sm:py-12">
+                <div class="w-full sm:w-1/2 flex flex-row flex-no-wrap hover:shadow-lg hover:bg-violet-200 hover:bg-opacity-50 px-4 sm:px-8 py-6 sm:py-12" onclick="">
                     <div class="w-1/3 text-center">
                         <i class="fa-solid fa-user-plus block sm:mx-auto text-6xl lg:text-8xl text-yellow-400"></i>
                     </div>
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full sm:w-1/2 flex flex-row flex-no-wrap hover:shadow-lg hover:bg-violet-200 hover:bg-opacity-50 px-4 sm:px-8 py-6 sm:py-12">
+                <div class="w-full sm:w-1/2 flex flex-row flex-no-wrap hover:shadow-lg hover:bg-violet-200 hover:bg-opacity-50 px-4 sm:px-8 py-6 sm:py-12" onclick="">
                     <div class="w-1/3 text-center">
                         <i class="fa-solid fa-user-gear block sm:mx-auto text-6xl lg:text-8xl text-yellow-400"></i>
                     </div>
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full sm:w-1/2 flex flex-row flex-no-wrap hover:shadow-lg hover:bg-violet-200 hover:bg-opacity-50 px-4 sm:px-8 py-6 sm:py-12">
+                <div class="w-full sm:w-1/2 flex flex-row flex-no-wrap hover:shadow-lg hover:bg-violet-200 hover:bg-opacity-50 px-4 sm:px-8 py-6 sm:py-12" onclick="">
                     <div class="w-1/3 text-center">
                         <i class="fa-regular fa-address-book block sm:mx-auto text-6xl lg:text-8xl text-yellow-400"></i>
                     </div>
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full sm:w-1/2 flex flex-row flex-no-wrap hover:shadow-lg hover:bg-violet-200 hover:bg-opacity-50 px-4 sm:px-8 py-6 sm:py-12">
+                <div class="w-full sm:w-1/2 flex flex-row flex-no-wrap hover:shadow-lg hover:bg-violet-200 hover:bg-opacity-50 px-4 sm:px-8 py-6 sm:py-12" onclick="">
                     <div class="w-1/3 text-center">
                         <i class="fa-regular fa-address-card block sm:mx-auto text-6xl lg:text-8xl text-yellow-400"></i>
                     </div>
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full sm:w-1/2 flex flex-row flex-no-wrap hover:shadow-lg hover:bg-violet-200 hover:bg-opacity-50 px-4 sm:px-8 py-6 sm:py-12">
+                <div class="w-full sm:w-1/2 flex flex-row flex-no-wrap hover:shadow-lg hover:bg-violet-200 hover:bg-opacity-50 px-4 sm:px-8 py-6 sm:py-12" onclick="">
                     <div class="w-1/3 text-center">
                         <i class="fa-regular fa-comments block sm:mx-auto text-6xl lg:text-8xl text-yellow-400"></i>
                     </div>
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full sm:w-1/2 flex flex-row flex-no-wrap hover:shadow-lg hover:bg-violet-200 hover:bg-opacity-50 px-4 sm:px-8 py-6 sm:py-12">
+                <div class="w-full sm:w-1/2 flex flex-row flex-no-wrap hover:shadow-lg hover:bg-violet-200 hover:bg-opacity-50 px-4 sm:px-8 py-6 sm:py-12" onclick="">
                     <div class="w-1/3 text-center">
                         <i class="fa-regular fa-newspaper block sm:mx-auto text-6xl lg:text-8xl text-yellow-400"></i>
                     </div>
