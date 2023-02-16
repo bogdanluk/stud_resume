@@ -27,14 +27,14 @@ use App\Http\Controllers\ResumesController;
 |
 */
 
-Route::get('/clear', function() {
-    Artisan::call('storage:link');
-    Artisan::call('cache:clear');
-    Artisan::call('config:cache');
-    Artisan::call('route:cache');
-    Artisan::call('view:cache');
-    return "Кеш очишен";
-});
+//Route::get('/clear', function() {
+//    Artisan::call('cache:clear');
+//    Artisan::call('config:cache');
+//    Artisan::call('route:cache');
+//    Artisan::call('view:cache');
+//    //Artisan::call('storage:link'); #создание символьной ссылки на публичное хранилище
+//    return "Кеш очишен";
+//});
 
 #главная страница
 Route::get('/', function () {
