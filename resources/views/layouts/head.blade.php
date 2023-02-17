@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Проект StudResume. Здесь каждый студент сможет найти работу по душе.">
+    <meta name="keywords" content="studresume, студент, работа, резюме, вакансии, днр, россия">
     <link rel="icon" type="image/jpg" href="{{ asset('img/site-icon.jpg') }}">
     <title>@yield('title')</title>
     <!-- Fonts -->
