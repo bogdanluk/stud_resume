@@ -95,7 +95,7 @@ Route::middleware('auth')->prefix('email')->group(function (){
     Route::get('/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
         $request->fulfill();
         return redirect('/cabinet');
-    })->middleware(['signed'])->name('verification.verify');
+    })->name('verification.verify');
     //обработчик повторной отправки письма для подтверждения email
     Route::post('/verification-notification', function (Request $request) {
         $request->user()->sendEmailVerificationNotification();
