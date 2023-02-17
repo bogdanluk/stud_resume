@@ -34,6 +34,7 @@
                 @endguest
                 @auth
                     <li class="text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('cabinet.main') }}">Личный кабинет</a></li>
+                    <li class="text-lg p-1 hover:text-white hover:bg-violet-400 hover:rounded-lg"><a href="{{ route('logout') }}">Выйти</a></li>
                 @endauth
             </ul>
         </div>
@@ -76,6 +77,7 @@
         @endguest
         @auth
             <a class="btn text-violet-400 btn-sm border-2 border-violet-400 mr-2 hover:bg-violet-400 hover:text-white" href="{{ route('cabinet.main') }}">Личный кабинет</a>
+            <a class="btn text-white btn-sm bg-violet-400 mr-2 hover:bg-violet-600" href="{{ route('logout') }}">Выйти</a>
         @endauth
     </div>
 </div>
