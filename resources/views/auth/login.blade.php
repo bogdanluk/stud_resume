@@ -3,6 +3,7 @@
 @section('title')Вход @endsection
 
 @section('content')
+    @include('layouts.navbar')
     <div class="relative flex min-h-screen antialiased flex-col justify-center dark:bg-slate-800">
         <div class="relative sm:w-96 mx-auto text-center">
             <span class="text-2xl font-light">Вход в аккаунт</span>
@@ -20,10 +21,10 @@
                         @csrf
                         <label class="block font-semibold" for="input1">Email</label>
                         <input type="text" id="input1" name="email" placeholder="Email"
-                               class="dark:bg-slate-800 w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md">
+                               class="w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
                         <label class="block mt-3 font-semibold" for="input2">Пароль </label>
                         <input type="password" id="input2" name="password" placeholder="Пароль"
-                               class="dark:bg-slate-800 border-2 dark:border-slate-400 w-full h-5 px-3 py-5 mt-2 outline-none focus:border-violet-400 rounded-md">
+                               class="w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
                         @if(session('message'))
                             <div class="flex mt-3 p-4 mb-4 text-green-800 border-t-4 border-green-400 bg-green-50 dark:bg-slate-800 rounded-md">
                                 <p class="ml-1 text-sm font-medium">{{ session('message') }}</p>

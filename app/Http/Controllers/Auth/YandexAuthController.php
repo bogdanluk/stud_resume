@@ -28,6 +28,7 @@ class YandexAuthController extends Controller
                 'name' => $user->name,
                 'email' => $user->email,
                 'role_id' => 2,
+                'avatar' => 'avatars/default-avatar.png'
             ]);
             #отправка письма с ссылкой для подтверждения email
             event(new Registered($newUser));

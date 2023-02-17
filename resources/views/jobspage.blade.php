@@ -12,11 +12,12 @@
             <form method="get" action="{{route('jobs')}}">
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <input type="text" name="name" placeholder="Название" class="py-2 w-full text-slate-400 px-5 dark:bg-slate-800 border-2 dark:border-slate-400 outline-none focus:border-violet-400 rounded-full"/>
+                    <input type="text" name="name" placeholder="Название"
+                           class="py-2 w-full text-slate-400 px-5 dark:bg-slate-800 border-2 dark:border-slate-400 outline-none focus:border-violet-400 rounded-full dark:focus:border-violet-400"/>
                 </div>
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <select name="category_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer">
+                    <select name="category_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400">
                         <option disabled selected>Категория</option>
                         @foreach ($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
@@ -25,7 +26,7 @@
                 </div>
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <select name="city_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer">
+                    <select name="city_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400">
                         <option disabled selected>Город</option>
                         @foreach ($cities as $city)
                             <option value="{{$city->id}}">{{$city->name}}</option>
