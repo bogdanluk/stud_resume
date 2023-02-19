@@ -12,6 +12,7 @@
                     <div class="h-2 bg-violet-400 rounded-t-md"></div>
                     <div class="px-8 py-6 bg-base-200 dark:bg-slate-700">
                         <p class="block mb-2 text-xl font-semibold">Ссылка для подтверждения была отправлена на ваш email.</p>
+                        <p class="block mb-2">Письмо может находиться в папке "спам".</p>
                         @if(session('message'))
                             <div class="flex p-4 mb-4 text-green-800 border-t-4 border-green-400 bg-green-50 dark:bg-slate-800 dark:text-green-400 rounded-md">
                                 <p class="ml-1 text-sm font-medium">{{ session('message') }}</p>

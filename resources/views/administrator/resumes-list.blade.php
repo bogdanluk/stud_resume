@@ -18,7 +18,7 @@
                 <thead class="bg-base-200 dark:bg-slate-700">
                 <tr>
                     <th>id</th>
-                    <th>Заголовок</th>
+                    <th>ФИО</th>
                     <th><i class="fa-regular fa-trash-can"></i></th>
                 </tr>
                 </thead>
