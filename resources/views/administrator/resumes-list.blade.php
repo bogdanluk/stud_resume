@@ -30,7 +30,7 @@
                                     class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a></th>
                         <td>{{ $resume->name }}</td>
                         <td class="text-center">
-                            <a href="{{ route('admin.resume.delete', $resume->id) }}"
+                            <a href="{{ route('cabinet.resume.delete', $resume->id) }}"
                                class="hover:text-violet-400"><i class="fa-regular fa-trash-can"></i></a>
                         </td>
                     </tr>

@@ -30,7 +30,7 @@ class PostsController extends Controller
     {
         $news = NewsPosts::query();
         $result = $news->orderBy('created_at', 'desc')->paginate(20);
-        #возврат страницу со списком постов
+        #возврат страницы со списком постов
         return view('administrator.news-list', ['news'=>$result]);
     }
 

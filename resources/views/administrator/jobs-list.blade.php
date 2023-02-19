@@ -30,7 +30,7 @@
                                     class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a></th>
                         <td>{{ $job->name }}</td>
                         <td class="text-center">
-                            <a href="{{ route('admin.job.delete', $job->id) }}"
+                            <a href="{{ route('cabinet.job.delete', $job->id) }}"
                                class="hover:text-violet-400"><i class="fa-regular fa-trash-can"></i></a>
                         </td>
                     </tr>

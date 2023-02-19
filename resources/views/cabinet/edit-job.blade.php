@@ -1,12 +1,12 @@
 @extends('layouts.head')
 
-@section('title')Изменение резюме @endsection
+@section('title')Изменение вакансии @endsection
 
 @section('content')
     @include('cabinet.cab-navbar')
 
     <main class="flex flex-col items-center w-full px-5 min-h-screen">
-        <h1 class="border-2 border-violet-400 rounded-lg font-medium text-xl my-10 p-5">Изменение резюме</h1>
+        <h1 class="border-2 border-violet-400 rounded-lg font-medium text-xl my-10 p-5">Изменение вакансии</h1>
         <div class="h-2 bg-violet-400 rounded-t-md w-full"></div>
         <form action="{{ route('cabinet.job.update-form', $job->id) }}" method="post" enctype="multipart/form-data" class="w-full bg-base-200 dark:bg-slate-700 p-5 rounded-md mb-5 shadow-lg">
             @if($errors->any())

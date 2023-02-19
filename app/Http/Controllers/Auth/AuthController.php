@@ -14,7 +14,7 @@ class AuthController extends Controller
 {
     public function getRegisterPage(){
         $query = UserRoles::query();
-        $roles = $query->where('id', '>', 0)->get();
+        $roles = $query->where('id', '>', 1)->get();
         return view('auth.register', ['roles' => $roles]);
     }
 

@@ -16,7 +16,7 @@ class SureUserStudent
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()['role_id'] == 2){
+        if (auth()->user()['role_id'] == 2 || auth()->user()['role_id'] == 1){
             return $next($request);
         }
         return redirect()->route('404');

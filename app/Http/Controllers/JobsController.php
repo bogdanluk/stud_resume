@@ -46,7 +46,7 @@ class JobsController extends Controller
     {
         $jobs = Job::query();
         $result = $jobs->orderBy('created_at', 'desc')->paginate(20);
-        #возврат страницу со списком постов
+        #возврат страницы со списком всех вакансий для админа
         return view('administrator.jobs-list', ['jobs'=>$result]);
     }
 
