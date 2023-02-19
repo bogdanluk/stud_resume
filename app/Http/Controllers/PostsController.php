@@ -11,8 +11,8 @@ class PostsController extends Controller
 
     public function index()
     {
-        $posts = NewsPosts::paginate(5);
-        //dd($posts);
+        $news = NewsPosts::query();
+        $posts = $news->orderBy('created_at', 'desc')->paginate(5);
         return view('newspage', ['posts' => $posts]);
     }
 

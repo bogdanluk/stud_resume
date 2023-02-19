@@ -17,18 +17,18 @@
         <div class="flex flex-col items-center w-full">
             <div class="flex flex-col w-11/12 bg-base-200 border-t-8 border-t-violet-400 rounded-lg shadow-lg mb-10 dark:bg-slate-700">
                 <h2 class="pt-3 pl-5 font-medium">Возраст</h2>
-                <p class="pt-3 pl-5">
+                <p class="pt-3 pl-5 mb-3">
                     {{$resume->age}}
                 </p>
                 <h2 class="pt-3 pl-5 font-medium">Уровень образования</h2>
-                <p class="pt-3 pl-5">
+                <p class="pt-3 pl-5 mb-3">
                     {{$resume->education->name}}
                 </p>
                 <h2 class="pt-3 pl-5 font-medium">Город</h2>
-                <p class="pt-3 pl-5">
+                <p class="pt-3 pl-5 mb-3">
                     {{$resume->city->name}}
                 </p>
-                <h2 class="pt-3 pl-5 font-medium">Про себя</h2>
+                <h2 class="pt-3 pl-5 font-medium">О себе</h2>
                 <p class="pt-3 pl-5 mb-3">
                     {{$resume->about}}
                 </p>
@@ -36,10 +36,11 @@
                 <p class="pt-3 pl-5 mb-3">
                     {{$resume->experience}}
                 </p>
-                <h2 class="pt-3 pl-5 font-medium">Контактный email</h2>
-                <p class="pt-3 pl-5 mb-3">
+                <h2 class="pt-3 pl-5 font-medium">Email</h2>
+                <p class="pt-3 pl-5">
                     {{$resume->user->email}}
                 </p>
+                <p class="m-3 text-end text-gray-400">Дата создания: {{$resume->created_at}}</p>
             </div>
         </div>
     </div>
