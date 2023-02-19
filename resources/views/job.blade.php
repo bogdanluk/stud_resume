@@ -3,8 +3,9 @@
 @section('title') {{$job->name}} @endsection
 
 @section('content')
+    {{-- dd(auth()->user()->role->name); --}}
     @include('layouts.navbar')
-    <div class="flex flex-col items-center w-full">
+    <div class="flex flex-col items-center w-full min-h-screen">
         <div class="flex flex-col items-center w-full">
             <h1 class="text-2xl text-center p-5 m-10">{{$job->name}}</h1>
         </div>
@@ -23,8 +24,8 @@
                 <p class="pt-3 pl-5">{{$job->jobType->name}}</p>
                 <p class="m-3 text-end text-gray-400">Дата создания: {{ $job->created_at}}</p>
             </div>
-
         </div>
-
+    </div>    
+        </div>
     @include('layouts.footer')
 @endsection

@@ -42,6 +42,14 @@ class JobsController extends Controller
         }
     }
 
+    public function adminJobList()
+    {
+        $jobs = Job::query();
+        $result = $jobs->orderBy('created_at', 'desc')->paginate(20);
+        #возврат страницу со списком постов
+        return view('administrator.jobs-list', ['jobs'=>$result]);
+    }
+
     public function userJobList(Request $request){
         #получение резюме авторизованного пользователя
         $query = Job::query();
@@ -77,7 +85,7 @@ class JobsController extends Controller
         #добавление резюме в базу
         Job::create($data);
 
-        return redirect()->route('cabinet.job-list')->with(['message' => __('messages.resume_added')]);
+        return redirect()->route('cabinet.job-list')->with(['message' => __('messages.job_added')]);
     }
 
 
@@ -109,13 +117,13 @@ class JobsController extends Controller
         $job = Job::find($id);
         $job->update($data);
 
-        return redirect()->route('cabinet.job-list')->with(['message' => __('messages.resume_updated')]);
+        return redirect()->route('cabinet.job-list')->with(['message' => __('messages.job_updated')]);
     }
 
     public function deleteJob($id){
         $job = Job::find($id);
         $job->delete();
 
-        return back()->with(['message' => __('messages.resume_deleted')]);
+        return back()->with(['message' => __('messages.job_deleted')]);
     }
 }
