@@ -19,21 +19,25 @@ class VkAuthController extends Controller
     public function authenticate(Request $request)
     {
         $user = Socialite::driver('vkontakte')->stateless()->user();
-        $finduser = User::where('email', $user->email)->first();
-        if ($finduser) {
-            Auth::login($finduser);
-            return redirect()->route('cabinet.main');
-        } else {
-            $newUser = User::create([
-                'name' => $user->name,
-                'email' => $user->email,
-                'role_id' => 2,
-                'avatar' => 'avatars/default-avatar.png'
-            ]);
-            #отправка письма с ссылкой для подтверждения email
-            event(new Registered($newUser));
-            Auth::login($newUser);
-            return redirect()->route('cabinet.main')->with(['message' => __('auth.social_auth_success')]);
+        if($user['email'] != null) {
+            $finduser = User::where('email', $user->email)->first();
+            if ($finduser) {
+                Auth::login($finduser);
+                return redirect()->route('cabinet.main');
+            } else {
+                $newUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'role_id' => 2,
+                    'avatar' => 'avatars/default-avatar.png'
+                ]);
+                #отправка письма с ссылкой для подтверждения email
+                event(new Registered($newUser));
+                Auth::login($newUser);
+                return redirect()->route('cabinet.main')->with(['message' => __('auth.social_auth_success')]);
+            }
         }
+
+        return redirect()->route('login')->withErrors(['message' => __('social_no_email')]);
     }
 }
