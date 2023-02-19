@@ -190,7 +190,20 @@ Route::prefix('administrator')->group(function (){
         #обработка запроса с формы редактирования новости
         Route::post('/update/{id}', [PostsController::class, 'updateNews'])->name('admin.news.update');
     });
-
+    #группа роутов вакансий
+    Route::prefix('jobs')->group(function (){
+        #страница со списком вакансий
+        Route::get('/', [JobsController::class, 'adminJobList'])->name('admin.jobs-list');
+        #обработка запроса удаления вакансии
+        Route::get('/delete/{id}', [JobsController::class, 'deleteJob'])->name('admin.job.delete');
+    });
+    #группа роутов резюме
+    Route::prefix('resumes')->group(function (){
+        #страница со списком резюме
+        Route::get('/', [ResumesController::class, 'adminResumeList'])->name('admin.resumes-list');
+        #обработка запроса удаления резюме
+        Route::get('/delete/{id}', [ResumesController::class, 'deleteResume'])->name('admin.resume.delete');
+    });
 })->middleware(['auth', 'admin_guard']);
 
 #страничка 404

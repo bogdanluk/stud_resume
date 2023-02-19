@@ -7,7 +7,7 @@
     <div class="flex flex-col items-center w-full">
         <img class="flex max-h-96 mx-auto mt-10" src="/storage/{{ $resume->user->avatar }}" alt="user avatar"/>
     </div>
-    <div class="flex flex-col items-center w-full">
+    <div class="flex flex-col items-center w-full min-h-screen">
         <div class="flex flex-col items-center w-full">
             <h1 class="text-2xl text-center p-5 m-10">{{$resume->name}}</h1>
         </div>
@@ -41,6 +41,7 @@
                     {{$resume->user->email}}
                 </p>
             </div>
-
+        </div>
+    </div>
     @include('layouts.footer')
 @endsection

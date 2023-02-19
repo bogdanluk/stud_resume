@@ -14,7 +14,7 @@ class AuthController extends Controller
 {
     public function getRegisterPage(){
         $query = UserRoles::query();
-        $roles = $query->where('id', '>', 1)->get();
+        $roles = $query->where('id', '>', 0)->get();
         return view('auth.register', ['roles' => $roles]);
     }
 
@@ -51,7 +51,6 @@ class AuthController extends Controller
         event(new Registered($user));
         #авторизация юзера
         Auth::login($user);
-
         return redirect()->route('cabinet.main');
     }
 

@@ -10,7 +10,7 @@
         <div class="h-2 bg-violet-400 rounded-t-md w-full"></div>
         <form action="{{ route('cabinet.resume.create') }}" method="post" enctype="multipart/form-data" class="w-full bg-base-200 dark:bg-slate-700 p-5 rounded-md mb-5 shadow-lg">
             @if($errors->any())
-                <div class="block mt-3 p-2 text-red-800 border-t-4 border-red-400 bg-red-50 dark:bg-slate-800 rounded-md">
+                <div class="block mt-3 p-2 text-red-800 border-t-4 border-red-400 bg-red-50 dark:bg-slate-800 dark:text-red-400 rounded-md">
                     <span class="font-medium">Ошибка:</span>
                     <ul class="mt-1.5 ml-1 list-disc list-inside">
                         @foreach($errors->all() as $error)

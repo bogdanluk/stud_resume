@@ -12,7 +12,7 @@
         </div>
         <div class="overflow-x-auto w-full mb-3 rounded-lg">
             @if(session('message'))
-                <div class="flex mt-3 p-4 mb-4 text-green-800 border-t-4 border-green-400 bg-green-50 dark:bg-slate-700 rounded-md">
+                <div class="flex mt-3 p-4 mb-4 text-green-800 border-t-4 border-green-400 bg-green-50 dark:bg-slate-700 dark:text-green-400 rounded-md">
                     <p class="ml-1 text-sm font-medium">{{ session('message') }}</p>
                 </div>
             @endif

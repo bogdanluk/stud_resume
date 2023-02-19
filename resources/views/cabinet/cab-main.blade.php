@@ -32,12 +32,12 @@
             </div>
         </div>
         @if(session('message'))
-            <div class="flex mt-3 p-4 mb-4 text-green-800 border-t-4 border-green-400 bg-green-50 rounded-md">
+            <div class="flex mt-3 p-4 mb-4 text-green-800 border-t-4 border-green-400 dark:text-green-400 bg-green-50 rounded-md">
                 <p class="ml-1 text-sm font-medium">{{ session('message') }}</p>
             </div>
         @endif
         @if($errors->any())
-            <div class="block mt-3 mb-3 p-2 text-red-800 border-t-4 border-red-400 bg-red-50 dark:bg-slate-800 rounded-md">
+            <div class="block mt-3 mb-3 p-2 text-red-800 border-t-4 border-red-400 bg-red-50 dark:bg-slate-800 dark:text-red-400 rounded-md">
                 <span class="font-medium">Ошибка:</span>
                 <ul class="mt-1.5 ml-1 list-disc list-inside">
                     @foreach($errors->all() as $error)

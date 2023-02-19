@@ -32,7 +32,7 @@
                         @endforeach
                     </select>
                     @if($errors->any())
-                        <div class="block mt-3 p-2 text-red-800 border-t-4 border-red-400 bg-red-50 dark:bg-slate-800 rounded-md">
+                        <div class="block mt-3 p-2 text-red-800 border-t-4 border-red-400 bg-red-50 dark:bg-slate-800 dark:text-red-400 rounded-md">
                             <span class="font-medium">Ошибка:</span>
                             <ul class="mt-1.5 ml-1 list-disc list-inside">
                                 @foreach($errors->all() as $error)

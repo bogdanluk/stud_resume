@@ -46,6 +46,14 @@ class ResumesController extends Controller
         }
     }
 
+    public function adminResumeList()
+    {
+        $resumes = Resume::query();
+        $result = $resumes->orderBy('created_at', 'desc')->paginate(20);
+        #возврат страницу со списком постов
+        return view('administrator.resumes-list', ['resumes'=>$result]);
+    }
+
     public function userResumeList(Request $request){
         #получение резюме авторизованного пользователя
         $query = Resume::query();
