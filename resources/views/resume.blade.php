@@ -29,13 +29,9 @@
                     {{$resume->city->name}}
                 </p>
                 <h2 class="pt-3 pl-5 font-medium">О себе</h2>
-                <p class="pt-3 pl-5 mb-3">
-                    {{$resume->about}}
-                </p>
+                <pre class="pt-3 pl-5 mb-3 font-sans">{{$resume->about}}</pre>
                 <h2 class="pt-3 pl-5 font-medium">Опыт работы</h2>
-                <p class="pt-3 pl-5 mb-3">
-                    {{$resume->experience}}
-                </p>
+                <pre class="pt-3 pl-5 mb-3 font-sans">{{$resume->experience}}</pre>
                 <h2 class="pt-3 pl-5 font-medium">Email</h2>
                 <p class="pt-3 pl-5">
                     {{$resume->user->email}}
