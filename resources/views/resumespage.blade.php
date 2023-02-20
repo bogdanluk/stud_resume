@@ -1,7 +1,7 @@
 @extends('layouts.head')
 
 @section('title')
-    Вакансии
+    Резюме
 @endsection
 
 @section('content')
@@ -66,7 +66,7 @@
                         <div class="card-actions justify-end items-center">
                             <p class="ml-5 text-slate-400"><i
                                     class="fa-regular fa-clock pr-5"></i>{{ $resume['created_at'] }}</p>
-                            <a class="btn text-xs md:text-base bg-violet-400 text-white mr-5 mb-3 ease-in hover:bg-violet-600" href="{{ route('resumes_post', $resume->id) }}">Прочитать</a>
+                            <a class="btn text-xs md:text-base bg-violet-400 text-white mr-5 mb-3 ease-in hover:bg-violet-600" href="{{ route('resumes_post', $resume->id) }}">Подробнее</a>
                         </div>
                     </div>
                 </div>

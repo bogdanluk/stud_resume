@@ -27,27 +27,42 @@
             <label class="block font-semibold mt-2" for="input2">Описание</label>
             <textarea type="text" id="input2" name="description" placeholder="Описание"
                       class="w-full p-3 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400"></textarea>
-            <label class="block font-semibold mt-2" for="input3">Зарплата</label>
-            <input type="number" id="input3" name="salary" placeholder="Зарплата"
+            <label class="block font-semibold mt-2" for="input3">Требования</label>
+            <textarea type="text" id="input3" name="requirements" placeholder="Требования"
+                      class="w-full p-3 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400"></textarea>
+            <label class="block font-semibold mt-2" for="input4">Обязанности</label>
+            <textarea type="text" id="input4" name="responsibilities" placeholder="Обязанности"
+                      class="w-full p-3 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400"></textarea>
+            <label class="block font-semibold mt-2" for="input5">Зарплата</label>
+            <input type="number" id="input5" name="salary" placeholder="Зарплата"
                       class="w-full p-3 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
-            <label class="block font-semibold mt-2" for="input4">Выберите город</label>
-            <select name="city_id" id="input4"
+            <label class="block font-semibold mt-2" for="input6">Контакты</label>
+            <textarea type="text" id="input6" name="contacts" placeholder="Контакты"
+                      class="w-full p-3 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400"></textarea>
+            <label class="block font-semibold" for="input7">Компания</label>
+            <input type="text" id="input7" name="company_name" placeholder="Компания"
+                   class="w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
+            <label class="block font-semibold mt-2" for="input8">Условия работы</label>
+            <textarea type="text" id="input8" name="work_conditions" placeholder="Условия работы"
+                      class="w-full p-3 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400"></textarea>
+            <label class="block font-semibold mt-2" for="input9">Выберите город</label>
+            <select name="city_id" id="input9"
                     class="select w-full text-slate-400 border-2 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:border-slate-400 dark:focus:border-violet-400">
                 <option disabled selected>Ваш город</option>
                 @foreach($cities as $city)
                     <option value="{{ $city->id }}">{{ $city->name }}</option>
                 @endforeach
             </select>
-            <label class="block font-semibold mt-2" for="input5">Выберите категорию</label>
-            <select name="category_id" id="input5"
+            <label class="block font-semibold mt-2" for="input10">Выберите категорию</label>
+            <select name="category_id" id="input10"
                     class="select w-full text-slate-400 border-2 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:border-slate-400 dark:focus:border-violet-400">
                 <option disabled selected>Категория</option>
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>
-            <label class="block font-semibold mt-2" for="input6">Выберите тип трудоустройства</label>
-            <select name="job_type_id" id="input6"
+            <label class="block font-semibold mt-2" for="input11">Выберите тип трудоустройства</label>
+            <select name="job_type_id" id="input11"
                     class="select w-full text-slate-400 border-2 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:border-slate-400 dark:focus:border-violet-400">
                 <option disabled selected>Тип трудоустройства</option>
                 @foreach($jobTypes as $type)
