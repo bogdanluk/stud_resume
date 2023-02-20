@@ -59,10 +59,6 @@
                             <i class="fa-solid fa-list fa-xl text-yellow-400"></i>
                             <p class="pl-7">{{ $resume->category->name }}</p>
                         </div>
-                        <div class="flex flex-row items-center mb-2 mt-3 mx-5 w-max">
-                            <i class="fa-solid fa-ruble-sign fa-xl text-yellow-400"></i>
-                            <p class="pl-8">{{ $resume->payment }} рублей</p>
-                        </div>
                         <div class="flex flex-row items-center mt-2 mb-5 mx-5 w-max">
                             <i class="fa-solid fa-city fa-xl text-yellow-400"></i>
                             <p class="pl-5">{{ $resume->city->name }}</p>
