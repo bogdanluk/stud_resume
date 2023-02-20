@@ -107,7 +107,7 @@
                 </div>
             </div>
             <div class="self-center text-center w-full sm:w-1/3 px-4 sm:px:0">
-                <h3 class="font-bold tracking-widest text-violet-400 text-2xl my-6">...и многие другие!</h3>
+                <h3 class="font-bold tracking-widest text-violet-400 text-2xl my-6">...и многое другое!</h3>
             </div>
             <div class="flex flex-row w-full justify-center pt-6">
                 <a class="px-10 py-2 text-white bg-violet-400 rounded-full shadow-md text-lg hover:bg-violet-600"

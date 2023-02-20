@@ -52,7 +52,6 @@ class AuthController extends Controller
         event(new Registered($user));
         #авторизация юзера
         Auth::login($user);
-
         return redirect()->route('cabinet.main');
     }
 

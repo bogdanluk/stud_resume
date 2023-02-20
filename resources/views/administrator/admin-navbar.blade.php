@@ -7,7 +7,7 @@
             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow-lg bg-base-100 dark:bg-slate-700 rounded-box w-52">
                 <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('home') }}">Главная</a></li>
                 @if(request()->route()->getName() == 'admin.news-list')
-                    <li class="mr-2 text-lg active py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 link rounded-lg"><a href="{{ route('admin.news-list') }}">Список новостей</a></li>
+                    <li class="mr-2 text-lg active py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 link-mobile rounded-lg"><a href="{{ route('admin.news-list') }}">Список новостей</a></li>
                 @else
                     <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg"><a href="{{ route('admin.news-list') }}">Список новостей</a></li>
                 @endif
@@ -24,6 +24,16 @@
                 <li class="mr-2 text-lg active py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg link"><a href="{{ route('admin.news-list') }}">Список новостей</a></li>
             @else
                 <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg"><a href="{{ route('admin.news-list') }}">Список новостей</a></li>
+            @endif
+            @if(request()->route()->getName() == 'admin.jobs-list')
+                <li class="mr-2 text-lg active py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 link-mobile rounded-lg"><a href="{{ route('admin.jobs-list') }}">Список вакансий</a></li>
+            @else
+                <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg"><a href="{{ route('admin.jobs-list') }}">Список вакансий</a></li>
+            @endif
+            @if(request()->route()->getName() == 'admin.resumes-list')
+                <li class="mr-2 text-lg active py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 link-mobile rounded-lg"><a href="{{ route('admin.resumes-list') }}">Список резюме</a></li>
+            @else
+                <li class="mr-2 text-lg py-1 px-2 mx-2 transition-all ease-in hover:text-white hover:bg-violet-400 rounded-lg"><a href="{{ route('admin.resumes-list') }}">Список резюме</a></li>
             @endif
         </ul>
     </div>

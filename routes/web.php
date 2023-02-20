@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\CabinetController;
-use App\Http\Controllers\UsersController;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -15,6 +12,8 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ResumesController;
+use App\Http\Controllers\CabinetController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,17 +53,17 @@ Route::middleware('guest')->group(function (){
     #обработка запроса со страницы регистрации
     Route::post('/register', [AuthController::class, 'register'])->name('send_register_form');
 
-    //форма для запроса сброса пароля
+    #форма для запроса сброса пароля
     Route::get('/forgot-password', function () {
         return view('auth.forgot-password');
     })->name('password.request');
-    //оброботка запроса на сброс пароля и отправка письма со ссылкой для сброса пароля
+    #оброботка запроса на сброс пароля и отправка письма со ссылкой для сброса пароля
     Route::post('/forgot-password', [ForgotPasswordController::class, 'forgotPassword'])->name('password.email');
-    //отображение формы для сброса пароля
+    #отображение формы для сброса пароля
     Route::get('/reset-password/{token}', function ($token, Request $request) {
         return view('auth.reset-password', ['token' => $token, 'email' => $request->query('email')]);
     })->name('password.reset');
-    //обработка запроса с формы для сброса пароля
+    #обработка запроса с формы для сброса пароля
     Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('password.update');
 
 });
@@ -85,18 +84,18 @@ Route::middleware('guest')->prefix('auth')->group(function (){
     Route::get('/yandex/callback', [YandexAuthController::class, 'authenticate'])->name('login.yandex-callback');
 });
 
-//роуты для email
+#роуты для email
 Route::middleware('auth')->prefix('email')->group(function (){
-    //страница с уведомлением, что нужно подтвердить email
+    #страница с уведомлением, что нужно подтвердить email
     Route::get('/verify', function () {
         return view('auth.verify-email');
     })->name('verification.notice');
-    //обработчик ссылки для подтверждения email
+    #обработчик ссылки для подтверждения email
     Route::get('/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
         $request->fulfill();
         return redirect('/cabinet');
     })->name('verification.verify');
-    //обработчик повторной отправки письма для подтверждения email
+    #обработчик повторной отправки письма для подтверждения email
     Route::post('/verification-notification', function (Request $request) {
         $request->user()->sendEmailVerificationNotification();
         return back()->with('message', __('auth.verify_email_send'));
@@ -132,7 +131,7 @@ Route::middleware(['auth', 'verified'])->prefix('cabinet')->group(function (){
         Route::get('/create', [ResumesController::class, 'createResumeForm'])->name('cabinet.resume.add-form');
         #обработка запроса с формы добавления резюме
         Route::post('/create', [ResumesController::class, 'createResume'])->name('cabinet.resume.create');
-        #проверка является ли пользователь создателем запрашиваемого резюме
+        #проверка является ли пользователь создателем запрашиваемого резюме или админом
         Route::middleware('resume.check')->group(function (){
             #обработка запроса на удаление резюме
             Route::get('/delete/{id}', [ResumesController::class, 'deleteResume'])->name('cabinet.resume.delete');
@@ -151,7 +150,7 @@ Route::middleware(['auth', 'verified'])->prefix('cabinet')->group(function (){
         Route::get('/create', [JobsController::class, 'createJobForm'])->name('cabinet.job.add-form');
         #обработка запроса с формы добавления вакансии
         Route::post('/create', [JobsController::class, 'createJob'])->name('cabinet.job.create');
-        #проверка является ли пользователь создателем запрашиваемого резюме
+        #проверка является ли пользователь создателем запрашиваемого резюме или админом
         Route::middleware('job.check')->group(function (){
             #обработка запроса на удаление резюме
             Route::get('/delete/{id}', [JobsController::class, 'deleteJob'])->name('cabinet.job.delete');
@@ -169,7 +168,7 @@ Route::middleware(['auth', 'verified'])->prefix('cabinet')->group(function (){
     #обработка запроса на смену роли
     Route::post('/change-role', [UsersController::class, 'changeRole'])->name('cabinet.change-role');
 
-}); //конец роутов личного кабинета
+}); #конец роутов личного кабинета
 
 #роуты панели администратора
 Route::middleware(['auth', 'admin.check'])->prefix('administrator')->group(function (){
@@ -177,6 +176,7 @@ Route::middleware(['auth', 'admin.check'])->prefix('administrator')->group(funct
     Route::get('/', function (){
        return view('administrator.admin-main');
     })->name('admin.main');
+
     #группа роутов новостей
     Route::prefix('news')->group(function (){
         #страница со списком новостей
@@ -193,6 +193,18 @@ Route::middleware(['auth', 'admin.check'])->prefix('administrator')->group(funct
         Route::get('/update/{id}', [PostsController::class, 'updateNewsForm'])->name('admin.news.edit-form');
         #обработка запроса с формы редактирования новости
         Route::post('/update/{id}', [PostsController::class, 'updateNews'])->name('admin.news.update');
+    });
+
+    #группа роутов вакансий
+    Route::prefix('jobs')->group(function (){
+        #страница со списком всех вакансий
+        Route::get('/', [JobsController::class, 'adminJobList'])->name('admin.jobs-list');
+    });
+
+    #группа роутов резюме
+    Route::prefix('resumes')->group(function (){
+        #страница со списком всех резюме
+        Route::get('/', [ResumesController::class, 'adminResumeList'])->name('admin.resumes-list');
     });
 
 }); #конец роутов панели администратора

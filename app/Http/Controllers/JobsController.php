@@ -42,6 +42,14 @@ class JobsController extends Controller
         }
     }
 
+    public function adminJobList()
+    {
+        $jobs = Job::query();
+        $result = $jobs->orderBy('created_at', 'desc')->paginate(20);
+        #возврат страницы со списком всех вакансий для админа
+        return view('administrator.jobs-list', ['jobs'=>$result]);
+    }
+
     public function userJobList(Request $request){
         #получение резюме авторизованного пользователя
         $query = Job::query();
@@ -67,7 +75,12 @@ class JobsController extends Controller
         $data = $request->validate([
             'name' => 'required|string|min:3|max:255',
             'description' => 'required|min:3',
+            'requirements' => 'required|min:3',
+            'responsibilities' => 'required|min:3',
             'salary' => 'required|numeric',
+            'contacts' => 'required|min:3',
+            'company_name' => 'required|min:3',
+            'work_conditions' => 'required|min:3',
             'city_id' => 'required|numeric',
             'category_id' => 'required|numeric',
             'job_type_id' => 'required|numeric',
@@ -77,7 +90,7 @@ class JobsController extends Controller
         #добавление резюме в базу
         Job::create($data);
 
-        return redirect()->route('cabinet.job-list')->with(['message' => __('messages.resume_added')]);
+        return redirect()->route('cabinet.job-list')->with(['message' => __('messages.job_added')]);
     }
 
 
@@ -99,7 +112,12 @@ class JobsController extends Controller
         $data = $request->validate([
             'name' => 'string|min:3|max:255',
             'description' => 'min:3',
+            'requirements' => 'min:3',
+            'responsibilities' => 'min:3',
             'salary' => 'numeric',
+            'contacts' => 'min:3',
+            'company_name' => 'min:3',
+            'work_conditions' => 'min:3',
             'city_id' => 'numeric',
             'category_id' => 'numeric',
             'job_type_id' => 'numeric',
@@ -109,13 +127,13 @@ class JobsController extends Controller
         $job = Job::find($id);
         $job->update($data);
 
-        return redirect()->route('cabinet.job-list')->with(['message' => __('messages.resume_updated')]);
+        return redirect()->route('cabinet.job-list')->with(['message' => __('messages.job_updated')]);
     }
 
     public function deleteJob($id){
         $job = Job::find($id);
         $job->delete();
 
-        return back()->with(['message' => __('messages.resume_deleted')]);
+        return back()->with(['message' => __('messages.job_deleted')]);
     }
 }
