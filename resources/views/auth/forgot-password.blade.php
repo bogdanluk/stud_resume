@@ -3,17 +3,17 @@
 @section('title')Забыли пароль @endsection
 
 @section('content')
-
+    @include('layouts.navbar')
     <div class="relative flex min-h-screen antialiased flex-col justify-center">
         <div class="relative py-3 sm:w-96 mx-auto text-center">
             <span class="text-2xl font-light ">Восстановление пароля</span>
-            <div class="mt-4 dark:bg-slate-700 shadow-lg rounded-lg text-left">
+            <div class="mt-4 shadow-lg rounded-lg text-left">
                 <div class="h-2 bg-violet-400 rounded-t-md"></div>
-                <form class="px-8 py-6 bg-base-200" action="{{ route('password.email') }}" method="post">
+                <form class="px-8 py-6 bg-base-200 dark:bg-slate-700" action="{{ route('password.email') }}" method="post">
                     @csrf
                     <label class="block font-semibold" for="input1">Введите email</label>
                     <input type="text" id="input1" name="email" placeholder="Email"
-                           class="w-full h-5 px-3 py-5 mt-2 border-2 dark:border-slate-400 dark:bg-slate-800 outline-none focus:border-violet-400 rounded-md">
+                           class="w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
                     <div class="flex justify-between items-baseline">
                         <button type="submit" class="mt-4 bg-violet-400 text-white py-2 px-6 rounded-md hover:bg-violet-600 ">Отправить</button>
                     </div>

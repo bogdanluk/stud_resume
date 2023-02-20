@@ -14,7 +14,7 @@ class AuthController extends Controller
 {
     public function getRegisterPage(){
         $query = UserRoles::query();
-        $roles = $query->where('id', '>', 0)->get();
+        $roles = $query->where('id', '>', 1)->get();
         return view('auth.register', ['roles' => $roles]);
     }
 
@@ -46,6 +46,7 @@ class AuthController extends Controller
             'email' => $credentials['email'],
             'password' => Hash::make($credentials['password']),
             'role_id' => $credentials['role'],
+            'avatar' => 'avatars/default-avatar.png'
         ]);
         #отправка письма с ссылкой для подтверждения email
         event(new Registered($user));

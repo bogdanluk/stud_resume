@@ -11,12 +11,6 @@
 }
 
 .link.active{
-    border: 2px double rgb(167, 139, 250);
-    color: rgb(167, 139, 250);
-    text-decoration: none;
-}
-
-.link-mobile.active{
     border: 1px double rgb(167, 139, 250);
     color: rgb(167, 139, 250);
     text-decoration: none;
@@ -24,4 +18,9 @@
 
 .link{
     text-decoration: none;
+}
+
+input::file-selector-button{
+    background-color: inherit;
+    color: inherit;
 }

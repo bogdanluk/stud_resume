@@ -17,11 +17,18 @@ class JobGuard
      */
     public function handle(Request $request, Closure $next)
     {
-        $id = substr($request->decodedPath(), -1);
-        $job = Job::find($id);
-        if($job){
-            if($job->user_id == $request->user()->id){
-                return $next($request);
+        //проверка на админа
+        if($request->user()->role_id == 1) {
+            return $next($request);
+        }
+        else {
+            $id = substr($request->decodedPath(), -1);
+            $job = Job::find($id);
+            if ($job) {
+                //проверка является ли пользователь создаталем вакансии
+                if ($job->user_id == $request->user()->id) {
+                    return $next($request);
+                }
             }
         }
         return redirect()->route('404');

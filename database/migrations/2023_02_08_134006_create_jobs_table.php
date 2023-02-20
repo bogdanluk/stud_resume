@@ -17,7 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('name'); //название
             $table->text('description'); //описание
+            $table->text('requirements'); //требования
+            $table->text('responsibilities');  //обязанности
             $table->integer('salary')->default(0); //зарплата
+            $table->text('contacts'); //контакты
+            $table->string('company_name'); //название компании
+            $table->text('work_conditions'); //условия работы
             $table->unsignedBigInteger('city_id'); //город
             $table->unsignedBigInteger('category_id'); //категория
             $table->unsignedBigInteger('job_type_id'); //тип трудоустройства

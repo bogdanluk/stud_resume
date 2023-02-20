@@ -31,4 +31,12 @@ class UsersController extends Controller
         ]);
         return back()->with(['message'=>__('messages.avatar_changed')]);
     }
+
+    public function changeRole(Request $request){
+        $data = $request->validate([
+            'role_id' => 'required|numeric'
+        ]);
+        $request->user()->update($data);
+        return back()->with(['message'=>__('messages.role_changed')]);
+    }
 }

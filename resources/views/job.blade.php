@@ -3,7 +3,6 @@
 @section('title') {{$job->name}} @endsection
 
 @section('content')
-    {{-- dd(auth()->user()->role->name); --}}
     @include('layouts.navbar')
     <div class="flex flex-col items-center w-full min-h-screen">
         <div class="flex flex-col items-center w-full">
@@ -18,14 +17,24 @@
                 <p class="pt-3 pl-5">{{$job->salary}}</p>
                 <h2 class="pt-3 pl-5 font-medium">Описание</h2>
                 <pre class="py-3 pl-5 font-sans">{{$job->description}}</pre>
+                <h2 class="pt-3 pl-5 font-medium">Требования</h2>
+                <pre class="py-3 pl-5 font-sans">{{$job->requirements}}</pre>
+                <h2 class="pt-3 pl-5 font-medium">Обязанности</h2>
+                <pre class="py-3 pl-5 font-sans">{{$job->responsibilities}}</pre>
+                <h2 class="pt-3 pl-5 font-medium">Условия работы</h2>
+                <pre class="py-3 pl-5 font-sans">{{$job->work_conditions}}</pre>
                 <h2 class="pt-3 pl-5 font-medium">Город</h2>
                 <p class="pt-3 pl-5">{{$job->city->name}}</p>
+                <h2 class="pt-3 pl-5 font-medium">Компания</h2>
+                <pre class="py-3 pl-5 font-sans">{{$job->company_name}}</pre>
+                <h2 class="pt-3 pl-5 font-medium">Контакты</h2>
+                <pre class="py-3 pl-5 font-sans">{{$job->contacts}}</pre>
                 <h2 class="pt-3 pl-5 font-medium">Тип трудоустройства</h2>
                 <p class="pt-3 pl-5">{{$job->jobType->name}}</p>
-                <p class="m-3 text-end text-gray-400">Дата создания: {{ $job->created_at}}</p>
+                <p class="m-3 text-end text-gray-400">Дата создания: {{$job->created_at}}</p>
             </div>
         </div>
-    </div>    
-        </div>
+    </div>
+
     @include('layouts.footer')
 @endsection

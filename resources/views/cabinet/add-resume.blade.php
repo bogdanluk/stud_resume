@@ -21,8 +21,8 @@
             @endif
 
             @csrf
-            <label class="block font-semibold" for="input1">Заголовок</label>
-            <input type="text" id="input1" name="name" placeholder="Заголовок"
+            <label class="block font-semibold" for="input1">ФИО</label>
+            <input type="text" id="input1" name="name" placeholder="ФИО"
                    class="w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
             <label class="block font-semibold mt-2" for="input2">Возраст</label>
             <input type="number" id="input2" name="age" placeholder="Возраст"

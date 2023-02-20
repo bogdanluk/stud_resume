@@ -46,7 +46,7 @@ class JobsController extends Controller
     {
         $jobs = Job::query();
         $result = $jobs->orderBy('created_at', 'desc')->paginate(20);
-        #возврат страницу со списком постов
+        #возврат страницы со списком всех вакансий для админа
         return view('administrator.jobs-list', ['jobs'=>$result]);
     }
 
@@ -75,7 +75,12 @@ class JobsController extends Controller
         $data = $request->validate([
             'name' => 'required|string|min:3|max:255',
             'description' => 'required|min:3',
+            'requirements' => 'required|min:3',
+            'responsibilities' => 'required|min:3',
             'salary' => 'required|numeric',
+            'contacts' => 'required|min:3',
+            'company_name' => 'required|min:3',
+            'work_conditions' => 'required|min:3',
             'city_id' => 'required|numeric',
             'category_id' => 'required|numeric',
             'job_type_id' => 'required|numeric',
@@ -107,7 +112,12 @@ class JobsController extends Controller
         $data = $request->validate([
             'name' => 'string|min:3|max:255',
             'description' => 'min:3',
+            'requirements' => 'min:3',
+            'responsibilities' => 'min:3',
             'salary' => 'numeric',
+            'contacts' => 'min:3',
+            'company_name' => 'min:3',
+            'work_conditions' => 'min:3',
             'city_id' => 'numeric',
             'category_id' => 'numeric',
             'job_type_id' => 'numeric',

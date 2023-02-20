@@ -1,7 +1,7 @@
 @extends('layouts.head')
 
 @section('title')
-    Вакансии
+    Резюме
 @endsection
 
 @section('content')
@@ -12,11 +12,12 @@
             <form method="get" action="{{route('resumes')}}">
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <input type="text" name="name" placeholder="Название" class="py-2 w-full text-slate-400 px-5 dark:bg-slate-800 border-2 dark:border-slate-400 outline-none focus:border-violet-400 rounded-full"/>
+                    <input type="text" name="name" placeholder="Название"
+                           class="py-2 w-full text-slate-400 px-5 dark:bg-slate-800 border-2 dark:border-slate-400 outline-none focus:border-violet-400 rounded-full dark:focus:border-violet-400">
                 </div>
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <select name="category_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer">
+                    <select name="category_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400">
                         <option disabled selected>Категория</option>
                         @foreach ($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
@@ -25,7 +26,7 @@
                 </div>
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <select name="city_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer">
+                    <select name="city_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400">
                         <option disabled selected>Город</option>
                         @foreach ($cities as $city)
                             <option value="{{$city->id}}">{{$city->name}}</option>
@@ -34,7 +35,7 @@
                 </div>
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <select name="city_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer">
+                    <select name="city_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400">
                         <option disabled selected>Уровень образования</option>
                         @foreach ($educations as $education)
                             <option value="{{$education->id}}">{{$education->name}}</option>
@@ -58,10 +59,6 @@
                             <i class="fa-solid fa-list fa-xl text-yellow-400"></i>
                             <p class="pl-7">{{ $resume->category->name }}</p>
                         </div>
-                        <div class="flex flex-row items-center mb-2 mt-3 mx-5 w-max">
-                            <i class="fa-solid fa-ruble-sign fa-xl text-yellow-400"></i>
-                            <p class="pl-8">{{ $resume->payment }} рублей</p>
-                        </div>
                         <div class="flex flex-row items-center mt-2 mb-5 mx-5 w-max">
                             <i class="fa-solid fa-city fa-xl text-yellow-400"></i>
                             <p class="pl-5">{{ $resume->city->name }}</p>
@@ -69,7 +66,7 @@
                         <div class="card-actions justify-end items-center">
                             <p class="ml-5 text-slate-400"><i
                                     class="fa-regular fa-clock pr-5"></i>{{ $resume['created_at'] }}</p>
-                            <a class="btn text-xs md:text-base bg-violet-400 text-white mr-5 mb-3 ease-in hover:bg-violet-600" href="{{ route('resumes_post', $resume->id) }}">Прочитать</a>
+                            <a class="btn text-xs md:text-base bg-violet-400 text-white mr-5 mb-3 ease-in hover:bg-violet-600" href="{{ route('resumes_post', $resume->id) }}">Подробнее</a>
                         </div>
                     </div>
                 </div>

@@ -3,6 +3,7 @@
 @section('title')404 @endsection
 
 @section('content')
+    @include('layouts.navbar')
     <div class="grid h-screen px-4 bg-white place-content-center dark:bg-slate-800">
         <div class="text-center">
             <h1 class="font-black text-violet-400 text-9xl">404</h1>

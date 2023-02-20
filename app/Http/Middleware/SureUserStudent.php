@@ -2,11 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\Resume;
 use Closure;
 use Illuminate\Http\Request;
 
-class ResumeGuard
+class SureUserStudent
 {
     /**
      * Handle an incoming request.
@@ -17,19 +16,8 @@ class ResumeGuard
      */
     public function handle(Request $request, Closure $next)
     {
-        //проверка на админа
-        if($request->user()->role_id == 1) {
+        if (auth()->user()['role_id'] == 2 || auth()->user()['role_id'] == 1){
             return $next($request);
-        }
-        else {
-            $id = substr($request->decodedPath(), -1);
-            $resume = Resume::find($id);
-            if ($resume) {
-                //проверка является ли пользователь создателем резюме
-                if ($resume->user_id == $request->user()->id) {
-                    return $next($request);
-                }
-            }
         }
         return redirect()->route('404');
     }

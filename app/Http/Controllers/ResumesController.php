@@ -50,7 +50,7 @@ class ResumesController extends Controller
     {
         $resumes = Resume::query();
         $result = $resumes->orderBy('created_at', 'desc')->paginate(20);
-        #возврат страницу со списком постов
+        #возврат страницы со списком всех резюме для админа
         return view('administrator.resumes-list', ['resumes'=>$result]);
     }
 
