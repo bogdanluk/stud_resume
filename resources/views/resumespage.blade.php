@@ -35,7 +35,7 @@
                 </div>
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <select name="city_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400">
+                    <select name="education_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400">
                         <option disabled selected>Уровень образования</option>
                         @foreach ($educations as $education)
                             <option value="{{$education->id}}">{{$education->name}}</option>

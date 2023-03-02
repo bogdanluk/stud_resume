@@ -39,7 +39,7 @@
             </ul>
         </div>
 
-        <a class="text-xl dark:text-white">StudResume</a>
+        <a class="text-xl">StudResume</a>
         <button class="ml-5 text-xl" data-toggle-theme="dark,light" data-act-class="light" id="btntheme"><i class="fa-regular fa-moon" id="themetoggler"></i></button>
 
     </div>

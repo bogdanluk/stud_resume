@@ -4,6 +4,7 @@
         <a href="{{route('news')}}" class="link link-hover mx-2">Новости</a>
         <a href="{{route('jobs')}}" class="link link-hover mx-2">Вакансии</a>
         <a href="{{route('resumes')}}" class="link link-hover mx-2">Резюме</a>
+        <a href="{{ route('nalog') }}" class="link link-hover mx-2">Налоги</a>
     </div>
 
     <div class="grid grid-flow-col gap-4 text-4xl mb-2">
