@@ -23,7 +23,7 @@
                 <li class="text-lg py-1 px-2 mx-2 hover:text-white hover:bg-violet-400 rounded-lg"><a href="{{ route('logout') }}">Выйти</a></li>
             </ul>
         </div>
-        <a class="text-xl dark:text-white">Кабинет</a>
+        <a class="text-xl">Кабинет</a>
         <button class="ml-5 text-xl" data-toggle-theme="dark,light" data-act-class="light" id="btntheme"><i class="fa-regular fa-moon" id="themetoggler"></i></button>
     </div>
     <div class="navbar-center hidden md:flex dark:bg-slate-800">
