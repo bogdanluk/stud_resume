@@ -6,9 +6,14 @@ module.exports = {
     ],
     theme: {
         extend: {},
+        animatedSettings: {
+            animatedSpeed: 300,
+            classes: ['fadeIn']
+        },
     },
     plugins: [
-        require('daisyui')
+        require('daisyui'),
+        require('tailwindcss-animatecss'),
     ],
     darkMode: 'class',
     daisyui: {

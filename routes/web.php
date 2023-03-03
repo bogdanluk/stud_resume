@@ -40,6 +40,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+#страница с налогами
 Route::get('/nalog', function (){
    return view('nalog');
 })->name('nalog');
