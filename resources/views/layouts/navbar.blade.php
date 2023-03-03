@@ -1,4 +1,4 @@
-<div class="navbar bg-base-100 border-b-2 border-gray-200 dark:border-slate-600 dark:bg-slate-800 rounded-md p-2">
+<div class="navbar bg-base-100 border-b-2 border-gray-200 dark:border-slate-600 dark:bg-slate-800 rounded-b-md p-2 sticky top-0 z-10">
     <div class="navbar-start">
         <div class="dropdown">
             <label tabindex="0" class="btn md:hidden">

@@ -8,9 +8,9 @@
     </div>
 
     <div class="grid grid-flow-col gap-4 text-4xl mb-2">
-        <a href="https://vk.com/studresumednr" class="text-violet-400 hover:text-violet-600"><i class="fa-brands fa-vk "></i></a>
-        <a href="https://github.com/bogdanluk/stud_resume" class="text-violet-400 hover:text-violet-600"><i class="fa-brands fa-github"></i></a>
-        <a href="https://t.me/studresume" class="text-violet-400 hover:text-violet-600"><i class="fa-brands fa-telegram"></i></a>
+        <a href="https://vk.com/studresumednr" class="text-violet-400 hover:text-violet-600 transition"><i class="fa-brands fa-vk "></i></a>
+        <a href="https://github.com/bogdanluk/stud_resume" class="text-violet-400 hover:text-violet-600 transition"><i class="fa-brands fa-github"></i></a>
+        <a href="https://t.me/studresume" class="text-violet-400 hover:text-violet-600 transition"><i class="fa-brands fa-telegram"></i></a>
     </div>
 
     <div>
