@@ -24,3 +24,11 @@ input::file-selector-button{
     background-color: inherit;
     color: inherit;
 }
+
+.content-percent:after{
+    content: '4%';
+}
+
+.content-percent:hover:after{
+    content: 'Ставка 4% используется, если доход за товар, работы или услуги поступил от физического лица.';
+}
