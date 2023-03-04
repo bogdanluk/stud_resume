@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -211,6 +212,39 @@ Route::middleware(['auth', 'admin.check'])->prefix('administrator')->group(funct
         #страница со списком всех резюме
         Route::get('/', [ResumesController::class, 'adminResumeList'])->name('admin.resumes-list');
     });
+
+    #группа роутов команд артисана
+    Route::prefix('command')->group(function (){
+        #включение режима обслуживания сайта
+        Route::get('/down', function (){
+            $tokendata = env('MAINTENANCE_TOKEN');
+            Artisan::call("down --secret='$tokendata'");
+            return back()->with(['message'=>__('messages.maintenance_on')]);
+        })->name('site-down');
+        #выключение режима обслуживания сайта
+        Route::get('/up', function (){
+            Artisan::call("up");
+            return back()->with(['message'=>__('messages.maintenance_off')]);
+        })->name('site-up');
+        #обновление кеша
+        Route::get('/cache', function() {
+            #очистка кеша
+            Artisan::call('optimize:clear');
+            #создание нового кеша
+            Artisan::call('config:cache');
+            Artisan::call('event:cache');
+            Artisan::call('route:cache');
+            Artisan::call('view:cache');
+            return back()->with(['message'=>__('cache_renewed')]);
+        })->name('cache-update');
+        #создание символьной ссылки на публичное хранилище
+        Route::get('/storage-link', function (){
+            Artisan::call('storage:link');
+            return back()->with(['message'=>__('storage_link_created')]);
+        })->name('storage-link');
+
+    }); #конец группы роутов команд артисана
+
 
 }); #конец роутов панели администратора
 
