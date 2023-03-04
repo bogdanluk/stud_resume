@@ -20,7 +20,46 @@
     text-decoration: none;
 }
 
-input::file-selector-button{
-    background-color: inherit;
-    color: inherit;
+.tabs-boxed .tab-active{
+    background-color: #a78bfa;
+}
+
+.btn-primary{
+    background-color: #a78bfa;
+}
+
+.btn-outline.btn-primary{
+    background-color: transparent;
+    color: #a78bfa;
+    border-color: #a78bfa;
+}
+
+.btn-primary:hover{
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+}
+
+.btn-outline.btn-primary:hover{
+    background-color: #a78bfa;
+    border-color: #a78bfa;
+}
+
+.btn-primary.btn-outline.btn-disabled{
+    color: #94A3B8;
+    border-color: #94A3B8;
+}
+
+.select:focus{
+    outline: none;
+}
+
+.file-input-primary{
+    border-color: #a78bfa;
+}
+.file-input::file-selector-button{
+    background-color: #a78bfa;
+    border: none;
+}
+.file-input::file-selector-button:hover{
+    background-color: #7c3aed;
 }

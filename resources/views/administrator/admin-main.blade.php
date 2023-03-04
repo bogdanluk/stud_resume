@@ -38,13 +38,13 @@
                 @endif
             </p>
             <div class="flex flex-row justify-around mt-2 mb-2">
-                <a href="{{ route('site-down') }}" class="btn text-white btn-sm bg-violet-400 mr-2 hover:bg-violet-600">Включить</a>
-                <a href="{{ route('site-up') }}" class="btn text-white btn-sm bg-violet-400 hover:bg-violet-600">Выключить</a>
+                <a href="{{ route('site-down') }}" class="btn btn-sm btn-primary border-0">Включить</a>
+                <a href="{{ route('site-up') }}" class="btn btn-sm btn-primary border-0">Выключить</a>
             </div>
             <h1 class="text-xl font-semibold mb-2">Обновление кеша на сервере</h1>
-            <a href="{{ route('cache-update') }}" class="btn text-white btn-sm bg-violet-400 hover:bg-violet-600 mb-2">Обновить</a>
+            <a href="{{ route('cache-update') }}" class="btn btn-sm btn-primary border-0">Обновить</a>
             <h1 class="text-xl font-semibold mb-2">Создать ссылку на хранилище</h1>
-            <a href="{{ route('storage-link') }}" class="btn text-white btn-sm bg-violet-400 hover:bg-violet-600 mb-2">Создать</a>
+            <a href="{{ route('storage-link') }}" class="btn btn-sm btn-primary border-0">Создать</a>
         </div>
     </main>
 

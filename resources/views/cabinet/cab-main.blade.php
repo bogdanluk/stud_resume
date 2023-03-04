@@ -57,7 +57,7 @@
                 <input type="password" id="input2" name="password_confirmation" placeholder="Повторите пароль"
                        class="w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
                 <button type="submit"
-                        class="block mt-4 bg-violet-400 text-white py-2 px-6 rounded-md hover:bg-violet-600 ">Отправить</button>
+                        class="btn btn-primary mt-4 border-0">Отправить</button>
             </form>
         </div>
         <div class="flex w-full flex-col mx-10 bg-base-200 border-t-8 border-t-violet-400 rounded-lg shadow-lg mb-10 dark:bg-slate-700">
@@ -66,9 +66,9 @@
                 <h1 class="text-2xl font-semibold text-center">Смена аватарки</h1>
                 <label class="block font-semibold mt-2" for="input3">Загрузите фото</label>
                 <input type="file" id="input3" name="avatar"
-                       class="mt-2 file-input w-full max-w-xs border-2 outline-none rounded-md focus:border-violet-400 dark:bg-slate-800 dark:border-slate-400 dark:focus:border-violet-400">
+                       class="mt-2 file-input file-input-bordered file-input-primary focus:outline-violet-400 w-full">
                 <button type="submit"
-                        class="block mt-4 bg-violet-400 text-white py-2 px-6 rounded-md hover:bg-violet-600 ">Отправить</button>
+                        class="btn btn-primary mt-4 border-0">Отправить</button>
             </form>
         </div>
         <div class="flex w-full flex-col mx-10 bg-base-200 border-t-8 border-t-violet-400 rounded-lg shadow-lg mb-10 dark:bg-slate-700">
@@ -77,14 +77,14 @@
                 <h1 class="text-2xl font-semibold text-center">Смена роли</h1>
                 <label class="block mt-3 font-semibold" for="input4">Выберите роль</label>
                 <select name="role_id" id="input4"
-                        class="select w-full text-slate-400 w-full border-2 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:border-slate-400 dark:focus:border-violet-400">
+                        class="select w-full text-slate-400 w-full border-2 border-base-300 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:border-slate-400 dark:focus:border-violet-400">
                     <option disabled selected>Ваша роль</option>
                     @foreach($roles as $role)
                         <option value="{{ $role->id }}">{{ $role->name }}</option>
                     @endforeach
                 </select>
                 <button type="submit"
-                        class="block mt-4 bg-violet-400 text-white py-2 px-6 rounded-md hover:bg-violet-600 ">Отправить</button>
+                        class="btn btn-primary mt-4 border-0">Отправить</button>
             </form>
         </div>
 

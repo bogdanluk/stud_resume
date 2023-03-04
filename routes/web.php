@@ -27,15 +27,6 @@ use App\Http\Controllers\UsersController;
 |
 */
 
-//Route::get('/clear', function() {
-//    Artisan::call('cache:clear');
-//    Artisan::call('config:cache');
-//    Artisan::call('route:cache');
-//    Artisan::call('view:cache');
-//    //Artisan::call('storage:link'); #создание символьной ссылки на публичное хранилище
-//    return "Кеш очишен";
-//});
-
 #главная страница
 Route::get('/', function () {
     return view('welcome');
@@ -72,7 +63,7 @@ Route::middleware('guest')->group(function (){
     #обработка запроса с формы для сброса пароля
     Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('password.update');
 
-});
+}); #конец гостевых роутов
 
 #обработка запроса на выход из аккаунта
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
@@ -99,7 +90,7 @@ Route::middleware('auth')->prefix('email')->group(function (){
     #обработчик ссылки для подтверждения email
     Route::get('/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
         $request->fulfill();
-        return redirect('/cabinet');
+        return redirect()->route('cabinet.main');
     })->name('verification.verify');
     #обработчик повторной отправки письма для подтверждения email
     Route::post('/verification-notification', function (Request $request) {

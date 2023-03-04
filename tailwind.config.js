@@ -7,8 +7,8 @@ module.exports = {
     theme: {
         extend: {},
         animatedSettings: {
-            animatedSpeed: 300,
-            classes: ['fadeIn']
+            animatedSpeed: 500,
+            classes: ['fadeInDown', 'fadeInLeft', 'fadeInRight', 'fadeInUp']
         },
     },
     plugins: [
@@ -17,7 +17,7 @@ module.exports = {
     ],
     darkMode: 'class',
     daisyui: {
-        styled: false,
-        themes: false, //["light", "dark"],
+        styled: true,
+        themes:  ["light", "dark"] //["light", "dark"],
     }
 }

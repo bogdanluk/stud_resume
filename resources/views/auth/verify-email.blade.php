@@ -30,7 +30,7 @@
                         @endif
                         <form action="{{ route('verification.send') }}" method="post" class="text-center mt-4 mb-0">
                             @csrf
-                            <button type="submit" class="text-violet-400 hover:text-white border border-violet-400 hover:bg-violet-400 focus:ring-4 focus:outline-none focus:ring-violet-400 font-light rounded-lg text-sm p-1 text-center">Отправить повторно</button>
+                            <button type="submit" class="btn btn-primary border-0">Отправить повторно</button>
                         </form>
                     </div>
                 </div>

@@ -13,13 +13,12 @@
             </div>
         @endif
         <div class="overflow-x-auto w-full mb-3 rounded-lg">
-
             <table class="table table-compact md:table-normal table-auto w-full">
                 <thead class="bg-base-200 dark:bg-slate-700">
                 <tr>
                     <th>id</th>
                     <th>ФИО</th>
-                    <th><i class="fa-regular fa-trash-can"></i></th>
+                    <th class="text-center"><i class="fa-regular fa-trash-can"></i></th>
                 </tr>
                 </thead>
                 <tbody>

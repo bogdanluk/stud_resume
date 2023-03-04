@@ -9,7 +9,7 @@
         <h1 class="border-2 border-violet-400 rounded-lg font-medium text-xl my-10 p-5">Список новостей</h1>
         <div class="w-full text-left">
             <a href="{{ route('admin.news.add-form') }}"
-               class="btn text-white bg-violet-400 hover:bg-violet-600 mb-2 ">Добавить</a>
+               class="btn btn-sm sm:btn-md btn-primary border-0 mb-2">Добавить</a>
         </div>
         @if(session('message'))
             <div class="flex w-full mt-3 p-4 mb-4 text-green-800 border-t-4 border-green-400 bg-green-50 dark:bg-slate-700 dark:text-green-400 rounded-md">
@@ -23,8 +23,8 @@
                 <tr>
                     <th>id</th>
                     <th>Заголовок</th>
-                    <th><i class="fa-regular fa-pen-to-square"></i></th>
-                    <th><i class="fa-regular fa-trash-can"></i></th>
+                    <th class="text-center"><i class="fa-regular fa-pen-to-square"></i></th>
+                    <th class="text-center"><i class="fa-regular fa-trash-can"></i></th>
                 </tr>
                 </thead>
                 <tbody>

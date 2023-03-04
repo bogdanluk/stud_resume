@@ -27,14 +27,13 @@
             <input type="text" id="input1" name="name" placeholder="Заголовок" value="{{ $post->name }}"
                    class="w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
             <label class="block font-semibold mt-2" for="input2">Описание</label>
-            <textarea id="textarea1" name="content" placeholder="Описание"
+            <textarea id="input2" name="content" placeholder="Описание"
                       class="w-full p-3 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">{{ $post->content }}</textarea>
-            <label class="block font-semibold mt-2" for="input13">Загрузите фото</label>
-            <input type="file" id="input2" name="image"
-                   class="mt-2 file-input w-full max-w-xs border-2 outline-none rounded-md focus:border-violet-400 dark:bg-slate-800 dark:border-slate-400 dark:focus:border-violet-400">
+            <label class="block font-semibold mt-2" for="input3">Загрузите фото</label>
+            <input type="file" id="input3" name="image"
+                   class="mt-2 file-input file-input-bordered file-input-primary focus:outline-violet-400 w-full">
             <button type="submit"
-                    class="block mt-4 bg-violet-400 text-white py-2 px-6 rounded-md hover:bg-violet-600 ">Отправить
-            </button>
+                    class="btn btn-primary mt-4 border-0">Отправить</button>
         </form>
 
     </main>
