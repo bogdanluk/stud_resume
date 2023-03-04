@@ -43,9 +43,9 @@
                     </select>
                 </div>
                 <div class="mt-2 flex flex-row justify-between">
-                    <button class="btn btn-sm sm:btn-md bg-violet-400 text-white ease-in hover:bg-violet-600"
+                    <button class="btn btn-sm sm:btn-md btn-primary mr-2 border-0"
                             type="submit">Применить</button>
-                    <a href="{{ route('resumes') }}" class="btn btn-sm sm:btn-md text-slate-400 border border-slate-400 ease-in hover:bg-slate-400 hover:text-white">Сбросить</a>
+                    <a href="{{ route('resumes') }}" class="btn btn-sm sm:btn-md btn-outline">Сбросить</a>
                 </div>
             </form>
         </div>
@@ -55,18 +55,18 @@
                 <div class="card mb-5 w-full card-side bg-base-200 shadow-xl rounded-lg border-l-8 border-l-violet-400 dark:bg-slate-700">
                     <div class="card-body">
                         <h2 class="card-title text-xl ml-5 mt-5 mr-5 font-medium">{{ $resume->name }}</h2>
-                        <div class="flex flex-row items-center mb-2 mt-5 mx-5 w-max">
+                        <div class="flex flex-row items-center mb-2 mt-5 mx-5">
                             <i class="fa-solid fa-list fa-xl text-yellow-400"></i>
                             <p class="pl-7">{{ $resume->category->name }}</p>
                         </div>
-                        <div class="flex flex-row items-center mt-2 mb-5 mx-5 w-max">
+                        <div class="flex flex-row items-center mt-2 mb-5 mx-5">
                             <i class="fa-solid fa-city fa-xl text-yellow-400"></i>
                             <p class="pl-5">{{ $resume->city->name }}</p>
                         </div>
                         <div class="card-actions justify-end items-center">
                             <p class="ml-5 text-slate-400"><i
                                     class="fa-regular fa-clock pr-5"></i>{{ $resume['created_at'] }}</p>
-                            <a class="btn text-xs md:text-base bg-violet-400 text-white mr-5 mb-3 ease-in hover:bg-violet-600" href="{{ route('resumes_post', $resume->id) }}">Подробнее</a>
+                            <a class="btn btn-sm sm:btn-md btn-primary border-0" href="{{ route('resumes_post', $resume->id) }}">Подробнее</a>
                         </div>
                     </div>
                 </div>

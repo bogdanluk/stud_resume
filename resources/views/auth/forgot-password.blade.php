@@ -15,7 +15,7 @@
                     <input type="text" id="input1" name="email" placeholder="Email"
                            class="w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
                     <div class="flex justify-between items-baseline">
-                        <button type="submit" class="mt-4 bg-violet-400 text-white py-2 px-6 rounded-md hover:bg-violet-600 ">Отправить</button>
+                        <button type="submit" class="btn btn-primary mt-4 border-0">Отправить</button>
                     </div>
                     @if(session('message'))
                         <div class="flex mt-3 p-4 mb-4 text-green-800 border-t-4 border-green-400 bg-green-50 dark:bg-slate-800 dark:text-green-400 rounded-md">

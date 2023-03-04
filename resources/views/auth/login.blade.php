@@ -42,10 +42,10 @@
                         @endif
                         <div class="flex justify-between items-baseline">
                             <button type="submit"
-                                    class="mt-4 bg-violet-400 text-white py-2 px-6 rounded-md hover:bg-violet-600 ">Вход
+                                    class="btn btn-primary mt-4 border-0">Вход
                             </button>
                             <a href="{{ route('password.request') }}"
-                               class="text-sm hover:underline hover:text-violet-400 dark:text-slate-400">Забыли пароль?</a>
+                               class="text-sm hover:underline hover:text-violet-400 dark:text-slate-400 transition">Забыли пароль?</a>
                         </div>
                     </form>
                 </div>

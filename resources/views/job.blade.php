@@ -9,7 +9,7 @@
             <h1 class="text-2xl text-center p-5 m-10">{{$job->name}}</h1>
         </div>
         <div class="flex flex-col justify-between w-11/12 mb-5">
-            <span class="badge font-medium bg-yellow-400 text-black rounded-full p-5">{{$job->category->name}}</span>
+            <span class="badge font-medium bg-yellow-400 text-black rounded-full p-5 border-0">{{$job->category->name}}</span>
         </div>
         <div class="flex flex-col items-center w-full">
             <div class="flex flex-col w-11/12 bg-base-200 px-2 sm:px-5 border-t-8 border-t-violet-400 rounded-lg shadow-lg mb-10 dark:bg-slate-700">

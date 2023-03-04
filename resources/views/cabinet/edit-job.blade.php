@@ -47,7 +47,7 @@
                       class="w-full p-3 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">{{ $job->work_conditions }}</textarea>
             <label class="block font-semibold mt-2" for="input9">Выберите город</label>
             <select name="city_id" id="input9"
-                    class="select w-full text-slate-400 border-2 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:border-slate-400 dark:focus:border-violet-400">
+                    class="select w-full text-slate-400 border-2 border-base-300 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:border-slate-400 dark:focus:border-violet-400">
                 <option disabled selected>Ваш город</option>
                 @foreach($cities as $city)
                     <option value="{{ $city->id }}"
@@ -56,7 +56,7 @@
             </select>
             <label class="block font-semibold mt-2" for="input10">Выберите категорию</label>
             <select name="category_id" id="input10"
-                    class="select w-full text-slate-400 border-2 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:border-slate-400 dark:focus:border-violet-400">
+                    class="select w-full text-slate-400 border-2 border-base-300 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:border-slate-400 dark:focus:border-violet-400">
                 <option disabled selected>Категория</option>
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}"
@@ -65,7 +65,7 @@
             </select>
             <label class="block font-semibold mt-2" for="input11">Выберите тип трудоустройства</label>
             <select name="job_type_id" id="input11"
-                    class="select w-full text-slate-400 border-2 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:border-slate-400 dark:focus:border-violet-400">
+                    class="select w-full text-slate-400 border-2 border-base-300 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:border-slate-400 dark:focus:border-violet-400">
                 <option disabled selected>Тип трудоустройства</option>
                 @foreach($jobTypes as $type)
                     <option value="{{ $type->id }}"
@@ -73,7 +73,7 @@
                 @endforeach
             </select>
             <button type="submit"
-                    class="block mt-4 bg-violet-400 text-white py-2 px-6 rounded-md hover:bg-violet-600 ">Отправить</button>
+                    class="btn btn-primary mt-4 border-0">Отправить</button>
         </form>
 
     </main>

@@ -16,6 +16,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "tailwindcss-animatecss": "^3.0.2"
+        "tailwindcss-animatecss": "^3.0.2",
+        "wow.js": "^1.2.2"
     }
 }
