@@ -1,4 +1,4 @@
-<footer class="footer p-5 bg-base-200 dark:bg-slate-700">
+<footer class="footer p-5 bg-base-200 dark:bg-slate-700 mt-5">
     <div>
         <span class="footer-title">Навигация</span>
         <a href="{{route('home')}}" class="link link-hover">Главная</a>
