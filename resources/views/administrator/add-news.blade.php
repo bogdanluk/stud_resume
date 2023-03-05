@@ -1,6 +1,7 @@
 @extends('layouts.head')
 
-@section('title')Добавление новости @endsection
+@section('title')Добавление новости
+@endsection
 
 @section('content')
     @include('administrator.admin-navbar')

@@ -63,3 +63,17 @@
 .file-input::file-selector-button:hover{
     background-color: #7c3aed;
 }
+
+/*firefox*/
+html{
+    scrollbar-width: thin;
+    scrollbar-color: #a78bfa transparent;
+}
+/*chrome edge safari*/
+::-webkit-scrollbar{
+    width: 12px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #a78bfa;
+    border-radius: 6px;
+}

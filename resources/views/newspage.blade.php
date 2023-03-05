@@ -1,6 +1,7 @@
 @extends('layouts.head')
 
-@section('title') Новости @endsection
+@section('title')Новости
+@endsection
 
 @section('content')
     @include('layouts.navbar')

@@ -1,6 +1,7 @@
 @extends('layouts.head')
 
-@section('title')Список резюме @endsection
+@section('title')Список резюме
+@endsection
 
 @section('content')
     @include('administrator.admin-navbar')

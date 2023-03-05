@@ -1,7 +1,6 @@
 @extends('layouts.head')
 
-@section('title')
-    Главная
+@section('title')Главная
 @endsection
 
 @section('content')

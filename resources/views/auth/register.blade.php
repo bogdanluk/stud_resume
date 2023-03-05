@@ -1,6 +1,7 @@
 @extends('layouts.head')
 
-@section('title')Регистрация @endsection
+@section('title')Регистрация
+@endsection
 
 @section('content')
     @include('layouts.navbar')

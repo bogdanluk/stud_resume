@@ -1,6 +1,7 @@
 @extends('layouts.head')
 
-@section('title')Сброс пароля @endsection
+@section('title')Сброс пароля
+@endsection
 
 @section('content')
     @include('layouts.navbar')

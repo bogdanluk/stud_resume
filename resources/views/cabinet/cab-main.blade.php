@@ -1,7 +1,6 @@
 @extends('layouts.head')
 
-@section('title')
-    Личный кабинет
+@section('title')Личный кабинет
 @endsection
 
 @section('content')
