@@ -7,7 +7,7 @@
     @include('cabinet.cab-navbar')
 
     <main class="flex flex-col items-center w-full px-5 min-h-screen">
-        <h1 class="border-2 border-violet-400 rounded-lg font-medium text-xl my-10 p-5">Мои резюме</h1>
+        <h1 class="border-2 border-violet-400 text-violet-400 rounded-lg font-medium text-xl my-10 p-5">Мои резюме</h1>
         <div class="w-full text-left">
             <a href="{{ route('cabinet.resume.add-form') }}" class="btn btn-sm sm:btn-md btn-primary border-0 mb-2">Добавить</a>
         </div>
@@ -18,23 +18,24 @@
                 </div>
             @endif
             <table class="table table-compact md:table-normal table-auto w-full rounded-t-lg">
-                <thead class="bg-base-200 dark:bg-slate-700">
-                <tr>
-                    <th>id</th>
-                    <th>ФИО</th>
-                    <th class="text-center"><i class="fa-regular fa-pen-to-square"></i></th>
-                    <th class="text-center"><i class="fa-regular fa-trash-can"></i></th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($resumes->items() as $resume)
-                    <tr class="border-b border-violet-400">
-                        <th><a href="{{ route('resumes_post', $resume->id) }}" class="hover:text-violet-400">{{ $resume->id }}<i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a></th>
-                        <td>{{ $resume->name }}</td>
-                        <td class="text-center"><a href="{{ route('cabinet.resume.update-form', $resume->id) }}" class="hover:text-violet-400"><i class="fa-regular fa-pen-to-square"></i></a></td>
-                        <td class="text-center"><a href="{{ route('cabinet.resume.delete', $resume->id) }}" class="hover:text-violet-400"><i class="fa-regular fa-trash-can"></i></a></td>
+                <thead>
+                    <tr>
+                        <td class="dark:bg-slate-700">id</td>
+                        <td class="dark:bg-slate-700">ФИО</td>
+                        <td class="text-center dark:bg-slate-700"><i class="fa-regular fa-pen-to-square"></i></td>
+                        <td class="text-center dark:bg-slate-700"><i class="fa-regular fa-trash-can"></i></td>
                     </tr>
-                @endforeach
+                </thead>
+                <tbody class="border-b dark:border-base-200">
+                    @foreach($resumes->items() as $resume)
+                        <tr>
+                            <td><a href="{{ route('resumes_post', $resume->id) }}" class="hover:text-violet-400">{{ $resume->id }}<i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a></td>
+                            <td class="white">{{ $resume->name }}</td>
+                            <td class="text-center"><a href="{{ route('cabinet.resume.update-form', $resume->id) }}" class="hover:text-violet-400"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                            <td class="text-center"><a href="{{ route('cabinet.resume.delete', $resume->id) }}" class="hover:text-violet-400"><i class="fa-regular fa-trash-can"></i></a></td>
+                        </tr>
+                    @endforeach
+                </tbody>
             </table>
         </div>
         {{ $resumes->links('layouts.simple-pagination') }}
