@@ -42,8 +42,8 @@
                         </div>
                     @endif
                     <div class="flex justify-between items-baseline">
-                        <button type="submit" class="mt-4 bg-violet-400 text-white py-2 px-6 rounded-md hover:bg-violet-600 ">Отправить</button>
-                        <a href="{{ route('login') }}" class="text-sm hover:underline hover:text-violet-400">Есть аккаунт?</a>
+                        <button type="submit" class="btn btn-primary mt-4 border-0">Отправить</button>
+                        <a href="{{ route('login') }}" class="text-sm hover:underline hover:text-violet-400 transition">Есть аккаунт?</a>
                     </div>
                 </form>
             </div>

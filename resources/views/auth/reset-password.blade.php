@@ -14,7 +14,7 @@
                     <input type="hidden" name="email" value="{{ $email }}" placeholder="Email">
                     <label class="block font-semibold" for="input1">Введите новый пароль</label>
                     <input type="password" id="input1" name="password" placeholder="Новый пароль"
-                           class="dw-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
+                           class="w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
                     <label class="block font-semibold mt-2" for="input2">Повторите пароль</label>
                     <input type="password" id="input2" name="password_confirmation" placeholder="Повторите пароль"
                            class="w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
@@ -30,7 +30,7 @@
                         </div>
                     @endif
                     <div class="flex justify-between items-baseline">
-                        <button type="submit" class="mt-4 bg-violet-400 text-white py-2 px-6 rounded-md hover:bg-violet-600 ">Отправить</button>
+                        <button type="submit" class="btn btn-primary mt-4 border-0">Отправить</button>
                     </div>
                 </form>
             </div>

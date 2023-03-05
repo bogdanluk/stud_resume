@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -26,23 +27,15 @@ use App\Http\Controllers\UsersController;
 |
 */
 
-//Route::get('/clear', function() {
-//    Artisan::call('cache:clear');
-//    Artisan::call('config:cache');
-//    Artisan::call('route:cache');
-//    Artisan::call('view:cache');
-//    //Artisan::call('storage:link'); #создание символьной ссылки на публичное хранилище
-//    return "Кеш очишен";
-//});
-
 #главная страница
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/info', function () {
-    return view('info');
-})->name('info');
+#страница с налогами
+Route::get('/nalog', function (){
+   return view('nalog');
+})->name('nalog');
 
 #гостевые роуты
 Route::middleware('guest')->group(function (){
@@ -70,7 +63,7 @@ Route::middleware('guest')->group(function (){
     #обработка запроса с формы для сброса пароля
     Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('password.update');
 
-});
+}); #конец гостевых роутов
 
 #обработка запроса на выход из аккаунта
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
@@ -97,7 +90,7 @@ Route::middleware('auth')->prefix('email')->group(function (){
     #обработчик ссылки для подтверждения email
     Route::get('/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
         $request->fulfill();
-        return redirect('/cabinet');
+        return redirect()->route('cabinet.main');
     })->name('verification.verify');
     #обработчик повторной отправки письма для подтверждения email
     Route::post('/verification-notification', function (Request $request) {
@@ -211,10 +204,44 @@ Route::middleware(['auth', 'admin.check'])->prefix('administrator')->group(funct
         Route::get('/', [ResumesController::class, 'adminResumeList'])->name('admin.resumes-list');
     });
 
+    #группа роутов команд артисана
+    Route::prefix('command')->group(function (){
+        #включение режима обслуживания сайта
+        Route::get('/down', function (){
+            $tokendata = env('MAINTENANCE_TOKEN');
+            Artisan::call("down --secret='$tokendata'");
+            return back()->with(['message'=>__('messages.maintenance_on')]);
+        })->name('site-down');
+        #выключение режима обслуживания сайта
+        Route::get('/up', function (){
+            Artisan::call("up");
+            return back()->with(['message'=>__('messages.maintenance_off')]);
+        })->name('site-up');
+        #обновление кеша
+        Route::get('/cache', function() {
+            #очистка кеша
+            Artisan::call('optimize:clear');
+            #создание нового кеша
+            Artisan::call('config:cache');
+            Artisan::call('event:cache');
+            Artisan::call('route:cache');
+            Artisan::call('view:cache');
+            return back()->with(['message'=>__('cache_renewed')]);
+        })->name('cache-update');
+        #создание символьной ссылки на публичное хранилище
+        Route::get('/storage-link', function (){
+            Artisan::call('storage:link');
+            return back()->with(['message'=>__('storage_link_created')]);
+        })->name('storage-link');
+
+    }); #конец группы роутов команд артисана
+
+
 }); #конец роутов панели администратора
 
+
 #страничка 404
-Route::view('/404', 'not-found')->name('404');
+Route::view('/404', 'errors.404')->name('404');
 
 #редирект всех запросов не попавших в роуты выше на страничку 404
 Route::fallback(function () {

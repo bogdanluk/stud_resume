@@ -6,13 +6,18 @@ module.exports = {
     ],
     theme: {
         extend: {},
+        animatedSettings: {
+            animatedSpeed: 500,
+            classes: ['fadeInDown', 'fadeInLeft', 'fadeInRight', 'fadeInUp']
+        },
     },
     plugins: [
-        require('daisyui')
+        require('daisyui'),
+        require('tailwindcss-animatecss'),
     ],
     darkMode: 'class',
     daisyui: {
-        styled: false,
-        themes: false, //["light", "dark"],
+        styled: true,
+        themes:  ["light", "dark"] //["light", "dark"],
     }
 }
