@@ -27,14 +27,6 @@
 
             <div class="flex flex-col md:flex-row justify-center flex-wrap mt-10">
                 <div tabindex="0" class="collapse bg-violet-400 text-white rounded-box hover:cursor-pointer hover:bg-violet-600 focus:bg-violet-600 shadow-lg transition-all h-max mx-2 my-3">
-                    <div class="collapse-title text-center text-xl font-medium p-3">
-                        Нет отчётов и деклараций
-                    </div>
-                    <div class="collapse-content">
-                        <p class="p-5 text-center">Декларацию представлять не нужно. <br> Учет доходов ведется автоматически в мобильном приложении.</p>
-                    </div>
-                </div>
-                <div tabindex="0" class="collapse bg-violet-400 text-white rounded-box hover:cursor-pointer hover:bg-violet-600 focus:bg-violet-600 shadow-lg transition-all h-max mx-2 my-3">
                     <div class="collapse-title text-xl text-center font-medium p-3">
                         Можно не платить страховые взносы
                     </div>
@@ -44,34 +36,10 @@
                 </div>
                 <div tabindex="0" class="collapse bg-violet-400 text-white rounded-box hover:cursor-pointer hover:bg-violet-600 focus:bg-violet-600 shadow-lg transition-all h-max mx-2 my-3">
                     <div class="collapse-title text-xl text-center font-medium p-3">
-                        Легальная работа без статуса ИП
-                    </div>
-                    <div class="collapse-content">
-                        <p class="p-5 text-center">Можно работать без регистрации в качестве ИП. <br> Доход подтверждается справкой из приложения.</p>
-                    </div>
-                </div>
-                <div tabindex="0" class="collapse bg-violet-400 text-white rounded-box hover:cursor-pointer hover:bg-violet-600 focus:bg-violet-600 shadow-lg transition-all h-max mx-2 my-3">
-                    <div class="collapse-title text-xl text-center font-medium p-3">
                         Предоставляется налоговый вычет
                     </div>
                     <div class="collapse-content">
-                        <p class="p-5 text-center">Сумма вычета — 10 000 рублей. <br> Ставка 4% уменьшается до 3%, ставка 6% уменьшается до 4%. <br> Расчет автоматический.</p>
-                    </div>
-                </div>
-                <div tabindex="0" class="collapse bg-violet-400 text-white rounded-box hover:cursor-pointer hover:bg-violet-600 focus:bg-violet-600 shadow-lg transition-all h-max mx-2 my-3">
-                    <div class="collapse-title text-xl text-center font-medium p-3">
-                        Не нужно считать налог к уплате
-                    </div>
-                    <div class="collapse-content">
-                        <p class="p-5 text-center">Налог начисляется автоматически в приложении. <br> Уплата — не позднее 28 числа следующего месяца.</p>
-                    </div>
-                </div>
-                <div tabindex="0" class="collapse bg-violet-400 text-white rounded-box hover:cursor-pointer hover:bg-violet-600 focus:bg-violet-600 shadow-lg transition-all h-max mx-2 my-3">
-                    <div class="collapse-title text-xl text-center font-medium p-3">
-                        Выгодные налоговые ставки
-                    </div>
-                    <div class="collapse-content">
-                        <p class="p-5 text-center">4% — с доходов от физических лиц. <br> 6% — с доходов от юридических лиц и ИП. <br> Других обязательных платежей нет.</p>
+                        <p class="p-5 text-center">Сумма вычета — 10 000 рублей. <br> Ставка 4% уменьшается до 3%, ставка 6% уменьшается до 4%.</p>
                     </div>
                 </div>
                 <div tabindex="0" class="collapse bg-violet-400 text-white rounded-box hover:cursor-pointer hover:bg-violet-600 focus:bg-violet-600 shadow-lg transition-all h-max mx-2 my-3">
@@ -80,6 +48,14 @@
                     </div>
                     <div class="collapse-content">
                         <p class="p-5 text-center">Зарплата не учитывается при расчете налога. <br> Трудовой стаж по месту работы не прерывается.</p>
+                    </div>
+                </div>
+                <div tabindex="0" class="collapse bg-violet-400 text-white rounded-box hover:cursor-pointer hover:bg-violet-600 focus:bg-violet-600 shadow-lg transition-all h-max mx-2 my-3">
+                    <div class="collapse-title text-xl text-center font-medium p-3">
+                        Выгодные налоговые ставки
+                    </div>
+                    <div class="collapse-content">
+                        <p class="p-5 text-center">4% — с доходов от физических лиц. <br> 6% — с доходов от юридических лиц и ИП. <br> Других обязательных платежей нет.</p>
                     </div>
                 </div>
             </div>
@@ -112,7 +88,7 @@
                         <div class="collapse-title text-xl text-center font-medium p-3">
                             <p class="text-white"><span class="text-4xl">4%</span><br>при расчётах с физическими лицами</p>
                         </div>
-                        <div class="collapse-content bg-white bg-base-200 dark:bg-slate-700">
+                        <div class="collapse-content text-violet-600 bg-base-200 dark:bg-slate-700 dark:text-white">
                             <p class="p-5 text-center font-medium">Зарплата не учитывается при расчете налога. <br> Трудовой стаж по месту работы не прерывается.</p>
                         </div>
                     </div>
@@ -120,7 +96,7 @@
                         <div class="collapse-title text-xl text-center font-medium p-3">
                             <p class="text-white"><span class="text-4xl">6%</span><br>при расчётах с ИП организациями</p>
                         </div>
-                        <div class="collapse-content bg-white bg-base-200 dark:bg-slate-700">
+                        <div class="collapse-content text-violet-600 bg-base-200 dark:bg-slate-700 dark:text-white">
                             <p class="p-5 text-center font-medium">Ставка 6% используется, если поступление от <br> юридического лица или индивидуального <br> предпринимателя</p>
                         </div>
                     </div>
