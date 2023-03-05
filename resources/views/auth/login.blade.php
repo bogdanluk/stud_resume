@@ -1,6 +1,7 @@
 @extends('layouts.head')
 
-@section('title')Вход @endsection
+@section('title')Вход
+@endsection
 
 @section('content')
     @include('layouts.navbar')

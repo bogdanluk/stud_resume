@@ -1,6 +1,7 @@
 @extends('layouts.head')
 
-@section('title')Подтвердите email @endsection
+@section('title')Подтвердите email
+@endsection
 
 @section('content')
     @include('layouts.navbar')

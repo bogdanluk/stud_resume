@@ -1,6 +1,7 @@
 @extends('layouts.head')
 
-@section('title')Список ваших вакансий @endsection
+@section('title')Список ваших вакансий
+@endsection
 
 @section('content')
     @include('cabinet.cab-navbar')

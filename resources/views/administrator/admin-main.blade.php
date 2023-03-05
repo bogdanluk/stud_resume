@@ -1,6 +1,7 @@
 @extends('layouts.head')
 
-@section('title')Кабинет администратора @endsection
+@section('title')Кабинет администратора
+@endsection
 
 @section('content')
     @include('administrator.admin-navbar')

@@ -1,13 +1,12 @@
 @extends('layouts.head')
 
-@section('title')
-    Вакансии
+@section('title')Вакансии
 @endsection
 
 @section('content')
     @include('layouts.navbar')
     <div class="grid grid-cols-3 gap-5 m-5 min-h-screen">
-        <div class="col-span-full lg:col-span-1 w-full h-min border-t-8 bg-base-200 dark:bg-slate-700 border-t-violet-400 rounded-lg shadow-lg p-3">
+        <div class="col-span-full lg:col-span-1 w-full h-min border-t-8 bg-base-200 dark:bg-slate-700 border-t-violet-400 rounded-lg shadow-lg p-3 wow animate__fadeInUp">
             <h2 class="font-semibold text-center text-xl">Фильтры</h2>
             <form method="get" action="{{route('jobs')}}">
                 <div class="flex flex-row m-3">
@@ -43,7 +42,7 @@
 
         <div class="col-span-full lg:col-span-2 w-full items-center">
             @foreach($jobs as $job)
-                <div class="card mb-5 w-full card-side bg-base-200 shadow-xl rounded-lg border-l-8 border-l-violet-400 dark:bg-slate-700">
+                <div class="card mb-5 w-full card-side bg-base-200 shadow-xl rounded-lg border-l-8 border-l-violet-400 dark:bg-slate-700 wow animate__fadeInUp">
                     <div class="card-body">
                         <h2 class="card-title text-xl ml-5 mt-5 mr-5 font-medium">{{ $job->name }}</h2>
                         <div class="flex flex-row items-center mb-2 mt-5 mx-5">

@@ -32,6 +32,7 @@ btntheme.onclick = function (){
     }
 }
 
+//включение wow.js
 var wow = new WOW({
     animateClass: 'animate__animated',
     offset: 100,

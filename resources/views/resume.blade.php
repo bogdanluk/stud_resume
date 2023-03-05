@@ -1,6 +1,7 @@
 @extends('layouts.head')
 
-@section('title') {{$resume->name}} @endsection
+@section('title'){{$resume->name}}
+@endsection
 
 @section('content')
     @include('layouts.navbar')

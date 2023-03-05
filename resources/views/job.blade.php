@@ -1,6 +1,7 @@
 @extends('layouts.head')
 
-@section('title') {{$job->name}} @endsection
+@section('title'){{$job->name}}
+@endsection
 
 @section('content')
     @include('layouts.navbar')
