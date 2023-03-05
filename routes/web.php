@@ -241,7 +241,7 @@ Route::middleware(['auth', 'admin.check'])->prefix('administrator')->group(funct
 
 
 #страничка 404
-Route::view('/404', 'errors.404')->name('404');
+Route::view('/404', 'not-found')->name('404');
 
 #редирект всех запросов не попавших в роуты выше на страничку 404
 Route::fallback(function () {

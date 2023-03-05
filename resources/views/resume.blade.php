@@ -9,7 +9,7 @@
     </div>
     <div class="flex flex-col items-center w-full min-h-screen">
         <div class="flex flex-col items-center w-full">
-            <h1 class="text-2xl text-center p-5 m-10">{{$resume->name}}</h1>
+            <h1 class="text-2xl text-center p-5 m-10 border-2 text-violet-400 border-violet-400 rounded-lg">{{$resume->name}}</h1>
         </div>
         <div class="flex flex-col justify-between w-11/12 mb-5">
             <span class="badge font-medium bg-yellow-400 text-black rounded-full p-5 border-0">{{$resume->category->name}}</span>

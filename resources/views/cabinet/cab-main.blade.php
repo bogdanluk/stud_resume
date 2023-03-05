@@ -8,7 +8,7 @@
     @include('cabinet.cab-navbar')
 
     <main class="flex flex-col items-center w-full px-5 min-h-screen">
-        <h1 class="border-2 border-violet-400 rounded-lg font-medium text-xl my-10 p-5">Личные данные</h1>
+        <h1 class="border-2 border-violet-400 text-violet-400 rounded-lg font-medium text-xl my-10 p-5">Личные данные</h1>
         <div class="flex flex-col items-center flex-wrap mx-10 bg-base-200 border-t-8 border-t-violet-400 rounded-lg shadow-lg mb-10 dark:bg-slate-700">
             <div class="flex flex-row justify-center flex-wrap mx-10">
                 <div class="flex flex-col items-center text-center my-5 mx-5">
@@ -46,45 +46,45 @@
                 </ul>
             </div>
         @endif
-        <div class="flex w-full flex-col mx-10 bg-base-200 border-t-8 border-t-violet-400 rounded-lg shadow-lg mb-10 dark:bg-slate-700">
-            <form action="{{ route('cabinet.change-pass') }}" method="post" class="p-5">
+        <div class="flex flex-col w-full items-center md:w-3/5 mx-10 bg-base-200 border-t-8 border-t-violet-400 rounded-lg shadow-lg mb-10 dark:bg-slate-700">
+            <form class="block text-center m-5 px-5 w-full md:w-4/5" action="{{ route('cabinet.change-pass') }}" method="post" class="p-5">
                 @csrf
-                <h1 class="text-2xl font-semibold text-center">Смена пароля</h1>
-                <label class="block font-semibold" for="input1">Новый пароль</label>
+                <h1 class="text-2xl  mb-5 font-semibold text-center">Смена пароля</h1>
+                <label class="block font-semibold text-start" for="input1">Новый пароль</label>
                 <input type="password" id="input1" name="password" placeholder="Новый пароль"
-                       class="w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
-                <label class="block font-semibold" for="input2">Повторите пароль</label>
+                       class="w-full h-5 px-3 py-5 mb-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
+                <label class="block font-semibold text-start" for="input2">Повторите пароль</label>
                 <input type="password" id="input2" name="password_confirmation" placeholder="Повторите пароль"
                        class="w-full h-5 px-3 py-5 border-2 dark:border-slate-400 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:focus:border-violet-400">
                 <button type="submit"
-                        class="btn btn-primary mt-4 border-0">Отправить</button>
+                        class="btn btn-primary mt-5 border-0">Отправить</button>
             </form>
         </div>
-        <div class="flex w-full flex-col mx-10 bg-base-200 border-t-8 border-t-violet-400 rounded-lg shadow-lg mb-10 dark:bg-slate-700">
-            <form action="{{ route('cabinet.change-avatar') }}" method="post" enctype="multipart/form-data" class="p-5">
+        <div class="flex flex-col items-center w-full md:w-3/5 mx-10 bg-base-200 border-t-8 border-t-violet-400 rounded-lg shadow-lg mb-10 dark:bg-slate-700">
+            <form class="block text-center m-5 px-5 w-full md:w-4/5" action="{{ route('cabinet.change-avatar') }}" method="post" enctype="multipart/form-data" class="p-5">
                 @csrf
-                <h1 class="text-2xl font-semibold text-center">Смена аватарки</h1>
-                <label class="block font-semibold mt-2" for="input3">Загрузите фото</label>
+                <h1 class="text-2xl mb-5 font-semibold text-center">Смена аватарки</h1>
+                <label class="block font-semibold mt-2 text-start" for="input3">Загрузите фото</label>
                 <input type="file" id="input3" name="avatar"
-                       class="mt-2 file-input file-input-bordered file-input-primary focus:outline-violet-400 w-full">
+                       class="mt-2 file-input file-input-bordered file-input-primary text-xs dark:bg-slate-800 md:text-base focus:outline-violet-400 w-full">
                 <button type="submit"
-                        class="btn btn-primary mt-4 border-0">Отправить</button>
+                        class="btn btn-primary mt-5 border-0">Отправить</button>
             </form>
         </div>
-        <div class="flex w-full flex-col mx-10 bg-base-200 border-t-8 border-t-violet-400 rounded-lg shadow-lg mb-10 dark:bg-slate-700">
-            <form action="{{ route('cabinet.change-role') }}" method="post" class="p-5">
+        <div class="flex flex-col w-full items-center md:w-3/5 mx-10 bg-base-200 border-t-8 border-t-violet-400 rounded-lg shadow-lg mb-10 dark:bg-slate-700">
+            <form class="block text-center m-5 px-5 w-full md:w-4/5" action="{{ route('cabinet.change-role') }}" method="post" class="p-5">
                 @csrf
-                <h1 class="text-2xl font-semibold text-center">Смена роли</h1>
-                <label class="block mt-3 font-semibold" for="input4">Выберите роль</label>
+                <h1 class="text-2xl mb-5 font-semibold text-center">Смена роли</h1>
+                <label class="block mt-3 font-semibold text-start" for="input4">Выберите роль</label>
                 <select name="role_id" id="input4"
-                        class="select w-full text-slate-400 w-full border-2 border-base-300 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:border-slate-400 dark:focus:border-violet-400">
+                        class="select text-slate-400 w-full border-2 border-base-300 mt-2 outline-none focus:border-violet-400 rounded-md dark:bg-slate-800 dark:border-slate-400 dark:focus:border-violet-400">
                     <option disabled selected>Ваша роль</option>
                     @foreach($roles as $role)
                         <option value="{{ $role->id }}">{{ $role->name }}</option>
                     @endforeach
                 </select>
                 <button type="submit"
-                        class="btn btn-primary mt-4 border-0">Отправить</button>
+                        class="btn btn-primary mt-5 border-0">Отправить</button>
             </form>
         </div>
 

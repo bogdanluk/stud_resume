@@ -7,10 +7,9 @@
     <div class="relative flex min-h-screen antialiased flex-col justify-center">
         <div class="relative py-3 sm:w-96 mx-auto text-center">
             <span class="text-2xl font-light">Подтвердите email</span>
-            <div class="mt-4 shadow-lg rounded-lg text-left">
-                <div class="mt-4 shadow-lg rounded-lg text-left">
-                    <div class="h-2 bg-violet-400 rounded-t-md"></div>
-                    <div class="px-8 py-6 bg-base-200 dark:bg-slate-700">
+            <div class="mt-4 shadow-lg text-left">
+                <div class="mt-4 shadow-lg text-left">
+                    <div class="px-8 py-6 bg-base-200 dark:bg-slate-700 border-t-8 border-t-violet-400 rounded-lg">
                         <p class="block mb-2 text-xl font-semibold">Ссылка для подтверждения была отправлена на ваш email.</p>
                         <p class="block mb-2">Письмо может находиться в папке "спам".</p>
                         @if(session('message'))

@@ -29,19 +29,19 @@
     </div>
     <div class="navbar-center hidden lg:flex dark:bg-slate-700">
         <ul class="menu-horizontal px-1 tabs tabs-boxed bg-inherit">
-            <li class="tab text-xl"><a href="{{ route('home') }}">Главная</a></li>
+            <li class="tab text-xl"><a class="dark:text-gray-300 dark:hover:text-white" href="{{ route('home') }}">Главная</a></li>
             @if(auth()->user()->role_id == 2 || auth()->user()->role_id == 1)
                 @if(request()->route()->getName() == 'cabinet.resume-list')
                     <li class="tab tab-active text-xl"><a href="{{ route('cabinet.resume-list') }}">Резюме</a></li>
                 @else
-                    <li class="tab text-xl"><a href="{{ route('cabinet.resume-list') }}">Резюме</a></li>
+                    <li class="tab text-xl"><a class="dark:text-gray-300 dark:hover:text-white" href="{{ route('cabinet.resume-list') }}">Резюме</a></li>
                 @endif
             @endif
             @if(auth()->user()->role_id == 3 || auth()->user()->role_id == 1)
                 @if(request()->route()->getName() == 'cabinet.job-list')
                     <li class="tab tab-active text-xl"><a href="{{ route('cabinet.job-list') }}">Вакансии</a></li>
                 @else
-                    <li class="tab text-xl"><a href="{{ route('cabinet.job-list') }}">Вакансии</a></li>
+                    <li class="tab text-xl"><a class="dark:text-gray-300 dark:hover:text-white" href="{{ route('cabinet.job-list') }}">Вакансии</a></li>
                 @endif
             @endif
         </ul>
