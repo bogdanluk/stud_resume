@@ -247,3 +247,6 @@ Route::view('/404', 'errors.404')->name('404');
 Route::fallback(function () {
     return redirect()->route('404');
 });
+
+// #страница со списком вакансий
+// Route::get('/jobs', [JobsController::class, 'index'])->name('jobs');

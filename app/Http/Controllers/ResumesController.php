@@ -30,7 +30,7 @@ class ResumesController extends Controller
         }
         $query->orderBy('created_at', 'desc');
         $result = $query->with(['city','category'])->paginate(10);
-        return view('resumespage', ["resumes"=>$result, "categories"=>$categories, "cities"=>$cities, "educations"=>$educations]);
+        return view('resumespage', ["resumes"=>$result, "categories"=>$categories, "cities"=>$cities, "educations"=>$educations, "request"=>$request]);
     }
 
     public function open_post($id)

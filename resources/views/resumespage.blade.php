@@ -12,33 +12,33 @@
             <form method="get" action="{{route('resumes')}}">
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <input type="text" name="name" placeholder="Название"
-                           class="py-2 w-full text-slate-400 px-5 dark:bg-slate-800 border-2 dark:border-slate-400 outline-none focus:border-violet-400 rounded-full dark:focus:border-violet-400">
+                    <input type="text" name="name" placeholder="Название" value="{{$request->name}}"
+                           class="py-2 w-full text-slate-400 px-5 dark:bg-slate-800 border-2 dark:border-slate-400 placeholder-shown:border-slate-200 placeholder:text-slate-400 outline-none focus:text-violet-400 focus:border-violet-400 rounded-full dark:focus:border-violet-400 transition-all duration-200">
                 </div>
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <select name="category_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400">
-                        <option disabled selected>Категория</option>
+                    <select name="category_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:text-violet-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400 transition-all duration-200">
+                        <option disabled selected class="text-gray-300">Категория</option>
                         @foreach ($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            <option class="text-black dark:text-white" value="{{$category->id}}" @selected($category->id == $request->category_id)>{{$category->name}}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <select name="city_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400">
-                        <option disabled selected>Город</option>
+                    <select name="city_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:text-violet-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400 transition-all duration-200">
+                        <option disabled selected class="text-gray-300">Город</option>
                         @foreach ($cities as $city)
-                            <option value="{{$city->id}}">{{$city->name}}</option>
+                            <option class="text-black dark:text-white" value="{{$city->id}}" @selected($city->id == $request->city_id)>{{$city->name}}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <select name="education_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400">
-                        <option disabled selected>Уровень образования</option>
+                    <select name="education_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:text-violet-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400 transition-all duration-200">
+                        <option disabled selected class="text-gray-300">Уровень образования</option>
                         @foreach ($educations as $education)
-                            <option value="{{$education->id}}">{{$education->name}}</option>
+                            <option class="text-black dark:text-white" value="{{$education->id}}" @selected($education->id == $request->education_id)>{{$education->name}}</option>
                         @endforeach
                     </select>
                 </div>

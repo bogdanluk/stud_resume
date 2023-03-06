@@ -4,6 +4,7 @@
             <label tabindex="0" class="btn btn-ghost lg:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </label>
+            
             <ul tabindex="0" class="menu menu-compact dropdown-content tabs tabs-boxed shadow-lg p-2">
                 <li class="tab text-xl w-full mb-2"><a class="w-full" href="{{ route('home') }}">Главная</a></li>
                 @if(request()->route()->getName() == 'admin.news-list')
