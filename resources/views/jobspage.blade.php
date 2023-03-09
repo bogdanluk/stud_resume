@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+@vite(['resources/js/query_jobs_fill.js'])
     @include('layouts.navbar')
     <div class="grid grid-cols-3 gap-5 m-5 min-h-screen">
         <div class="col-span-full lg:col-span-1 w-full h-min border-t-8 bg-base-200 dark:bg-slate-700 border-t-violet-400 rounded-lg shadow-lg p-3">
@@ -12,12 +13,12 @@
             <form method="get" action="{{route('jobs')}}">
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <input type="text" name="name" placeholder="Название"
+                    <input type="text" id="inp_j_1" name="name" placeholder="Название"
                            class="py-2 w-full px-5 dark:bg-slate-800 border-2 text-slate-400 focus:text-violet-400 dark:border-slate-400 outline-none focus:border-violet-400 rounded-full dark:focus:border-violet-400 transition-all duration-200" value = "{{$request->name}}"/>
                 </div>
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <select name="category_id" class="py-2 w-full px-5 border-2 outline-none dark:border-slate-400 text-slate-400 focus:text-violet-400 dark:bg-slate-800  focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400 transition-all duration-200">
+                    <select name="category_id" id="sel_j_1" class="py-2 w-full px-5 border-2 outline-none dark:border-slate-400 text-slate-400 focus:text-violet-400 dark:bg-slate-800  focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400 transition-all duration-200">
                         <option disabled selected class="text-gray-300">Категория</option>
                         @foreach ($categories as $category)
                             <option class="text-black dark:text-white" value="{{$category->id}}" @selected($category->id == $request->category_id)>{{$category->name}}
@@ -27,7 +28,7 @@
                 </div>
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <select name="city_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:text-violet-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400 transition-all duration-200">
+                    <select name="city_id" id="sel_j_2" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:text-violet-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400 transition-all duration-200">
                         <option disabled selected class="text-gray-300">Город</option>
                         @foreach ($cities as $city)
                             <option class="text-black dark:text-white" value="{{$city->id}}" @selected($city->id == $request->city_id)>{{$city->name}}</option>
@@ -36,7 +37,7 @@
                 </div>
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <select name="pay_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:text-violet-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400 transition-all duration-200">
+                    <select name="pay_id" id="sel_j_3" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:text-violet-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400 transition-all duration-200">
                         <option disabled selected class="text-gray-300">Зарплата</option>
                         <option value="1" class=" text-black dark:text-white text-start" @selected($request->pay_id==1)>По возрастанию</option>
                         <option value="2" class=" text-black dark:text-white text-start" @selected($request->pay_id==2)>По убыванию</option>
