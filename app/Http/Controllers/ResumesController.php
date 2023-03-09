@@ -7,6 +7,7 @@ use App\Models\City;
 use App\Models\Education;
 use App\Models\Resume;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ResumesController extends Controller
 {
@@ -84,7 +85,12 @@ class ResumesController extends Controller
             'about' => 'required|min:3',
             'experience' => 'required|min:3',
             'category_id' => 'required|numeric',
+            'avatar' => 'file|max:5120'
         ]);
+
+        if(isset($data['avatar'])){
+            $data['avatar'] = Storage::disk('public')->putFile('/resumes_img', $data['avatar']);
+        }
 
         $data['user_id'] = $request->user()->id;
 
@@ -117,7 +123,12 @@ class ResumesController extends Controller
             'about' => 'required|min:3',
             'experience' => 'required|min:3',
             'category_id' => 'required|numeric',
+            'avatar' => 'file|max:5120'
         ]);
+
+        if(isset($data['avatar'])){
+            $data['avatar'] = Storage::disk('public')->putFile('/resumes_img', $data['avatar']);
+        }
 
         $data['user_id'] = $request->user()->id;
 

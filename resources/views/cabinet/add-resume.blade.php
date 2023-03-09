@@ -57,6 +57,9 @@
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>
+            <label class="block font-semibold mt-2 text-start" for="input8">Загрузите фото</label>
+            <input type="file" id="input8" name="avatar"
+                   class="mt-2 file-input file-input-bordered file-input-primary text-xs dark:bg-slate-800 md:text-base focus:outline-violet-400 w-full">
             <button type="submit"
                     class="mt-4 bg-violet-400 text-white py-2 px-6 rounded-md hover:bg-violet-600 transition-all duration-200">Отправить</button>
         </form>
