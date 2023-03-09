@@ -4,10 +4,12 @@ import WOW from 'wow.js'
 //проверка какая тема установлена у пользователя
 if(localStorage.theme === "dark"){
     var tag = document.getElementById("themeitem");
+    document.getElementById("themebtn").checked = true;
     tag.classList.add("dark");
     tag.setAttribute("data-theme", "dark");
 } else if(localStorage.theme === "light"){
     var tag1 = document.getElementById("themeitem");
+    document.getElementById("themebtn").checked = false;
     tag1.classList.remove("dark");
     tag1.setAttribute("data-theme", "light");
 }
@@ -15,7 +17,7 @@ if(localStorage.theme === "dark"){
 //переключение темы и смена иконки на кнопке
 btntheme.onclick = function (){
     var tag = document.getElementById("themeitem");
-    console.log(themebtn.checked);
+    var themebtn = document.getElementById("themebtn");
     if (themebtn.checked){
         tag.setAttribute("data-theme", "dark");
         tag.classList.remove("light");

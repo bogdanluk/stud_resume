@@ -78,16 +78,6 @@ html{
     border-radius: 6px;
 }
 
-select[data-chosen] {
-    color:#a78bfa;
-    border-color: #a78bfa;
-}
-
-input[data-chosen]{
-    color:#a78bfa;
-    border-color: #a78bfa;
-}
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
