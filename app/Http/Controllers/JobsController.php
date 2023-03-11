@@ -15,6 +15,7 @@ class JobsController extends Controller
         $categories = Category::all();
         $cities = City::all();
         $query = Job::query();
+
         if($request->filled('name')){
             $query->where('name', 'like', "%{$request->query('name')}%");
         }
@@ -24,9 +25,21 @@ class JobsController extends Controller
         if($request->filled('city_id')){
             $query->where('city_id', '=', $request->query('city_id'));
         }
-        $query->orderBy('created_at', 'desc');
+        if($request->filled('pay_id'))
+        {
+            if($request->pay_id==1)
+            {
+                $query->orderBy('salary', 'asc');
+            }
+            else
+            {
+                $query->orderBy('salary', 'desc');
+            }
+        }else {
+            $query->orderBy('created_at', 'desc');
+        }
         $result = $query->with(['city','category'])->paginate(10);
-        return view('jobspage', ["jobs"=>$result, "categories"=>$categories, "cities"=>$cities]);
+        return view('jobspage', ["jobs"=>$result, "categories"=>$categories, "cities"=>$cities, "request"=>$request]);
     }
 
     public function open_post($id)

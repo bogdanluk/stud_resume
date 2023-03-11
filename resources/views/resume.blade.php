@@ -6,7 +6,7 @@
 @section('content')
     @include('layouts.navbar')
     <div class="flex flex-col items-center w-full">
-        <img class="flex max-h-96 mx-auto mt-10 rounded-lg" src="/storage/{{ $resume->user->avatar }}" alt="user avatar"/>
+        <img class="flex max-h-96 mx-auto mt-10 rounded-lg" src="/storage/{{ $resume->avatar }}" alt="user avatar"/>
     </div>
     <div class="flex flex-col items-center w-full min-h-screen">
         <div class="flex flex-col items-center w-full">

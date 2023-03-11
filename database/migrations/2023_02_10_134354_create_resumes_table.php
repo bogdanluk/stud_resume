@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('about'); //О себе
             $table->text('experience'); //опыт работы
             $table->unsignedBigInteger('category_id'); //категория
+            $table->string('avatar')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');

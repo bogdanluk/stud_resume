@@ -7,6 +7,7 @@ use App\Models\City;
 use App\Models\Education;
 use App\Models\Resume;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ResumesController extends Controller
 {
@@ -30,7 +31,7 @@ class ResumesController extends Controller
         }
         $query->orderBy('created_at', 'desc');
         $result = $query->with(['city','category'])->paginate(10);
-        return view('resumespage', ["resumes"=>$result, "categories"=>$categories, "cities"=>$cities, "educations"=>$educations]);
+        return view('resumespage', ["resumes"=>$result, "categories"=>$categories, "cities"=>$cities, "educations"=>$educations, "request"=>$request]);
     }
 
     public function open_post($id)
@@ -84,8 +85,10 @@ class ResumesController extends Controller
             'about' => 'required|min:3',
             'experience' => 'required|min:3',
             'category_id' => 'required|numeric',
+            'avatar' => 'required|file|max:5120'
         ]);
 
+        $data['avatar'] = Storage::disk('public')->putFile('/resumes_img', $data['avatar']);
         $data['user_id'] = $request->user()->id;
 
         #добавление резюме в базу
@@ -117,11 +120,16 @@ class ResumesController extends Controller
             'about' => 'required|min:3',
             'experience' => 'required|min:3',
             'category_id' => 'required|numeric',
+            'avatar' => 'file|max:5120'
         ]);
 
-        $data['user_id'] = $request->user()->id;
-
         $resume = Resume::find($id);
+        if(isset($data['avatar'])){
+            Storage::disk('public')->delete($resume->avatar);
+            $data['avatar'] = Storage::disk('public')->putFile('/resumes_img', $data['avatar']);
+        }
+
+        $data['user_id'] = $request->user()->id;
         $resume->update($data);
 
         return redirect()->route('cabinet.resume-list')->with(['message' => __('messages.resume_updated')]);
@@ -129,6 +137,7 @@ class ResumesController extends Controller
 
     public function deleteResume($id){
         $resume = Resume::find($id);
+        Storage::disk('public')->delete($resume->avatar);
         $resume->delete();
 
         return back()->with(['message' => __('messages.resume_deleted')]);
