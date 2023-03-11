@@ -15,12 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->group( function () {
-    Route::post('/user', function (){
-        return "aboba";
-    });
-});
-
 Route::middleware('guest')->prefix('auth')->group(function (){
     Route::post('/login', [AuthController::class, 'login']);
 });

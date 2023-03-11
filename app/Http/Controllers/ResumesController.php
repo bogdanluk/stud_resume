@@ -90,6 +90,8 @@ class ResumesController extends Controller
 
         if(isset($data['avatar'])){
             $data['avatar'] = Storage::disk('public')->putFile('/resumes_img', $data['avatar']);
+        }else{
+            $data['avatar'] = "resumes_img/default-avatar.png";
         }
 
         $data['user_id'] = $request->user()->id;
@@ -126,13 +128,13 @@ class ResumesController extends Controller
             'avatar' => 'file|max:5120'
         ]);
 
+        $resume = Resume::find($id);
         if(isset($data['avatar'])){
+            Storage::disk('public')->delete($resume->avatar);
             $data['avatar'] = Storage::disk('public')->putFile('/resumes_img', $data['avatar']);
         }
 
         $data['user_id'] = $request->user()->id;
-
-        $resume = Resume::find($id);
         $resume->update($data);
 
         return redirect()->route('cabinet.resume-list')->with(['message' => __('messages.resume_updated')]);
@@ -140,6 +142,7 @@ class ResumesController extends Controller
 
     public function deleteResume($id){
         $resume = Resume::find($id);
+        Storage::disk('public')->delete($resume->avatar);
         $resume->delete();
 
         return back()->with(['message' => __('messages.resume_deleted')]);

@@ -72,12 +72,12 @@ class PostsController extends Controller
             'image' => 'file|max:5120'
         ]);
 
-
+        $news = NewsPosts::find($id);
         if(isset($data['image'])){
+            Storage::disk('public')->delete($news->image);
             $data['image'] = Storage::disk('public')->putFile('/news_img', $data['image']);
         }
 
-        $news = NewsPosts::find($id);
         $news->update($data);
 
         return redirect()->route('admin.news-list')->with(['message' => __('messages.news_edited')]);

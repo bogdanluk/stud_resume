@@ -12,12 +12,13 @@
             <form method="get" action="{{route('resumes')}}">
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <input type="text" name="name" placeholder="Название" value="{{$request->name}}"
+                    <input type="text" name="name" placeholder="Название" value="{{$request->name}}" id="resumi_1" onchange="changeStyle('resumi_1');"
                            class="py-2 w-full text-slate-400 px-5 dark:bg-slate-800 border-2 dark:border-slate-400 placeholder-shown:border-slate-200 placeholder:text-slate-400 outline-none focus:text-violet-400 focus:border-violet-400 rounded-full dark:focus:border-violet-400 transition-all duration-200">
                 </div>
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <select name="category_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:text-violet-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400 transition-all duration-200">
+                    <select name="category_id" id="resumi_2" onchange="changeStyle('resumi_2');"
+                            class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:text-violet-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400 transition-all duration-200">
                         <option disabled selected class="text-gray-300">Категория</option>
                         @foreach ($categories as $category)
                             <option class="text-black dark:text-white" value="{{$category->id}}" @selected($category->id == $request->category_id)>{{$category->name}}</option>
@@ -26,7 +27,8 @@
                 </div>
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <select name="city_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:text-violet-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400 transition-all duration-200">
+                    <select name="city_id" id="resumi_3" onchange="changeStyle('resumi_3');"
+                            class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:text-violet-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400 transition-all duration-200">
                         <option disabled selected class="text-gray-300">Город</option>
                         @foreach ($cities as $city)
                             <option class="text-black dark:text-white" value="{{$city->id}}" @selected($city->id == $request->city_id)>{{$city->name}}</option>
@@ -35,7 +37,8 @@
                 </div>
                 <div class="flex flex-row m-3">
                     <i class="fa-solid fa-circle-dot mt-3 text-violet-400 mr-3"></i>
-                    <select name="education_id" class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:text-violet-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400 transition-all duration-200">
+                    <select name="education_id" id="resumi_4" onchange="changeStyle('resumi_4');"
+                            class="py-2 w-full px-5 border-2 outline-none text-slate-400 dark:bg-slate-800 dark:border-slate-400 focus:text-violet-400 focus:border-violet-400 rounded-full appearance-none cursor-pointer dark:focus:border-violet-400 transition-all duration-200">
                         <option disabled selected class="text-gray-300">Уровень образования</option>
                         @foreach ($educations as $education)
                             <option class="text-black dark:text-white" value="{{$education->id}}" @selected($education->id == $request->education_id)>{{$education->name}}</option>
@@ -76,4 +79,27 @@
     </div>
 
     @include('layouts.footer')
+
+    <script>
+        function changeStyle(id){
+            var elem = document.getElementById(id);
+            elem.classList.add('text-violet-400', 'border-violet-400');
+        }
+        const url_name = new URL(location.href).searchParams.get('name');
+        const url_catId = new URL(location.href).searchParams.get('category_id');
+        const url_cityId = new URL(location.href).searchParams.get('city_id');
+        const url_educationId = new URL(location.href).searchParams.get('education_id');
+        if (url_name != null && url_name !== "") {
+            changeStyle("resumi_1");
+        }
+        if (url_catId != null  && url_catId !== "") {
+            changeStyle("resumi_2")
+        }
+        if (url_cityId != null  && url_cityId !== "") {
+            changeStyle("resumi_3")
+        }
+        if (url_educationId != null  && url_educationId !== "") {
+            changeStyle("resumi_4")
+        }
+    </script>
 @endsection

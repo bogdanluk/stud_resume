@@ -35,8 +35,9 @@ class JobsController extends Controller
             {
                 $query->orderBy('salary', 'desc');
             }
+        }else {
+            $query->orderBy('created_at', 'desc');
         }
-        $query->orderBy('created_at', 'desc');
         $result = $query->with(['city','category'])->paginate(10);
         return view('jobspage', ["jobs"=>$result, "categories"=>$categories, "cities"=>$cities, "request"=>$request]);
     }

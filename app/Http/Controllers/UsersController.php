@@ -25,6 +25,7 @@ class UsersController extends Controller
             'avatar' => 'required|file|max:5120',
         ]);
 
+        Storage::disk('public')->delete($request->user()->avatar);
         $avatar = Storage::disk('public')->putFile('/avatars', $data['avatar']);
         $request->user()->update([
             'avatar' => $avatar
