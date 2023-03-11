@@ -2,15 +2,15 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="flex flex-col items-center">
             <span class="footer-title">Навигация</span>
-            <a href="{{route('home')}}" class="link link-hover hover:text-violet-400 transition">Главная</a>
-            <a href="{{route('news')}}" class="link link-hover hover:text-violet-400 transition">Новости</a>
-            <a href="{{route('jobs')}}" class="link link-hover hover:text-violet-400 transition">Вакансии</a>
-            <a href="{{route('resumes')}}" class="link link-hover hover:text-violet-400 transition">Резюме</a>
+            <a href="{{route('home')}}" class="hover:text-violet-400 transition">Главная</a>
+            <a href="{{route('news')}}" class="hover:text-violet-400 transition">Новости</a>
+            <a href="{{route('jobs')}}" class="hover:text-violet-400 transition">Вакансии</a>
+            <a href="{{route('resumes')}}" class="hover:text-violet-400 transition">Резюме</a>
         </div>
 
         <div class="flex flex-col items-center">
             <span class="footer-title">Информация</span>
-            <a href="{{ route('nalog') }}" class="link link-hover hover:text-violet-400 transition">Налоги</a>
+            <a href="{{ route('nalog') }}" class="hover:text-violet-400 transition">Налоги</a>
         </div>
 
         <div class="flex flex-col items-center">

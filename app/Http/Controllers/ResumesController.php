@@ -85,15 +85,10 @@ class ResumesController extends Controller
             'about' => 'required|min:3',
             'experience' => 'required|min:3',
             'category_id' => 'required|numeric',
-            'avatar' => 'file|max:5120'
+            'avatar' => 'required|file|max:5120'
         ]);
 
-        if(isset($data['avatar'])){
-            $data['avatar'] = Storage::disk('public')->putFile('/resumes_img', $data['avatar']);
-        }else{
-            $data['avatar'] = "resumes_img/default-avatar.png";
-        }
-
+        $data['avatar'] = Storage::disk('public')->putFile('/resumes_img', $data['avatar']);
         $data['user_id'] = $request->user()->id;
 
         #добавление резюме в базу

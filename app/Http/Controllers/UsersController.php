@@ -24,8 +24,9 @@ class UsersController extends Controller
         $data = $request->validate([
             'avatar' => 'required|file|max:5120',
         ]);
-
-        Storage::disk('public')->delete($request->user()->avatar);
+        if($request->user()->avatar != "resumes_img/default-avatar.png") {
+            Storage::disk('public')->delete($request->user()->avatar);
+        }
         $avatar = Storage::disk('public')->putFile('/avatars', $data['avatar']);
         $request->user()->update([
             'avatar' => $avatar

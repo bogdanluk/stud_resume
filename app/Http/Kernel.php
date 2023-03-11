@@ -70,5 +70,6 @@ class Kernel extends HttpKernel
         'admin.check' => \App\Http\Middleware\AdminGuard::class,
         'sure.user.student' => \App\Http\Middleware\SureUserStudent::class,
         'sure.user.employer' => \App\Http\Middleware\SureUserEmployer::class,
+        'api.resume.check' => \App\Http\Middleware\Api\ResumeGuard::class,
     ];
 }
