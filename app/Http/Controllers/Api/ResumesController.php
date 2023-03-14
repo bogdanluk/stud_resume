@@ -37,11 +37,11 @@ class ResumesController extends Controller
         $data = $request->validate([
             'name' => 'required|string|min:3|max:255',
             'age' => 'required|numeric',
-            'education_id' => 'required|numeric',
-            'city_id' => 'required|numeric',
+            'education_id' => 'required|numeric|exists:education,id',
+            'city_id' => 'required|numeric|exists:cities,id',
             'about' => 'required|min:3',
             'experience' => 'required|min:3',
-            'category_id' => 'required|numeric',
+            'category_id' => 'required|numeric|exists:categories,id',
             'avatar' => 'required|file|max:5120'
         ]);
 

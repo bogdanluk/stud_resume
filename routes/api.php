@@ -39,12 +39,12 @@ Route::prefix('resume')->group(function (){
     #проверка авторизации
     Route::middleware('auth:sanctum')->group(function (){
         #создание резюме
-        Route::post('/', [ResumesController::class, 'createResume']);
+        Route::post('/create', [ResumesController::class, 'createResume']);
         Route::middleware('api.resume.check')->group(function (){
             #обновление резюме по id
-            Route::patch('/{id}', [ResumesController::class, 'updateResume']);
+            Route::post('/update/{id}', [ResumesController::class, 'updateResume']);
             #удаление резюме по id
-            Route::delete('/{id}', [ResumesController::class, 'deleteResume']);
+            Route::post('/delete/{id}', [ResumesController::class, 'deleteResume']);
         });
     });
 });
