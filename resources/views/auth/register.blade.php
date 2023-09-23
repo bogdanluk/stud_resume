@@ -32,6 +32,10 @@
                             <option value="{{ $role->id }}">{{ $role->name }}</option>
                         @endforeach
                     </select>
+                    <label class="label cursor-pointer">
+                        <span class="label-text font-semibold">Согласие на обработку персональных данных</span> 
+                        <input type="checkbox" class="checkbox checkbox-primary" required>
+                    </label>
                     @if($errors->any())
                         <div class="block mt-3 p-2 text-red-800 border-t-4 border-red-400 bg-red-50 dark:bg-slate-800 dark:text-red-400 rounded-md">
                             <span class="font-medium">Ошибка:</span>
