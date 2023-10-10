@@ -22,7 +22,8 @@ class ResumeGuard
             return $next($request);
         }
         else {
-            $id = substr($request->decodedPath(), -1);
+            $temppath = $request->decodedPath();
+            $id = substr($temppath, strrpos($temppath, '/') + 1);
             $resume = Resume::find($id);
             if ($resume) {
                 //проверка является ли пользователь создателем резюме

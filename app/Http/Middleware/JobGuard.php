@@ -22,7 +22,8 @@ class JobGuard
             return $next($request);
         }
         else {
-            $id = substr($request->decodedPath(), -1);
+            $temppath = $request->decodedPath();
+            $id = substr($temppath, strrpos($temppath, '/') + 1);
             $job = Job::find($id);
             if ($job) {
                 //проверка является ли пользователь создаталем вакансии
